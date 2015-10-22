@@ -44,6 +44,21 @@ Blockly.Blocks['factor'] = {
   }
 };
 
+Blockly.Blocks['var'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("var")
+        .appendField(new Blockly.FieldDropdown([["int", "integer"], ["fload", "float"], ["bool", "boolean"], ["string", "string"]]), "var_dic")
+        .appendField("")
+        .appendField(new Blockly.FieldTextInput(""), "value");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 Blockly.Blocks['wall_in_front'] = {
   init: function() {
     this.appendDummyInput()
