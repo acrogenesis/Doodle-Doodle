@@ -1,3 +1,47 @@
+function checkSemantic(index1, index2, op) {
+  switch (index1) {
+  	case 29:
+  		index1 = 0;
+  		break;
+  	case 30:
+  		index1 = 1;
+  		break;
+  	case 31:
+  		index1 = 2;
+  		break;
+  	case 32:
+  		index1 = 3;
+  		break;
+  	default:
+  		return -1;
+  }
+
+  switch (index2) {
+  	case 29:
+  		index2 = 0;
+  		break;
+  	case 30:
+  		index2 = 1;
+  		break;
+  	case 31:
+  		index2 = 2;
+  		break;
+  	case 32:
+  		index2 = 3;
+  		break;
+  	default:
+  		return -1;
+  }
+
+  if (index1 > index2) {
+  	var temp = index1;
+  	index1 = index2;
+  	index2 = temp;
+  }
+
+  return semantic_cube[index1][index2][op];
+}
+
 var semantic_cube = [];
 semantic_cube[0] = [];
 semantic_cube[1] = [];
