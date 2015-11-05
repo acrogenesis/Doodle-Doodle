@@ -83,10 +83,16 @@
     </category>
   </xml>
 
+  <xml id="startBlocks" style="display: none">
+    <block type="begin_end" inline="false" x="100" y="20"></block>
+  </xml>
+
   <script>
     var workspace = Blockly.inject('blocklyDiv',
         {media: '../../media/',
          toolbox: document.getElementById('toolbox')});
+    Blockly.Xml.domToWorkspace(workspace,
+        document.getElementById('startBlocks'));
   </script>
 
 </body>
