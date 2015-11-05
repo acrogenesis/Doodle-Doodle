@@ -16,7 +16,7 @@ Blockly.Blocks['def_function'] = {
     this.appendStatementInput("main")
         .setCheck(null);
     this.appendValueInput("return_type")
-        .setCheck(null)
+        .setCheck("return_value")
         .appendField("end")
         .appendField("                       ")
         .appendField("return:");
