@@ -50,10 +50,10 @@ Blockly.Blocks['return_function'] = {
         .appendField("return value from")
         .appendField(new Blockly.FieldTextInput("function_name"), "function_call_value");
     this.appendValueInput("params")
-        .setCheck(null)
+        .setCheck(["param", "no_params"])
         .appendField("params");
     this.setInputsInline(true);
-    this.setOutput(true);
+    this.setOutput(true, ["boolean", "int", "float", "string"]);
     this.setColour(315);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
