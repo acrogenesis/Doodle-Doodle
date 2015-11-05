@@ -6,19 +6,21 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks['def_function'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("function")
-        .appendField(new Blockly.FieldTextInput("name"), "func_name");
     this.appendValueInput("params")
         .setCheck(null)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("params");
-    this.appendDummyInput()
+        .appendField("function")
+        .appendField(new Blockly.FieldTextInput("name"), "func_name")
+        .appendField("params")
         .appendField("do");
     this.appendStatementInput("main")
         .setCheck(null);
-    this.appendDummyInput()
-        .appendField("end");
+    this.appendValueInput("return_type")
+        .setCheck(null)
+        .appendField("end")
+        .appendField("                       ")
+        .appendField("return:");
+    this.setInputsInline(false);
     this.setColour(315);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -62,6 +64,17 @@ Blockly.Blocks['no_params'] = {
         .appendField("no params");
     this.setOutput(true);
     this.setColour(290);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['return_value'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["int", "int"], ["float", "float"], ["string", "string"], ["boolean", "boolean"], ["no return", "no_return"]]), "return_type");
+    this.setOutput(true, null);
+    this.setColour(315);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
