@@ -44,6 +44,22 @@ Blockly.Blocks['call_function'] = {
   }
 };
 
+Blockly.Blocks['return_function'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("return value from")
+        .appendField(new Blockly.FieldTextInput("function_name"), "function_call_value");
+    this.appendValueInput("params")
+        .setCheck(null)
+        .appendField("params");
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setColour(315);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 Blockly.Blocks['param'] = {
   init: function() {
     this.appendValueInput("next_param")
