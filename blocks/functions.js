@@ -78,7 +78,7 @@ Blockly.Blocks['no_params'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("no params");
-    this.setOutput(true);
+    this.setOutput(true, "no_params");
     this.setColour(290);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');

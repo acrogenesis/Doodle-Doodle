@@ -7,11 +7,11 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['assignation'] = {
   init: function() {
     this.appendValueInput("left_assig")
-        .setCheck("Number");
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField("=");
     this.appendValueInput("right_assig")
-        .setCheck("Number");
+        .setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(65);
