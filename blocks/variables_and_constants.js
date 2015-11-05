@@ -8,7 +8,7 @@ Blockly.Blocks['factor'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldTextInput("0"), "input");
-    this.setOutput(true, null);
+    this.setOutput(true, "factor");
     this.setColour(180);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -20,7 +20,7 @@ Blockly.Blocks['var'] = {
     this.appendDummyInput()
         .appendField("var")
         .appendField(new Blockly.FieldDropdown([["int", "integer"], ["fload", "float"], ["bool", "boolean"], ["string", "string"]]), "var_dic")
-        .appendField("")
+        .appendField("name:")
         .appendField(new Blockly.FieldTextInput(""), "value");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

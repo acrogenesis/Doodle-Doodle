@@ -7,7 +7,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['if'] = {
   init: function() {
     this.appendValueInput("condition")
-        .setCheck("Boolean")
+        .setCheck(["boolean", "factor"])
         .appendField("if");
     this.appendDummyInput()
         .appendField("then");
@@ -27,7 +27,7 @@ Blockly.Blocks['if'] = {
 Blockly.Blocks['if_else'] = {
   init: function() {
     this.appendValueInput("condition")
-        .setCheck("Boolean")
+        .setCheck(["boolean", "factor"])
         .appendField("if");
     this.appendDummyInput()
         .appendField("then");
@@ -56,7 +56,7 @@ Blockly.Blocks['equal_to'] = {
         .appendField("==");
     this.appendValueInput("right_equal")
         .setCheck(null);
-    this.setOutput(true, "Boolean");
+    this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -66,12 +66,12 @@ Blockly.Blocks['equal_to'] = {
 Blockly.Blocks['less_than'] = {
   init: function() {
     this.appendValueInput("left_lt")
-        .setCheck("Number");
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField("<");
     this.appendValueInput("right_lt")
-        .setCheck("Number");
-    this.setOutput(true, "Boolean");
+        .setCheck("factor");
+    this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -81,12 +81,12 @@ Blockly.Blocks['less_than'] = {
 Blockly.Blocks['greater_than'] = {
   init: function() {
     this.appendValueInput("left_gt")
-        .setCheck("Number");
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField(">");
     this.appendValueInput("right_gt")
-        .setCheck("Number");
-    this.setOutput(true, "Boolean");
+        .setCheck("factor");
+    this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -96,12 +96,12 @@ Blockly.Blocks['greater_than'] = {
 Blockly.Blocks['less_than_or_equal_to'] = {
   init: function() {
     this.appendValueInput("left_lte")
-        .setCheck("Number");
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField("<=");
     this.appendValueInput("right_lte")
-        .setCheck("Number");
-    this.setOutput(true, "Boolean");
+        .setCheck("factor");
+    this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -111,12 +111,12 @@ Blockly.Blocks['less_than_or_equal_to'] = {
 Blockly.Blocks['greater_than_or_equal_to'] = {
   init: function() {
     this.appendValueInput("left_gte")
-        .setCheck("Number");
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField(">=");
     this.appendValueInput("right_gte")
-        .setCheck("Number");
-    this.setOutput(true, "Boolean");
+        .setCheck("factor");
+    this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -126,12 +126,12 @@ Blockly.Blocks['greater_than_or_equal_to'] = {
 Blockly.Blocks['not_equal_to'] = {
   init: function() {
     this.appendValueInput("left_not_equal")
-        .setCheck(null);
+        .setCheck(["boolean", "factor"]);
     this.appendDummyInput()
         .appendField("!=");
     this.appendValueInput("right_not_equal")
-        .setCheck(null);
-    this.setOutput(true, "Boolean");
+        .setCheck(["boolean", "factor"]);
+    this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -141,12 +141,12 @@ Blockly.Blocks['not_equal_to'] = {
 Blockly.Blocks['and'] = {
   init: function() {
     this.appendValueInput("left_and")
-        .setCheck("Boolean");
+        .setCheck("boolean");
     this.appendDummyInput()
         .appendField("and");
     this.appendValueInput("right_and")
-        .setCheck("Boolean");
-    this.setOutput(true, "Boolean");
+        .setCheck("boolean");
+    this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -156,12 +156,12 @@ Blockly.Blocks['and'] = {
 Blockly.Blocks['or'] = {
   init: function() {
     this.appendValueInput("left_or")
-        .setCheck("Boolean");
+        .setCheck(["boolean", "factor"]);
     this.appendDummyInput()
         .appendField("or");
     this.appendValueInput("right_or")
-        .setCheck("Boolean");
-    this.setOutput(true, "Boolean");
+        .setCheck(["boolean", "factor"]);
+    this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');

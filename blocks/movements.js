@@ -35,7 +35,7 @@ Blockly.Blocks['wall_in_front'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("wall in front?");
-    this.setOutput(true, "Boolean");
+    this.setOutput(true, "boolean");
     this.setColour(210);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
