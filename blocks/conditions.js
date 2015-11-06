@@ -7,7 +7,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['if'] = {
   init: function() {
     this.appendValueInput("condition")
-        .setCheck(["boolean", "factor"])
+        .setCheck("boolean")
         .appendField("if");
     this.appendDummyInput()
         .appendField("then");
@@ -27,7 +27,7 @@ Blockly.Blocks['if'] = {
 Blockly.Blocks['if_else'] = {
   init: function() {
     this.appendValueInput("condition")
-        .setCheck(["boolean", "factor"])
+        .setCheck("boolean")
         .appendField("if");
     this.appendDummyInput()
         .appendField("then");
