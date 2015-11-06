@@ -7,6 +7,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['repeat'] = {
   init: function() {
     this.appendValueInput("NAME")
+        .setCheck("factor")
         .appendField("repeat");
     this.appendDummyInput()
         .appendField("times");
@@ -25,7 +26,7 @@ Blockly.Blocks['repeat'] = {
 Blockly.Blocks['while'] = {
   init: function() {
     this.appendValueInput("expression")
-        .setCheck("Boolean")
+        .setCheck(["factor", "boolean"])
         .appendField("while");
     this.appendDummyInput()
         .appendField("do");
@@ -48,7 +49,7 @@ Blockly.Blocks['do_while'] = {
     this.appendStatementInput("statment")
         .setCheck(null);
     this.appendValueInput("expression")
-        .setCheck("Boolean")
+        .setCheck(["factor", "boolean"])
         .appendField("while");
     this.appendDummyInput();
     this.setPreviousStatement(true, null);

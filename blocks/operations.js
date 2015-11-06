@@ -23,12 +23,12 @@ Blockly.Blocks['assignation'] = {
 Blockly.Blocks['sum'] = {
   init: function() {
     this.appendValueInput("left_sum")
-        .setCheck(["Number", "String"]);
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField("+");
     this.appendValueInput("right_sum")
-        .setCheck(["Number", "String"]);
-    this.setOutput(true, ["Number", "String"]);
+        .setCheck("factor");
+    this.setOutput(true, "factor");
     this.setColour(65);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -38,12 +38,12 @@ Blockly.Blocks['sum'] = {
 Blockly.Blocks['substraction'] = {
   init: function() {
     this.appendValueInput("left_substractor")
-        .setCheck("Number");
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField("-");
     this.appendValueInput("right_substractor")
-        .setCheck("Number");
-    this.setOutput(true, "Number");
+        .setCheck("factor");
+    this.setOutput(true, "factor");
     this.setColour(65);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -53,12 +53,12 @@ Blockly.Blocks['substraction'] = {
 Blockly.Blocks['division'] = {
   init: function() {
     this.appendValueInput("nominator")
-        .setCheck("Number");
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField("÷");
     this.appendValueInput("denominator")
-        .setCheck("Number");
-    this.setOutput(true, "Number");
+        .setCheck("factor");
+    this.setOutput(true, "factor");
     this.setColour(65);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -68,12 +68,12 @@ Blockly.Blocks['division'] = {
 Blockly.Blocks['multiplication'] = {
   init: function() {
     this.appendValueInput("left_multiplier")
-        .setCheck("Number");
+        .setCheck("factor");
     this.appendDummyInput()
         .appendField("x");
     this.appendValueInput("right_multiplier")
-        .setCheck("Number");
-    this.setOutput(true, "Number");
+        .setCheck("factor");
+    this.setOutput(true, "factor");
     this.setColour(65);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');

@@ -7,12 +7,10 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['def_function'] = {
   init: function() {
     this.appendValueInput("params")
-        .setCheck(null)
-        .setAlign(Blockly.ALIGN_RIGHT)
+        .setCheck(["param", "no_params"])
         .appendField("function")
         .appendField(new Blockly.FieldTextInput("name"), "func_name")
-        .appendField("params")
-        .appendField("do");
+        .appendField("   params:");
     this.appendStatementInput("main")
         .setCheck(null);
     this.appendValueInput("return_type")
@@ -33,7 +31,7 @@ Blockly.Blocks['call_function'] = {
         .appendField("call function")
         .appendField(new Blockly.FieldTextInput("function_name"), "function_call_value");
     this.appendValueInput("params")
-        .setCheck(null)
+        .setCheck(["param", "no_params"])
         .appendField("params");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -53,7 +51,7 @@ Blockly.Blocks['return_function'] = {
         .setCheck(["param", "no_params"])
         .appendField("params");
     this.setInputsInline(true);
-    this.setOutput(true, ["boolean", "int", "float", "string"]);
+    this.setOutput(true, "factor");
     this.setColour(315);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -67,7 +65,7 @@ Blockly.Blocks['param'] = {
         .appendField(new Blockly.FieldDropdown([["int", "int"], ["float", "float"], ["boolean", "boolean"], ["string", "string"]]), "param_type")
         .appendField(new Blockly.FieldTextInput("name"), "param_name");
     this.setInputsInline(false);
-    this.setOutput(true, "param_type");
+    this.setOutput(true, "param");
     this.setColour(290);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -89,8 +87,20 @@ Blockly.Blocks['return_value'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([["int", "int"], ["float", "float"], ["string", "string"], ["boolean", "boolean"], ["no return", "no_return"]]), "return_type");
-    this.setOutput(true, null);
+    this.setOutput(true, "return_value");
     this.setColour(315);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['return'] = {
+  init: function() {
+    this.appendValueInput("return")
+        .setCheck("factor")
+        .appendField("return");
+    this.setPreviousStatement(true, null);
+    this.setColour(45);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }

@@ -19,7 +19,7 @@ Blockly.Blocks['var'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("var")
-        .appendField(new Blockly.FieldDropdown([["int", "integer"], ["fload", "float"], ["bool", "boolean"], ["string", "string"]]), "var_dic")
+        .appendField(new Blockly.FieldDropdown([["int", "integer"], ["float", "float"], ["bool", "boolean"], ["string", "string"]]), "var_dic")
         .appendField("name:")
         .appendField(new Blockly.FieldTextInput(""), "value");
     this.setPreviousStatement(true, null);
