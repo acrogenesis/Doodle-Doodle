@@ -17,6 +17,6 @@ Blockly.JavaScript['var'] = function(block) {
   var dropdown_var_dic = block.getFieldValue('var_dic');
   var text_value = block.getFieldValue('value');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  return code;
+  quadruples.push(['jujuju']);
+  return true;
 };
