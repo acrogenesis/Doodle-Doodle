@@ -32,6 +32,8 @@ var boolean_vars = {
   'temporal': []
 };
 
+var quadruples = [];
+
 // proc_table {
   // 31 = return value
   // [] = params
