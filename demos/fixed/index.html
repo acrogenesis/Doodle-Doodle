@@ -5,6 +5,7 @@
   <title>Doodle-Doodle</title>
   <script src="../../blockly_compressed.js"></script>
   <script src="../../blocks_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
   <script src="../../msg/js/en.js"></script>
   <style>
     body {
@@ -21,6 +22,10 @@
   <h1>Welcome to Doodle-Doodle</h1>
 
   <p>This is a graphic input programming language developed to help people learn the basics of programming</p>
+
+  <p>
+    <button onclick="showCode()">Show JavaScript</button>
+  </p>
 
   <div id="blocklyDiv" style="height: 600px; width: 1000px;"></div>
 
@@ -93,6 +98,13 @@
          toolbox: document.getElementById('toolbox')});
     Blockly.Xml.domToWorkspace(workspace,
         document.getElementById('startBlocks'));
+
+    function showCode() {
+      // Generate JavaScript code and display it.
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.JavaScript.workspaceToCode(workspace);
+      alert(code);
+    }
   </script>
 
 </body>
