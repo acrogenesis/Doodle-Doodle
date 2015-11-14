@@ -2,7 +2,87 @@ function checkVarSyntax(var_name){
   if (var_name.match(/^[a-z]+(\d|_|[a-z])*$/i) !== null){
     return true;
   }else{
-    alert("Syntax Error - Variable name: " + var_name + " incorrect.");
-    throw("Syntax Error");
+    alert('Syntax Error - Variable name: "' + var_name + '" incorrect.');
+    throw('Syntax Error');
+  }
+}
+
+function findVariable(var_name){
+  var index = -1;
+  if (int_vars.temporal.indexOf(var_name) !== -1) {
+    index = int_vars.temporal.indexOf(var_name);
+    index = 'it' + index;
+  }else if (int_vars.local.indexOf(var_name) !== -1) {
+    index = int_vars.local.indexOf(var_name);
+    index = 'il' + index;
+  } else if (int_vars.global.indexOf(var_name) !== -1) {
+    index = int_vars.global.indexOf(var_name);
+    index = 'ig' + index;
+  }
+
+  if (float_vars.temporal.indexOf(var_name) !== -1) {
+    index = float_vars.temporal.indexOf(var_name);
+    index = 'ft' + index;
+  }else if (float_vars.local.indexOf(var_name) !== -1) {
+    index = float_vars.local.indexOf(var_name);
+    index = 'fl' + index;
+  } else if (float_vars.global.indexOf(var_name) !== -1) {
+    index = float_vars.global.indexOf(var_name);
+    index = 'fg' + index;
+  }
+
+  if (string_vars.temporal.indexOf(var_name) !== -1) {
+    index = string_vars.temporal.indexOf(var_name);
+    index = 'st' + index;
+  }else if (string_vars.local.indexOf(var_name) !== -1) {
+    index = string_vars.local.indexOf(var_name);
+    index = 'sl' + index;
+  } else if (string_vars.global.indexOf(var_name) !== -1) {
+    index = string_vars.global.indexOf(var_name);
+    index = 'sg' + index;
+  }
+
+  if (boolean_vars.temporal.indexOf(var_name) !== -1) {
+    index = boolean_vars.temporal.indexOf(var_name);
+    index = 'bt' + index;
+  }else if (boolean_vars.local.indexOf(var_name) !== -1) {
+    index = boolean_vars.local.indexOf(var_name);
+    index = 'bl' + index;
+  } else if (boolean_vars.global.indexOf(var_name) !== -1) {
+    index = boolean_vars.global.indexOf(var_name);
+    index = 'bg' + index;
+  }
+  return index;
+}
+
+function pushVarToTable(var_name, var_type){
+  var table = varTypeToInt(var_type);
+  switch (table) {
+    case 29:
+      int_vars[scope].push(var_name);
+      break;
+    case 30:
+      float_vars[scope].push(var_name);
+      break;
+    case 31:
+      string_vars[scope].push(var_name);
+      break;
+    case 32:
+      boolean_vars[scope].push(var_name);
+      break;
+    default:
+      break;
+  }
+}
+
+function varTypeToInt(var_type){
+  if (var_type === 'integer'){
+    return 29;
+  }else if(var_type === 'float'){
+    return 30;
+  }else if(var_type === 'string'){
+    return 31;
+  }else if(var_type === 'boolean'){
+    return 32;
   }
 }

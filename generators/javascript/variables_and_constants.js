@@ -14,9 +14,14 @@ Blockly.JavaScript['factor'] = function(block) {
 
 
 Blockly.JavaScript['var'] = function(block) {
-  var dropdown_var_dic = block.getFieldValue('var_dic');
-  var text_value = block.getFieldValue('value');
+  var var_type = block.getFieldValue('var_dic');
+  var var_name = block.getFieldValue('value');
   // TODO: Assemble JavaScript into code variable.
-  checkVarSyntax(text_value);
-  return "";
+  checkVarSyntax(var_name);
+  if (findVariable(var_name) !== -1){
+    alert('Variable "' + var_name + '" already defined.');
+    throw('Semantic Error');
+  }
+  pushVarToTable(var_name, var_type);
+  return '';
 };
