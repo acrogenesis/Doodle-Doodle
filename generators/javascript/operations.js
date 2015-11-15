@@ -5,16 +5,16 @@ goog.provide('Blockly.JavaScript.operations');
 goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript['assignation'] = function(block) {
-  var value_left_assig = Blockly.JavaScript.statementToCode(block, 'left_assig').split('†');
-  var value_right_assig = Blockly.JavaScript.statementToCode(block, 'right_assig').split('†');
+  var value_left_assig = Blockly.JavaScript.statementToCode(block, 'left_assig');
+  var value_right_assig = Blockly.JavaScript.statementToCode(block, 'right_assig');
 
-  var left_input = value_left_assig[0];
-  var left_type = value_left_assig[1];
+  var left_input = value_left_assig.input;
+  var left_type = value_left_assig.type;
   var left_index = -1;
   var left_var_type;
 
-  var right_input = value_right_assig[0];
-  var right_type = value_right_assig[1];
+  var right_input = value_right_assig.input;
+  var right_type = value_right_assig.type;
   var right_index;
   var right_var_type = right_type;
 
@@ -61,22 +61,22 @@ Blockly.JavaScript['sum'] = function(block) {
   var right_var_type;
 
   if (Number(value_left_sum)) {
-    left_quadruple = quadruples[Number(value_left_sum)][3];
+    left_quadruple = quadruples[value_left_sum][3];
     left_type = indexToType(left_quadruple[0]);
     left_var_type = left_type;
   } else {
-    left_value = value_left_sum.split('†')[0];
-    left_type = value_left_sum.split('†')[1];
+    left_value = value_left_sum.input;
+    left_type = value_left_sum.type;
     left_var_type = left_type;
   }
 
   if (Number(value_right_sum)) {
-    right_quadruple = quadruples[Number(value_right_sum)][3];
+    right_quadruple = quadruples[value_right_sum][3];
     right_type = indexToType(right_quadruple[0]);
     right_var_type = right_type;
   } else {
-    right_value = value_right_sum.split('†')[0];
-    right_type = value_right_sum.split('†')[1];
+    right_value = value_right_sum.input;
+    right_type = value_right_sum.type;
     right_var_type = right_type;
   }
 
@@ -108,7 +108,7 @@ Blockly.JavaScript['sum'] = function(block) {
 
   quadruples.push(['+', left_quadruple, right_quadruple, result_quadruple]);
 
-  return '' + (quadruples.length-1);
+  return quadruples.length-1;
 };
 
 Blockly.JavaScript['substraction'] = function(block) {
@@ -129,22 +129,22 @@ Blockly.JavaScript['substraction'] = function(block) {
   var right_var_type;
 
   if (Number(value_left_substractor)) {
-    left_quadruple = quadruples[Number(value_left_substractor)][3];
+    left_quadruple = quadruples[value_left_substractor][3];
     left_type = indexToType(left_quadruple[0]);
     left_var_type = left_type;
   } else {
-    left_value = value_left_substractor.split('†')[0];
-    left_type = value_left_substractor.split('†')[1];
+    left_value = value_left_substractor.input;
+    left_type = value_left_substractor.type;
     left_var_type = left_type;
   }
 
   if (Number(value_right_substractor)) {
-    right_quadruple = quadruples[Number(value_right_substractor)][3];
+    right_quadruple = quadruples[value_right_substractor][3];
     right_type = indexToType(right_quadruple[0]);
     right_var_type = right_type;
   } else {
-    right_value = value_right_substractor.split('†')[0];
-    right_type = value_right_substractor.split('†')[1];
+    right_value = value_right_substractor.input;
+    right_type = value_right_substractor.type;
     right_var_type = right_type;
   }
 
@@ -176,7 +176,7 @@ Blockly.JavaScript['substraction'] = function(block) {
 
   quadruples.push(['-', left_quadruple, right_quadruple, result_quadruple]);
 
-  return '' + (quadruples.length-1);
+  return quadruples.length-1;
 };
 
 Blockly.JavaScript['multiplication'] = function(block) {
@@ -197,22 +197,22 @@ Blockly.JavaScript['multiplication'] = function(block) {
   var right_var_type;
 
   if (Number(value_left_multiplier)) {
-    left_quadruple = quadruples[Number(value_left_multiplier)][3];
+    left_quadruple = quadruples[value_left_multiplier][3];
     left_type = indexToType(left_quadruple[0]);
     left_var_type = left_type;
   } else {
-    left_value = value_left_multiplier.split('†')[0];
-    left_type = value_left_multiplier.split('†')[1];
+    left_value = value_left_multiplier.input;
+    left_type = value_left_multiplier.type;
     left_var_type = left_type;
   }
 
   if (Number(value_right_multiplier)) {
-    right_quadruple = quadruples[Number(value_right_multiplier)][3];
+    right_quadruple = quadruples[value_right_multiplier][3];
     right_type = indexToType(right_quadruple[0]);
     right_var_type = right_type;
   } else {
-    right_value = value_right_multiplier.split('†')[0];
-    right_type = value_right_multiplier.split('†')[1];
+    right_value = value_right_multiplier.input;
+    right_type = value_right_multiplier.type;
     right_var_type = right_type;
   }
 
@@ -244,7 +244,7 @@ Blockly.JavaScript['multiplication'] = function(block) {
 
   quadruples.push(['*', left_quadruple, right_quadruple, result_quadruple]);
 
-  return '' + (quadruples.length-1);
+  return quadruples.length-1;
 };
 
 Blockly.JavaScript['division'] = function(block) {
@@ -265,22 +265,22 @@ Blockly.JavaScript['division'] = function(block) {
   var right_var_type;
 
   if (Number(value_nominator)) {
-    left_quadruple = quadruples[Number(value_nominator)][3];
+    left_quadruple = quadruples[value_nominator][3];
     left_type = indexToType(left_quadruple[0]);
     left_var_type = left_type;
   } else {
-    left_value = value_nominator.split('†')[0];
-    left_type = value_nominator.split('†')[1];
+    left_value = value_nominator.input;
+    left_type = value_nominator.type;
     left_var_type = left_type;
   }
 
   if (Number(value_denominator)) {
-    right_quadruple = quadruples[Number(value_denominator)][3];
+    right_quadruple = quadruples[value_denominator][3];
     right_type = indexToType(right_quadruple[0]);
     right_var_type = right_type;
   } else {
-    right_value = value_denominator.split('†')[0];
-    right_type = value_denominator.split('†')[1];
+    right_value = value_denominator.input;
+    right_type = value_denominator.type;
     right_var_type = right_type;
   }
 
@@ -312,5 +312,5 @@ Blockly.JavaScript['division'] = function(block) {
 
   quadruples.push(['÷', left_quadruple, right_quadruple, result_quadruple]);
 
-  return '' + (quadruples.length-1);
+  return quadruples.length-1;
 };

@@ -11,15 +11,15 @@ Blockly.JavaScript['factor'] = function(block) {
   var string_r = /^"[^"]*"$/;
   var boolean_r = /^(true|false)$/;
   if (input.match(int_r) !== null){
-    return input + '†integer';
+    return {'input':input, 'type':'integer'};
   }else if (input.match(float_r) !== null){
-    return input + '†float';
+    return {'input':input, 'type':'float'};
   }else if (input.match(string_r) !== null){
-    return input + '†string';
+    return {'input':input, 'type':'string'};
   }else if (input.match(boolean_r) !== null){
-    return input + '†boolean';
+    return {'input':input, 'type':'boolean'};
   }else if (checkVarSyntax(input)){
-    return input + '†var';
+    return {'input':input, 'type':'var'};
   }else{
     alert('Not a valid expression: ' + input);
     throw('Syntax Error');
