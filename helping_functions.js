@@ -86,6 +86,23 @@ function varTypeToInt(var_type){
   }
 }
 
+function indexToNextTemporal(var_int){
+  switch(var_int) {
+    case 29:
+      int_vars.temporal.push('it' + int_vars.temporal.length);
+      return 'it' + (int_vars.temporal.length - 1);
+    case 30:
+      float_vars.temporal.push('ft' + float_vars.temporal.length);
+      return 'ft' + float_vars.temporal.length - 1;
+    case 31:
+      string_vars.temporal.push('st' + string_vars.temporal.length);
+      return 'st' + string_vars.temporal.length - 1;
+    case 32:
+      boolean_vars.temporal.push('bt' + boolean_vars.temporal.length);
+      return 'bt' + boolean_vars.temporal.length - 1;
+  }
+}
+
 function indexToType(index){
   switch (index[0]) {
     case 'i':
@@ -97,4 +114,13 @@ function indexToType(index){
     case 'b':
       return 'boolean';
   }
+}
+
+function resultType(type1, type2, op){
+  var result_index = checkSemantic(reserved_words[type1], reserved_words[type2], op);
+  if (result_index === -1) {
+    alert('Invalid Operation: ' + reserved_words[type1] + ' ' + op + ' ' + reserved_words[type2]);
+    throw('Semantic Error');
+  };
+  return indexToNextTemporal(result_index);
 }
