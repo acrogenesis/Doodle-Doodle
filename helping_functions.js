@@ -8,17 +8,49 @@ function checkVarSyntax(var_name){
 }
 function findVariable(var_name){
   var index = -1;
-  var vars_table = {'integer':int_vars, 'float':float_vars, 'string':string_vars, 'boolean':boolean_vars};
-  Object.keys(vars_table).forEach(function(var_type){
-    var table = vars_table[var_type];
-    Object.keys(table).forEach(function (key) {
-      var value = table[key];
-      if (value.indexOf(var_name) !== -1){
-        index = value.indexOf(var_name);
-        return var_type[0] + key[0] + index;
-      }
-    });
-  });
+  if (int_vars.temporal.indexOf(var_name) !== -1) {
+    index = int_vars.temporal.indexOf(var_name);
+    index = 'it' + index;
+  }else if (int_vars.local.indexOf(var_name) !== -1) {
+    index = int_vars.local.indexOf(var_name);
+    index = 'il' + index;
+  } else if (int_vars.global.indexOf(var_name) !== -1) {
+    index = int_vars.global.indexOf(var_name);
+    index = 'ig' + index;
+  }
+
+  if (float_vars.temporal.indexOf(var_name) !== -1) {
+    index = float_vars.temporal.indexOf(var_name);
+    index = 'ft' + index;
+  }else if (float_vars.local.indexOf(var_name) !== -1) {
+    index = float_vars.local.indexOf(var_name);
+    index = 'fl' + index;
+  } else if (float_vars.global.indexOf(var_name) !== -1) {
+    index = float_vars.global.indexOf(var_name);
+    index = 'fg' + index;
+  }
+
+  if (string_vars.temporal.indexOf(var_name) !== -1) {
+    index = string_vars.temporal.indexOf(var_name);
+    index = 'st' + index;
+  }else if (string_vars.local.indexOf(var_name) !== -1) {
+    index = string_vars.local.indexOf(var_name);
+    index = 'sl' + index;
+  } else if (string_vars.global.indexOf(var_name) !== -1) {
+    index = string_vars.global.indexOf(var_name);
+    index = 'sg' + index;
+  }
+
+  if (boolean_vars.temporal.indexOf(var_name) !== -1) {
+    index = boolean_vars.temporal.indexOf(var_name);
+    index = 'bt' + index;
+  }else if (boolean_vars.local.indexOf(var_name) !== -1) {
+    index = boolean_vars.local.indexOf(var_name);
+    index = 'bl' + index;
+  } else if (boolean_vars.global.indexOf(var_name) !== -1) {
+    index = boolean_vars.global.indexOf(var_name);
+    index = 'bg' + index;
+  }
   return index;
 }
 
@@ -51,5 +83,18 @@ function varTypeToInt(var_type){
     return 31;
   }else if(var_type === 'boolean'){
     return 32;
+  }
+}
+
+function indexToType(index){
+  switch (index[0]) {
+    case 'i':
+      return 'integer';
+    case 'f':
+      return 'float';
+    case 's':
+      return 'string';
+    case 'b':
+      return 'boolean';
   }
 }

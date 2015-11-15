@@ -1,0 +1,1 @@
+Blockly.Generator.prototype.INDENT = '';
