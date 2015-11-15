@@ -13,7 +13,12 @@ Blockly.JavaScript['assignation'] = function(block) {
   var left_index = -1;
   var left_var_type;
 
-  var right_input = value_right_assig.input;
+  var right_input;
+  if(Number(value_right_assig)) {
+    right_input = value_right_assig;
+  } else {
+    right_input = value_right_assig.input;
+  }
   var right_type = value_right_assig.type;
   var right_index;
   var right_var_type = right_type;
@@ -26,6 +31,7 @@ Blockly.JavaScript['assignation'] = function(block) {
     left_index = findVariable(left_input);
     left_var_type = indexToType(left_index);
   }
+
   if (right_type === 'var'){
     if (findVariable(right_input) === -1){
       alert('Variable "' + right_input + '" not defined.');
@@ -34,12 +40,18 @@ Blockly.JavaScript['assignation'] = function(block) {
       right_index = findVariable(right_input);
       right_var_type = indexToType(right_index);
     }
+  }else if (right_type === undefined) {
+    right_var_type = indexToType(quadruples[right_input][3]);
+    right_index = quadruples[right_input][3];
+  } else {
+    right_index = right_input;
   }
+
   if (left_var_type !== right_var_type){
-    alert(left_input + ' and ' + right_input + 'must be same type');
+    alert(left_input + ' and ' + right_input + ' must be same type');
     throw('Type Mismatch Error');
   }
-  quadruples.push(['=', (right_type === 'var' ? right_index : right_input), '', left_index]);
+  quadruples.push(['=', right_index, '', left_index]);
   return '';
 };
 
