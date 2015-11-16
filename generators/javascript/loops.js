@@ -13,11 +13,16 @@ Blockly.JavaScript['repeat'] = function(block) {
 };
 
 Blockly.JavaScript['while'] = function(block) {
-  var value_expression = Blockly.JavaScript.valueToCode(block, 'expression', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_statment = Blockly.JavaScript.statementToCode(block, 'statment');
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  return code;
+  var value_expression = Blockly.JavaScript.statementToCode(block, 'expression');
+  var jump_to_condition = quadruples.length - 1;
+  var false_jump_index = quadruples.length;
+  quadruples.push(['gotoF', quadruples[value_expression][3], '', 0]);
+
+  Blockly.JavaScript.statementToCode(block, 'statment');
+  quadruples.push(['goto', '', '', jump_to_condition]);
+  quadruples[false_jump_index][3] = quadruples.length;
+
+  return '';
 };
 
 Blockly.JavaScript['do_while'] = function(block) {
