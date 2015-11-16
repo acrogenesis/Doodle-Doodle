@@ -6,9 +6,10 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks['print'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("print")
-        .appendField(new Blockly.FieldTextInput("value"), "print_value");
+    this.appendValueInput("print_expression")
+        .setCheck(["factor", "boolean"])
+        .appendField("print");
+    this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(45);

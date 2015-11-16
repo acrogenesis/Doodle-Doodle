@@ -5,7 +5,7 @@ goog.provide('Blockly.JavaScript.print');
 goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript['print'] = function(block) {
-  var text_print_value = block.getFieldValue('print_value');
+  var value_print_expression = Blockly.JavaScript.valueToCode(block, 'print_expression', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = '...';
   return code;
