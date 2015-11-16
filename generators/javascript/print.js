@@ -43,7 +43,6 @@ Blockly.JavaScript['print'] = function(block) {
 
 Blockly.JavaScript['say'] = function(block) {
   var text_say_value = block.getFieldValue('say_value');
-  // TODO: Assemble JavaScript into code variable.
   quadruples.push(['say', '', '', text_say_value]);
   return '';
 };
