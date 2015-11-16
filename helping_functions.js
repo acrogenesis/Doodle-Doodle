@@ -122,7 +122,7 @@ function indexToType(index){
 function resultType(type1, type2, op){
   var result_index = checkSemantic(reserved_words[type1], reserved_words[type2], op);
   if (result_index === -1) {
-    alert('Invalid Operation: ' + reserved_words[type1] + ' and ' + reserved_words[type2]);
+    alert('Invalid Operation: ' + type1 + ' and ' + type2);
     throw('Semantic Error');
   };
   return indexToNextTemporal(result_index);
