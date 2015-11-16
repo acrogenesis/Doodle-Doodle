@@ -12,17 +12,19 @@ Blockly.JavaScript['def_function'] = function(block) {
   var return_type = Blockly.JavaScript.statementToCode(block, 'return_type');
   functions_table[text_func_name] = [quadruples.length, function_params_array, return_type];
   Blockly.JavaScript.statementToCode(block, 'main');
-
+  function_params_array = [];
   clearLocalAndTemporal();
   return '';
 };
 
 Blockly.JavaScript['call_function'] = function(block) {
-  var text_function_call_value = block.getFieldValue('function_call_value');
-  var value_params = Blockly.JavaScript.valueToCode(block, 'params', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  return code;
+  var function_name = block.getFieldValue('function_call_value');
+  function_params_array = [];
+  Blockly.JavaScript.statementToCode(block, 'params');
+  functions_call_table.push([function_name, quadruples.length, function_params_array, 'no_return']);
+  quadruples.push(['gotoFunk', '', '', 0]);
+  function_params_array = [];
+  return '';
 };
 
 Blockly.JavaScript['return_function'] = function(block) {
