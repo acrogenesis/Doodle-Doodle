@@ -93,13 +93,13 @@ function indexToNextTemporal(var_int){
       return 'it' + (int_vars.temporal.length - 1);
     case 30:
       float_vars.temporal.push('ft' + float_vars.temporal.length);
-      return 'ft' + float_vars.temporal.length - 1;
+      return 'ft' + (float_vars.temporal.length - 1);
     case 31:
       string_vars.temporal.push('st' + string_vars.temporal.length);
-      return 'st' + string_vars.temporal.length - 1;
+      return 'st' + (string_vars.temporal.length - 1);
     case 32:
       boolean_vars.temporal.push('bt' + boolean_vars.temporal.length);
-      return 'bt' + boolean_vars.temporal.length - 1;
+      return 'bt' + (boolean_vars.temporal.length - 1);
   }
 }
 
@@ -113,6 +113,9 @@ function indexToType(index){
       return 'string';
     case 'b':
       return 'boolean';
+    default:
+      alert('Invalid variable type');
+      throw('Variable Type Error');
   }
 }
 
