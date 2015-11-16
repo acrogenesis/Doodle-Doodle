@@ -42,6 +42,28 @@ Blockly.JavaScript['repeat'] = function(block) {
     alert('Repeat loop must have an integer');
     throw('Type Mismatch');
   }
+
+  var times = left_quadruple;
+  var repeat_temporal = resultType('integer', 'integer', 0);
+  quadruples.push(['=', repeat_temporal, '', times]);
+
+  var bool_repeat_temporal = resultType('integer', 'integer', 6);
+  var jump_index = quadruples.length;
+  var false_jump_index;
+  quadruples.push(['>', repeat_temporal, 0, bool_repeat_temporal]);
+
+  quadruples.push(['-', repeat_temporal, 1, repeat_temporal]);
+
+  false_jump_index = quadruples.length;
+  quadruples.push(['gotoF', bool_repeat_temporal, '', 0]);
+
+  Blockly.JavaScript.statementToCode(block, 'statement');
+
+  quadruples.push(['goto', '', '', jump_index]);
+
+  quadruples[false_jump_index][3] = quadruples.length;
+
+  return '';
 };
 
 Blockly.JavaScript['while'] = function(block) {
