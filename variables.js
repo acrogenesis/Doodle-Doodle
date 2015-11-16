@@ -8,11 +8,13 @@ var quadruples;
 var proc_table;
 var functions_table;
 var functions_call_table;
+var function_params_array;
 function startCompilation(){
   // functions_table = {'hello':[0, ['integer', 'boolean'], 'string']};
   functions_table = {};
   // functions_call_table = [['hello', q_index, ['integer', 'boolean'], 'string']];
   functions_call_table = [];
+  function_params_array = [];
   reserved_words = {
     '+': 0, '-': 1, '*': 2, '÷': 3, '==': 4, '<': 5,
     '>': 6, '<=': 7, '>=': 8, '!=': 9, 'and': 10,

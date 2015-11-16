@@ -9,5 +9,6 @@ Blockly.JavaScript['begin_end'] = function(block) {
   quadruples.push(['BEGIN']);
   Blockly.JavaScript.statementToCode(block, 'main');
   quadruples.push(['END']);
+  clearLocalAndTemporal();
   return true;
 };

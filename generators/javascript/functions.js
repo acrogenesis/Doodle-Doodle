@@ -5,13 +5,16 @@ goog.provide('Blockly.JavaScript.functions');
 goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript['def_function'] = function(block) {
+  scope = 'local';
   var text_func_name = block.getFieldValue('func_name');
-  var value_params = Blockly.JavaScript.valueToCode(block, 'params', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_main = Blockly.JavaScript.statementToCode(block, 'main');
-  var value_return_type = Blockly.JavaScript.valueToCode(block, 'return_type', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  return code;
+  function_params_array = [];
+  Blockly.JavaScript.statementToCode(block, 'params');
+  var return_type = Blockly.JavaScript.statementToCode(block, 'return_type');
+  functions_table[text_func_name] = [quadruples.length, function_params_array, return_type];
+  Blockly.JavaScript.statementToCode(block, 'main');
+
+  clearLocalAndTemporal();
+  return '';
 };
 
 Blockly.JavaScript['call_function'] = function(block) {
@@ -34,27 +37,20 @@ Blockly.JavaScript['return_function'] = function(block) {
 Blockly.JavaScript['param'] = function(block) {
   var dropdown_param_type = block.getFieldValue('param_type');
   var text_param_name = block.getFieldValue('param_name');
-  var value_next_param = Blockly.JavaScript.valueToCode(block, 'next_param', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  function_params_array.push(dropdown_param_type);
+  Blockly.JavaScript.statementToCode(block, 'next_param');
+  return '';
 };
 
 Blockly.JavaScript['no_params'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  function_params_array.push('no_params');
+  return '';
 };
 
 
 Blockly.JavaScript['return_value'] = function(block) {
   var dropdown_return_type = block.getFieldValue('return_type');
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  return dropdown_return_type;
 };
 
 Blockly.JavaScript['return'] = function(block) {

@@ -30,12 +30,20 @@ Blockly.JavaScript['factor'] = function(block) {
 Blockly.JavaScript['var'] = function(block) {
   var var_type = block.getFieldValue('var_dic');
   var var_name = block.getFieldValue('value');
-  // TODO: Assemble JavaScript into code variable.
+
   checkVarSyntax(var_name);
-  if (findVariable(var_name) !== -1){
-    alert('Variable "' + var_name + '" already defined.');
-    throw('Semantic Error');
+  if (scope == 'global'){
+    if (findGlobalVariable(var_name) !== -1){
+      alert('Variable "' + var_name + '" already defined.');
+      throw('Semantic Error');
+    }
+  }else if (scope == 'local') {
+    if (findLocalVariable(var_name) !== -1){
+      alert('Variable "' + var_name + '" already defined.');
+      throw('Semantic Error');
+    }
   }
+
   pushVarToTable(var_name, var_type);
   return '';
 };

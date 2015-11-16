@@ -6,12 +6,72 @@ function checkVarSyntax(var_name){
     throw('Syntax Error');
   }
 }
+
+function clearLocalAndTemporal(){
+  int_vars.local = [];
+  int_vars.temporal = [];
+
+  float_vars.local = [];
+  float_vars.temporal = [];
+
+  string_vars.local = [];
+  string_vars.temporal = [];
+
+  boolean_vars.local = [];
+  boolean_vars.temporal = [];
+}
+
+function findLocalVariable(var_name){
+  var index = -1;
+  if (int_vars.local.indexOf(var_name) !== -1) {
+    index = int_vars.local.indexOf(var_name);
+    index = 'il' + index;
+  }
+
+  if (float_vars.local.indexOf(var_name) !== -1) {
+    index = float_vars.local.indexOf(var_name);
+    index = 'fl' + index;
+  }
+
+  if (string_vars.local.indexOf(var_name) !== -1) {
+    index = string_vars.local.indexOf(var_name);
+    index = 'sl' + index;
+  }
+
+  if (boolean_vars.local.indexOf(var_name) !== -1) {
+    index = boolean_vars.local.indexOf(var_name);
+    index = 'bl' + index;
+  }
+  return index;
+}
+
+function findGlobalVariable(var_name){
+  var index = -1;
+  if (int_vars.global.indexOf(var_name) !== -1) {
+    index = int_vars.global.indexOf(var_name);
+    index = 'ig' + index;
+  }
+
+  if (float_vars.global.indexOf(var_name) !== -1) {
+    index = float_vars.global.indexOf(var_name);
+    index = 'fg' + index;
+  }
+
+  if (string_vars.global.indexOf(var_name) !== -1) {
+    index = string_vars.global.indexOf(var_name);
+    index = 'sg' + index;
+  }
+
+  if (boolean_vars.global.indexOf(var_name) !== -1) {
+    index = boolean_vars.global.indexOf(var_name);
+    index = 'bg' + index;
+  }
+  return index;
+}
+
 function findVariable(var_name){
   var index = -1;
-  if (int_vars.temporal.indexOf(var_name) !== -1) {
-    index = int_vars.temporal.indexOf(var_name);
-    index = 'it' + index;
-  }else if (int_vars.local.indexOf(var_name) !== -1) {
+  if (int_vars.local.indexOf(var_name) !== -1) {
     index = int_vars.local.indexOf(var_name);
     index = 'il' + index;
   } else if (int_vars.global.indexOf(var_name) !== -1) {
@@ -19,10 +79,7 @@ function findVariable(var_name){
     index = 'ig' + index;
   }
 
-  if (float_vars.temporal.indexOf(var_name) !== -1) {
-    index = float_vars.temporal.indexOf(var_name);
-    index = 'ft' + index;
-  }else if (float_vars.local.indexOf(var_name) !== -1) {
+  if (float_vars.local.indexOf(var_name) !== -1) {
     index = float_vars.local.indexOf(var_name);
     index = 'fl' + index;
   } else if (float_vars.global.indexOf(var_name) !== -1) {
@@ -30,10 +87,7 @@ function findVariable(var_name){
     index = 'fg' + index;
   }
 
-  if (string_vars.temporal.indexOf(var_name) !== -1) {
-    index = string_vars.temporal.indexOf(var_name);
-    index = 'st' + index;
-  }else if (string_vars.local.indexOf(var_name) !== -1) {
+  if (string_vars.local.indexOf(var_name) !== -1) {
     index = string_vars.local.indexOf(var_name);
     index = 'sl' + index;
   } else if (string_vars.global.indexOf(var_name) !== -1) {
@@ -41,10 +95,7 @@ function findVariable(var_name){
     index = 'sg' + index;
   }
 
-  if (boolean_vars.temporal.indexOf(var_name) !== -1) {
-    index = boolean_vars.temporal.indexOf(var_name);
-    index = 'bt' + index;
-  }else if (boolean_vars.local.indexOf(var_name) !== -1) {
+  if (boolean_vars.local.indexOf(var_name) !== -1) {
     index = boolean_vars.local.indexOf(var_name);
     index = 'bl' + index;
   } else if (boolean_vars.global.indexOf(var_name) !== -1) {
