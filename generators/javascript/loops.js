@@ -8,7 +8,6 @@ Blockly.JavaScript['repeat'] = function(block) {
   var value_n_times = Blockly.JavaScript.statementToCode(block, 'n_times');
 
   var left_quadruple = false;
-  var right_quadruple = false;
 
   var left_value;
   var left_type;
