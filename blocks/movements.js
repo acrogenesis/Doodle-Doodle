@@ -6,9 +6,10 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks['move'] = {
   init: function() {
+    this.appendValueInput("move_blocks")
+        .setCheck("factor")
+        .appendField("move");
     this.appendDummyInput()
-        .appendField("move")
-        .appendField(new Blockly.FieldTextInput("0"), "move_blocks")
         .appendField("blocks");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

@@ -5,7 +5,7 @@ goog.provide('Blockly.JavaScript.movements');
 goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript['move'] = function(block) {
-  var text_move_blocks = block.getFieldValue('move_blocks');
+  var value_move_blocks = Blockly.JavaScript.valueToCode(block, 'move_blocks', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = '...';
   return code;
