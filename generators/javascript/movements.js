@@ -53,8 +53,7 @@ Blockly.JavaScript['turn'] = function(block) {
 };
 
 Blockly.JavaScript['wall_in_front'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
+  var next_bool = resultType('boolean', 'boolean', 4);
+  quadruples.push(['wif', '', '', next_bool]);
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
