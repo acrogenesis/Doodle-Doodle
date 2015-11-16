@@ -47,7 +47,6 @@ Blockly.JavaScript['move'] = function(block) {
 };
 
 Blockly.JavaScript['turn'] = function(block) {
-  var text_turn_direction = block.getFieldValue('turn_direction');
   var dropdown_directions = block.getFieldValue('directions');
   // TODO: Assemble JavaScript into code variable.
   var code = '...';

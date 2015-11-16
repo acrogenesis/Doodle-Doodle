@@ -22,7 +22,7 @@ Blockly.Blocks['move'] = {
 Blockly.Blocks['turn'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("turn"), "turn_direction")
+        .appendField("turn")
         .appendField(new Blockly.FieldDropdown([["left", "left"], ["right", "right"]]), "directions");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
