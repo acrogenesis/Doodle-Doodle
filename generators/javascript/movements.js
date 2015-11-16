@@ -48,9 +48,8 @@ Blockly.JavaScript['move'] = function(block) {
 
 Blockly.JavaScript['turn'] = function(block) {
   var dropdown_directions = block.getFieldValue('directions');
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  return code;
+  quadruples.push(['turn', '', '', dropdown_directions]);
+  return '';
 };
 
 Blockly.JavaScript['wall_in_front'] = function(block) {
