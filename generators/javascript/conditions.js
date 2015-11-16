@@ -5,11 +5,13 @@ goog.provide('Blockly.JavaScript.conditions');
 goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript['if'] = function(block) {
-  var value_condition = Blockly.JavaScript.valueToCode(block, 'condition', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_statment = Blockly.JavaScript.statementToCode(block, 'statment');
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  return code;
+  var value_condition = Blockly.JavaScript.statementToCode(block, 'condition');
+  var temp_index = quadruples.length;
+  quadruples.push(['gotoF', quadruples[value_condition][3], '', 0]);
+  Blockly.JavaScript.statementToCode(block, 'statment');
+  quadruples[temp_index][3] = quadruples.length;
+
+  return '';
 };
 
 Blockly.JavaScript['if_else'] = function(block) {
