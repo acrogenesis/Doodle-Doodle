@@ -169,6 +169,7 @@ Blockly.JavaScript['substraction'] = function(block) {
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
+      left_quadruple = left_index;
     }
   } else if(left_quadruple === false) {
     left_quadruple = left_value;
@@ -181,6 +182,7 @@ Blockly.JavaScript['substraction'] = function(block) {
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
+      right_quadruple = right_index;
     }
   } else if(right_quadruple === false) {
     right_quadruple = right_value;
