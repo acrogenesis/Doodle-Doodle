@@ -55,5 +55,5 @@ Blockly.JavaScript['turn'] = function(block) {
 Blockly.JavaScript['wall_in_front'] = function(block) {
   var next_bool = resultType('boolean', 'boolean', 4);
   quadruples.push(['wif', '', '', next_bool]);
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  return quadruples.length-1;
 };
