@@ -62,7 +62,7 @@ Blockly.Blocks['param'] = {
   init: function() {
     this.appendValueInput("next_param")
         .setCheck("param")
-        .appendField(new Blockly.FieldDropdown([["int", "int"], ["float", "float"], ["boolean", "boolean"], ["string", "string"]]), "param_type")
+        .appendField(new Blockly.FieldDropdown([["int", "integer"], ["float", "float"], ["boolean", "boolean"], ["string", "string"]]), "param_type")
         .appendField(new Blockly.FieldTextInput("name"), "param_name");
     this.setInputsInline(false);
     this.setOutput(true, "param");
@@ -86,7 +86,7 @@ Blockly.Blocks['no_params'] = {
 Blockly.Blocks['return_value'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["int", "int"], ["float", "float"], ["string", "string"], ["boolean", "boolean"], ["no return", "no_return"]]), "return_type");
+        .appendField(new Blockly.FieldDropdown([["int", "integer"], ["float", "float"], ["string", "string"], ["boolean", "boolean"], ["no return", "no_return"]]), "return_type");
     this.setOutput(true, "return_value");
     this.setColour(315);
     this.setTooltip('');
