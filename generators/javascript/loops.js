@@ -26,9 +26,10 @@ Blockly.JavaScript['while'] = function(block) {
 };
 
 Blockly.JavaScript['do_while'] = function(block) {
-  var statements_statment = Blockly.JavaScript.statementToCode(block, 'statment');
-  var value_expression = Blockly.JavaScript.valueToCode(block, 'expression', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  return code;
+  var true_jump_index = quadruples.length;
+  Blockly.JavaScript.statementToCode(block, 'statment');
+  Blockly.JavaScript.statementToCode(block, 'expression');
+
+  quadruples.push(['gotoV', quadruples[quadruples.length - 1][3], '', true_jump_index]);
+  return '';
 };
