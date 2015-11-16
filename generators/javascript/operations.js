@@ -48,7 +48,7 @@ Blockly.JavaScript['assignation'] = function(block) {
   }
 
   if (left_var_type !== right_var_type){
-    alert(left_input + ' and ' + right_input + ' must be same type');
+    alert(left_input + ' and ' + right_var_type + ' must be same type');
     throw('Type Mismatch Error');
   }
   quadruples.push(['=', right_index, '', left_index]);
