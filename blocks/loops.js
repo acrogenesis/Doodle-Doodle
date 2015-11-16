@@ -6,7 +6,7 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks['repeat'] = {
   init: function() {
-    this.appendValueInput("NAME")
+    this.appendValueInput("n_times")
         .setCheck("factor")
         .appendField("repeat");
     this.appendDummyInput()

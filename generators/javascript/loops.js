@@ -5,7 +5,7 @@ goog.provide('Blockly.JavaScript.loops');
 goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript['repeat'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_n_times = Blockly.JavaScript.valueToCode(block, 'n_times', Blockly.JavaScript.ORDER_ATOMIC);
   var statements_statement = Blockly.JavaScript.statementToCode(block, 'statement');
   // TODO: Assemble JavaScript into code variable.
   var code = '...';
