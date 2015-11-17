@@ -38,14 +38,14 @@ Blockly.JavaScript['return_function'] = function(block) {
 
 Blockly.JavaScript['param'] = function(block) {
   var dropdown_param_type = block.getFieldValue('param_type');
-  var text_param_name = block.getFieldValue('param_name');
-  function_params_array.push(dropdown_param_type);
+  var param_name = block.getFieldValue('param_name');
+  function_params_array.push({'type': dropdown_param_type, 'name': param_name});
   Blockly.JavaScript.statementToCode(block, 'next_param');
   return '';
 };
 
 Blockly.JavaScript['no_params'] = function(block) {
-  function_params_array.push('no_params');
+  function_params_array.push({'type': 'no_params', 'name': null});
   return '';
 };
 

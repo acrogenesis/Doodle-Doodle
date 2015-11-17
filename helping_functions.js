@@ -7,22 +7,30 @@ function checkVarSyntax(var_name){
   }
 }
 
-function arraysEqual(a1,a2) {
+function arraysEqual(a1,a2){
   return JSON.stringify(a1)==JSON.stringify(a2);
 }
 
-function checkFunctionCalls() {
-  // functions_table = {'hello':[0, ['integer', 'boolean'], 'string']};
-  // functions_call_table = [['hello', q_index, ['integer', 'boolean'], 'string']];
+function getHashValues(arr){
+  var values = [];
+  arr.forEach(function(h){
+    values.push(h.type);
+  });
+  return values;
+}
 
-  functions_call_table.forEach(function(call_array) {
+function checkFunctionCalls(){
+  // functions_table = {'hello':[0, [{'type' : 'integer', 'name': 'x'}, {'type' : 'boolean', 'name': 'z'}], 'string']};
+  // functions_call_table = [['hello', q_index, [{'type' : 'integer', 'name': 'x'}, {'type' : 'boolean', 'name': 'z'}], 'string']];
+
+  functions_call_table.forEach(function(call_array){
     var fc = call_array[0];
     var fd = functions_table[fc];
     if(fd === undefined) {
       alert('Function ' + fc + ' does not exist');
       throw('Semantic Error');
-    }else if (!arraysEqual(call_array[2], fd[1])) {
-      alert('Function ' + fc + ' parameters should be ' + fd[1]);
+    }else if (!arraysEqual(getHashValues(call_array[2]), getHashValues(fd[1]))) {
+      alert('Function ' + fc + ' parameters should be ' + getHashValues(fd[1]));
       throw('Semantic Error');
     }else if (call_array[3] !== fd[2]) {
       alert('Function ' + fc + ' return type should be ' + fd[2]);
