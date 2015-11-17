@@ -7,6 +7,10 @@ goog.require('Blockly.JavaScript');
 Blockly.JavaScript['def_function'] = function(block) {
   scope = 'local';
   var text_func_name = block.getFieldValue('func_name');
+  if (functions_table[text_func_name] !== undefined){
+    alert('Function ' + text_func_name + ' already defined');
+    throw('Semantic Error');
+  }
   function_params_array = [];
   Blockly.JavaScript.statementToCode(block, 'params');
   var return_type = Blockly.JavaScript.statementToCode(block, 'return_type');
