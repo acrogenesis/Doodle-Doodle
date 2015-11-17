@@ -11,10 +11,18 @@ function arraysEqual(a1,a2){
   return JSON.stringify(a1)==JSON.stringify(a2);
 }
 
-function getHashValues(arr){
+function getHashTypeValues(arr){
   var values = [];
   arr.forEach(function(h){
     values.push(h.type);
+  });
+  return values;
+}
+
+function getHashNameValues(arr){
+  var values = [];
+  arr.forEach(function(h){
+    values.push(h.name);
   });
   return values;
 }
@@ -29,8 +37,8 @@ function checkFunctionCalls(){
     if(fd === undefined) {
       alert('Function ' + fc + ' does not exist');
       throw('Semantic Error');
-    }else if (!arraysEqual(getHashValues(call_array[2]), getHashValues(fd[1]))) {
-      alert('Function ' + fc + ' parameters should be ' + getHashValues(fd[1]));
+    }else if (!arraysEqual(getHashTypeValues(call_array[2]), getHashTypeValues(fd[1]))) {
+      alert('Function ' + fc + ' parameters should be ' + getHashTypeValues(fd[1]));
       throw('Semantic Error');
     }else if (call_array[3] !== fd[2]) {
       alert('Function ' + fc + ' return type should be ' + fd[2]);

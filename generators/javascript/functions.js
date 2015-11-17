@@ -11,8 +11,14 @@ Blockly.JavaScript['def_function'] = function(block) {
     alert('Function ' + text_func_name + ' already defined');
     throw('Semantic Error');
   }
+
   function_params_array = [];
   Blockly.JavaScript.statementToCode(block, 'params');
+  var p_names = getHashNameValues(function_params_array);
+  p_names.forEach(function(n){
+    checkVarSyntax(n);
+  });
+
   var return_type = Blockly.JavaScript.statementToCode(block, 'return_type');
   functions_table[text_func_name] = [quadruples.length, function_params_array, return_type];
   Blockly.JavaScript.statementToCode(block, 'main');
