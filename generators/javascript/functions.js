@@ -29,8 +29,72 @@ Blockly.JavaScript['def_function'] = function(block) {
 
 Blockly.JavaScript['call_function'] = function(block) {
   var function_name = block.getFieldValue('function_call_value');
+  var int_r = /^\d+$/;
+  var float_r = /^\d*\.\d+$/;
+  var string_r = /^"[^"]*"$/;
+  var boolean_r = /^(true|false)$/;
+
   function_params_array = [];
   Blockly.JavaScript.statementToCode(block, 'params');
+  function_params_array.forEach(function(p){
+    if (p.type === 'integer'){
+      if(p.name.match(int_r) !== null){
+
+      }else if (findVariable(p.name) !== -1){
+        if (indexToType(findVariable(p.name)) == p.type) {
+
+        }else{
+          alert('Params error: ' + p.name + ' is not an integer');
+          throw('Semantic Error');
+        }
+      }else{
+        alert('Params error: ' + p.name + ' is not an integer');
+        throw('Semantic Error');
+      }
+    }else if (p.type === 'float'){
+      if(p.name.match(float_r) !== null){
+
+      }else if (findVariable(p.name) !== -1){
+        if (indexToType(findVariable(p.name)) == p.type) {
+
+        }else{
+          alert('Params error: ' + p.name + ' is not a float');
+          throw('Semantic Error');
+        }
+      }else{
+        alert('Params error: ' + p.name + ' is not a float');
+        throw('Semantic Error');
+      }
+    }else if (p.type === 'string'){
+      if(p.name.match(string_r) !== null){
+
+      }else if (findVariable(p.name) !== -1){
+        if (indexToType(findVariable(p.name)) == p.type) {
+
+        }else{
+          alert('Params error: ' + p.name + ' is not a string');
+          throw('Semantic Error');
+        }
+      }else{
+        alert('Params error: ' + p.name + ' is not a string');
+        throw('Semantic Error');
+      }
+    }else if (p.type === 'boolean'){
+      if(p.name.match(boolean_r) !== null){
+
+      }else if (findVariable(p.name) !== -1){
+        if (indexToType(findVariable(p.name)) == p.type) {
+
+        }else{
+          alert('Params error: ' + p.name + ' is not a boolean');
+          throw('Semantic Error');
+        }
+      }else{
+        alert('Params error: ' + p.name + ' is not a boolean');
+        throw('Semantic Error');
+      }
+    }
+  });
   functions_call_table.push([function_name, quadruples.length, function_params_array, 'no_return']);
   quadruples.push(['gotoFunk', '', '', 0]);
   function_params_array = [];
