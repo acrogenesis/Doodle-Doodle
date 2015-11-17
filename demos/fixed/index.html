@@ -125,6 +125,7 @@
       startCompilation();
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
       var code = Blockly.JavaScript.workspaceToCode(workspace);
+      checkFunctionCalls();
       alert(code);
     }
   </script>

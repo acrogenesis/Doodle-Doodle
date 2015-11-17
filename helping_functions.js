@@ -7,6 +7,32 @@ function checkVarSyntax(var_name){
   }
 }
 
+function arraysEqual(a1,a2) {
+  return JSON.stringify(a1)==JSON.stringify(a2);
+}
+
+function checkFunctionCalls() {
+  // functions_table = {'hello':[0, ['integer', 'boolean'], 'string']};
+  // functions_call_table = [['hello', q_index, ['integer', 'boolean'], 'string']];
+
+  functions_call_table.forEach(function(call_array) {
+    var fc = call_array[0];
+    var fd = functions_table[fc];
+    if(fd === undefined) {
+      alert('Function ' + fc + ' does not exist');
+      throw('Semantic Error');
+    }else if (!arraysEqual(call_array[2], fd[1])) {
+      alert('Function ' + fc + ' parameters should be ' + fd[1]);
+      throw('Semantic Error');
+    }else if (call_array[3] !== fd[2]) {
+      alert('Function ' + fc + ' return type should be ' + fd[2]);
+      throw('Semantic Error');
+    } else {
+      quadruples[call_array[1]][3] = fd[0];
+    }
+  });
+}
+
 function clearLocalAndTemporal(){
   int_vars.local = [];
   int_vars.temporal = [];
