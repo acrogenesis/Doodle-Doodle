@@ -7,19 +7,33 @@ goog.require('Blockly.JavaScript');
 Blockly.JavaScript['def_function'] = function(block) {
   scope = 'local';
   var text_func_name = block.getFieldValue('func_name');
+  checkVarSyntax(text_func_name);
   if (functions_table[text_func_name] !== undefined){
     alert('Function ' + text_func_name + ' already defined');
     throw('Semantic Error');
+  }
+
+  if (findGlobalVariable(text_func_name) !== -1){
+      alert('Variable "' + text_func_name + '" already defined.');
+      throw('Semantic Error');
   }
 
   function_params_array = [];
   Blockly.JavaScript.statementToCode(block, 'params');
   var p_names = getHashNameValues(function_params_array);
   p_names.forEach(function(n){
-    checkVarSyntax(n);
+    if(n !== null){
+      checkVarSyntax(n);
+    }
   });
 
   var return_type = Blockly.JavaScript.statementToCode(block, 'return_type');
+
+  scope = 'global';
+  if(return_type !== 'no_return'){
+    pushVarToTable(text_func_name, return_type);
+  }
+
   functions_table[text_func_name] = [quadruples.length, function_params_array, return_type];
   Blockly.JavaScript.statementToCode(block, 'main');
   function_params_array = [];
