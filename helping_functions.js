@@ -76,13 +76,13 @@ function clearLocal(){
 function getNextParam(index){
   switch(index[0]){
     case 'i':
-      return param_vars['integer'][parseInt(index.substr(2))];
+      return 'pi' + (index.substr(2));
     case 'f':
-      return param_vars['float'][parseInt(index.substr(2))];
+      return 'pf' + (index.substr(2));
     case 's':
-      return param_vars['string'][parseInt(index.substr(2))];
+      return 'ps' + (index.substr(2));
     case 'b':
-      return param_vars['boolean'][parseInt(index.substr(2))];
+      return 'pb' + (index.substr(2));
   }
 }
 
