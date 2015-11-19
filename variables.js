@@ -10,6 +10,7 @@ var functions_table;
 var functions_call_table;
 var function_params_array;
 var current_function;
+var pre_compilation;
 function startCompilation(){
   current_function = 'main';
   // functions_table = {'hello':[0, ['integer', 'boolean'], 'string']};
