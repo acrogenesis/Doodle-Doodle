@@ -41,7 +41,7 @@ function checkFunctionCalls(){
       alert('Function ' + fc + ' parameters should be ' + getHashTypeValues(fd[1]));
       throw('Semantic Error');
     }else if (call_array[3] !== fd[2]) {
-      alert('Function ' + fc + ' return type should be ' + fd[2]);
+      alert('Call to function ' + fc + ' does not match return type: ' + fd[2]);
       throw('Semantic Error');
     } else {
       quadruples[call_array[1]][3] = fd[0];

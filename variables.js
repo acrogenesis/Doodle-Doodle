@@ -9,7 +9,9 @@ var proc_table;
 var functions_table;
 var functions_call_table;
 var function_params_array;
+var current_function;
 function startCompilation(){
+  current_function = 'main';
   // functions_table = {'hello':[0, ['integer', 'boolean'], 'string']};
   functions_table = {};
   // functions_call_table = [['hello', q_index, ['integer', 'boolean'], 'string']];
