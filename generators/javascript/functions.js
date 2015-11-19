@@ -6,6 +6,7 @@ goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript['def_function'] = function(block) {
   scope = 'local';
+  clearLocal();
   var text_func_name = block.getFieldValue('func_name');
   var return_type = Blockly.JavaScript.statementToCode(block, 'return_type');
   current_function = text_func_name;
@@ -34,11 +35,22 @@ Blockly.JavaScript['def_function'] = function(block) {
     }
   });
 
+  function_params_array.forEach(function(n){
+    if(n !== null){
+      if(findLocalVariable(n.name) !== -1){
+        alert('Parameter with name ' + n.name + ' in function ' + text_func_name + ' already defined');
+        throw('Semantic Error');
+      }
+      pushVarToTable(n.name, n.type);
+      quadruples.push(['=', getNextParam(findLocalVariable(n.name)), '', findLocalVariable(n.name)]);
+    }
+  });
+
   functions_table[text_func_name] = [quadruples.length, function_params_array, return_type];
   Blockly.JavaScript.statementToCode(block, 'main');
   quadruples.push(['RETURN', '', '', '']);
   function_params_array = [];
-  clearLocalAndTemporal();
+  clearLocal();
   current_function = 'main';
   return '';
 };
@@ -132,10 +144,10 @@ Blockly.JavaScript['return_function'] = function(block) {
   function_params_array.forEach(function(p){
     if (p.type === 'integer'){
       if(p.name.match(int_r) !== null){
-
+        pushToParamTable(p.name, p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
-
+          pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
         }else{
           alert('Params error: ' + p.name + ' is not an integer');
           throw('Semantic Error');
@@ -146,10 +158,10 @@ Blockly.JavaScript['return_function'] = function(block) {
       }
     }else if (p.type === 'float'){
       if(p.name.match(float_r) !== null){
-
+        pushToParamTable(p.name, p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
-
+          pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
         }else{
           alert('Params error: ' + p.name + ' is not a float');
           throw('Semantic Error');
@@ -160,10 +172,10 @@ Blockly.JavaScript['return_function'] = function(block) {
       }
     }else if (p.type === 'string'){
       if(p.name.match(string_r) !== null){
-
+        pushToParamTable(p.name, p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
-
+          pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
         }else{
           alert('Params error: ' + p.name + ' is not a string');
           throw('Semantic Error');
@@ -174,10 +186,10 @@ Blockly.JavaScript['return_function'] = function(block) {
       }
     }else if (p.type === 'boolean'){
       if(p.name.match(boolean_r) !== null){
-
+        pushToParamTable(p.name, p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
-
+          pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
         }else{
           alert('Params error: ' + p.name + ' is not a boolean');
           throw('Semantic Error');

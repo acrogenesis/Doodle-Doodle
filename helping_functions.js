@@ -63,6 +63,29 @@ function clearLocalAndTemporal(){
   boolean_vars.temporal = [];
 }
 
+function clearLocal(){
+  int_vars.local = [];
+
+  float_vars.local = [];
+
+  string_vars.local = [];
+
+  boolean_vars.local = [];
+}
+
+function getNextParam(index){
+  switch(index[0]){
+    case 'i':
+      return param_vars['integer'][parseInt(index.substr(2))];
+    case 'f':
+      return param_vars['float'][parseInt(index.substr(2))];
+    case 's':
+      return param_vars['string'][parseInt(index.substr(2))];
+    case 'b':
+      return param_vars['boolean'][parseInt(index.substr(2))];
+  }
+}
+
 function findLocalVariable(var_name){
   var index = -1;
   if (int_vars.local.indexOf(var_name) !== -1) {
