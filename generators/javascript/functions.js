@@ -192,7 +192,7 @@ Blockly.JavaScript['return_function'] = function(block) {
   
   return_type = findVariable(function_name);
   if(return_type === -1){
-    alert('Function ' + current_function + ' does not exist');
+    alert('Function ' + function_name + ' does not exist');
     throw('Semantic Error');
   }
   return_type = indexToType(return_type);
