@@ -97,7 +97,7 @@ Blockly.Blocks['return_value'] = {
 Blockly.Blocks['return'] = {
   init: function() {
     this.appendValueInput("return")
-        .setCheck("factor")
+        .setCheck(["factor", "boolean"])
         .appendField("return");
     this.setPreviousStatement(true, null);
     this.setColour(45);
