@@ -4,6 +4,7 @@ var int_vars;
 var float_vars;
 var string_vars;
 var boolean_vars;
+var param_vars;
 var quadruples;
 var proc_table;
 var functions_table;
@@ -27,7 +28,12 @@ function startCompilation(){
     'begin': 26, 'params': 27, 'no_params': 28, 'integer': 29, 'float': 30,
     'string': 31, 'boolean': 32
   };
-
+  param_vars = {
+    'integer': [],
+    'float': [],
+    'string': [],
+    'boolean': []
+  };
   int_vars = {
     'global': [],
     'local': [],
