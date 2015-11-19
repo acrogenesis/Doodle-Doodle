@@ -55,10 +55,10 @@ Blockly.JavaScript['call_function'] = function(block) {
   function_params_array.forEach(function(p){
     if (p.type === 'integer'){
       if(p.name.match(int_r) !== null){
-
+        pushToParamTable(p.name, p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
-
+          pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
         }else{
           alert('Params error: ' + p.name + ' is not an integer');
           throw('Semantic Error');
@@ -69,10 +69,10 @@ Blockly.JavaScript['call_function'] = function(block) {
       }
     }else if (p.type === 'float'){
       if(p.name.match(float_r) !== null){
-
+        pushToParamTable(p.name, p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
-
+          pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
         }else{
           alert('Params error: ' + p.name + ' is not a float');
           throw('Semantic Error');
@@ -83,10 +83,10 @@ Blockly.JavaScript['call_function'] = function(block) {
       }
     }else if (p.type === 'string'){
       if(p.name.match(string_r) !== null){
-
+        pushToParamTable(p.name, p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
-
+          pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
         }else{
           alert('Params error: ' + p.name + ' is not a string');
           throw('Semantic Error');
@@ -97,10 +97,10 @@ Blockly.JavaScript['call_function'] = function(block) {
       }
     }else if (p.type === 'boolean'){
       if(p.name.match(boolean_r) !== null){
-
+        pushToParamTable(p.name, p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
-
+          pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
         }else{
           alert('Params error: ' + p.name + ' is not a boolean');
           throw('Semantic Error');
