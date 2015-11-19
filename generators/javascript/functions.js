@@ -119,12 +119,88 @@ Blockly.JavaScript['call_function'] = function(block) {
 };
 
 Blockly.JavaScript['return_function'] = function(block) {
-  var text_function_call_value = block.getFieldValue('function_call_value');
-  var value_params = Blockly.JavaScript.valueToCode(block, 'params', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  var function_name = block.getFieldValue('function_call_value');
+  
+  var int_r = /^\d+$/;
+  var float_r = /^\d*\.\d+$/;
+  var string_r = /^"[^"]*"$/;
+  var boolean_r = /^(true|false)$/;
+
+  var return_type;
+
+  function_params_array = [];
+  Blockly.JavaScript.statementToCode(block, 'params');
+  function_params_array.forEach(function(p){
+    if (p.type === 'integer'){
+      if(p.name.match(int_r) !== null){
+
+      }else if (findVariable(p.name) !== -1){
+        if (indexToType(findVariable(p.name)) == p.type) {
+
+        }else{
+          alert('Params error: ' + p.name + ' is not an integer');
+          throw('Semantic Error');
+        }
+      }else{
+        alert('Params error: ' + p.name + ' is not an integer');
+        throw('Semantic Error');
+      }
+    }else if (p.type === 'float'){
+      if(p.name.match(float_r) !== null){
+
+      }else if (findVariable(p.name) !== -1){
+        if (indexToType(findVariable(p.name)) == p.type) {
+
+        }else{
+          alert('Params error: ' + p.name + ' is not a float');
+          throw('Semantic Error');
+        }
+      }else{
+        alert('Params error: ' + p.name + ' is not a float');
+        throw('Semantic Error');
+      }
+    }else if (p.type === 'string'){
+      if(p.name.match(string_r) !== null){
+
+      }else if (findVariable(p.name) !== -1){
+        if (indexToType(findVariable(p.name)) == p.type) {
+
+        }else{
+          alert('Params error: ' + p.name + ' is not a string');
+          throw('Semantic Error');
+        }
+      }else{
+        alert('Params error: ' + p.name + ' is not a string');
+        throw('Semantic Error');
+      }
+    }else if (p.type === 'boolean'){
+      if(p.name.match(boolean_r) !== null){
+
+      }else if (findVariable(p.name) !== -1){
+        if (indexToType(findVariable(p.name)) == p.type) {
+
+        }else{
+          alert('Params error: ' + p.name + ' is not a boolean');
+          throw('Semantic Error');
+        }
+      }else{
+        alert('Params error: ' + p.name + ' is not a boolean');
+        throw('Semantic Error');
+      }
+    }
+  });
+  
+  return_type = findVariable(function_name);
+  if(return_type === -1){
+    alert('Function ' + current_function + ' does not exist');
+    throw('Semantic Error');
+  }
+  return_type = indexToType(return_type);
+
+  functions_call_table.push([function_name, quadruples.length, function_params_array, return_type]);
+  quadruples.push(['gotoFunk', '', '', 0]);
+  function_params_array = [];
+  return {'input':function_name, 'type':'var'};
 };
 
 Blockly.JavaScript['param'] = function(block) {
