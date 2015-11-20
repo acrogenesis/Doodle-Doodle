@@ -16,6 +16,18 @@ function insertIntoShell(text){
   shellBody.appendChild(li);
 }
 
+function toggleMazeNShell(){
+  var maze = document.getElementById('maze');
+  var shell = document.getElementById('shell');
+  if (maze.className === 'hidden') {
+    maze.className = '';
+    shell.className = 'hidden shell-wrap';
+  }else {
+    maze.className = 'hidden';
+    shell.className = 'shell-wrap';
+  }
+}
+
 function showCode() {
   resetShell();
   // Generate JavaScript code and display it.
