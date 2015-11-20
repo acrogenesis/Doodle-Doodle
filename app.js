@@ -16,15 +16,17 @@ function insertIntoShell(text){
   shellBody.appendChild(li);
 }
 
-function toggleMazeNShell(){
+function toggleMazeNShell(button){
   var maze = document.getElementById('maze');
   var shell = document.getElementById('shell');
   if (maze.className === 'hidden') {
     maze.className = '';
     shell.className = 'hidden shell-wrap';
+    button.textContent = 'Show Shell';
   }else {
     maze.className = 'hidden';
     shell.className = 'shell-wrap';
+    button.textContent = 'Show Maze';
   }
 }
 
