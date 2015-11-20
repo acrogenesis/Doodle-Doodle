@@ -3,42 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Doodle-Doodle</title>
-  <script src="../../helping_functions.js"></script>
-  <script src="../../variables.js"></script>
-  <script src="../../semantic_cube.js"></script>
-  <!-- <script src="../../blockly_compressed.js"></script> -->
-  <!-- <script src="../../blocks_compressed.js"></script> -->
-  <script src="../../blockly_uncompressed.js"></script>
-  <script src="../../blocks/begin_end.js"></script>
-  <script src="../../blocks/conditions.js"></script>
-  <script src="../../blocks/functions.js"></script>
-  <script src="../../blocks/loops.js"></script>
-  <script src="../../blocks/movements.js"></script>
-  <script src="../../blocks/operations.js"></script>
-  <script src="../../blocks/print.js"></script>
-  <script src="../../blocks/variables_and_constants.js"></script>
-  <!-- <script src="../../javascript_compressed.js"></script> -->
-  <script src="../../generators/javascript.js"></script>
-  <script src="../../generators/javascript/begin_end.js"></script>
-  <script src="../../generators/javascript/conditions.js"></script>
-  <script src="../../generators/javascript/functions.js"></script>
-  <script src="../../generators/javascript/loops.js"></script>
-  <script src="../../generators/javascript/movements.js"></script>
-  <script src="../../generators/javascript/operations.js"></script>
-  <script src="../../generators/javascript/print.js"></script>
-  <script src="../../generators/javascript/variables_and_constants.js"></script>
-  <script src="../../msg/messages.js"></script>
-  <script src="../../redefined.js" charset="utf-8"></script>
-  <style>
-    body {
-      background-color: #fff;
-      font-family: sans-serif;
-    }
-    h1 {
-      font-weight: normal;
-      font-size: 140%;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" charset="utf-8">
 </head>
 <body>
   <h1>Welcome to Doodle-Doodle</h1>
@@ -49,9 +14,17 @@
     <button onclick="showCode()">Show JavaScript</button>
   </p>
 
-  <div id="blocklyDiv" style="height: 600px; width: 1000px;"></div>
+  <div id="blocklyDiv"></div>
+  <div id="map-n-console">
+    <div id="map" class="hidden">
 
-  <xml id="toolbox" style="display: none">
+    </div>
+    <div class="shell-wrap">
+      <ul id="shell-body" class="shell-body"></ul>
+    </div>
+  </div>
+
+  <xml id="toolbox">
     <category name="Begin">
       <block type="begin_end"></block>
     </category>
@@ -110,29 +83,35 @@
     </category>
   </xml>
 
-  <xml id="startBlocks" style="display: none">
+  <xml id="startBlocks">
     <block type="begin_end" inline="false" x="100" y="20"></block>
   </xml>
-
-  <script>
-    var workspace = Blockly.inject('blocklyDiv',
-        {media: '../../media/',
-         toolbox: document.getElementById('toolbox')});
-    Blockly.Xml.domToWorkspace(workspace,
-        document.getElementById('startBlocks'));
-
-    function showCode() {
-      // Generate JavaScript code and display it.
-      pre_compilation = true;
-      startCompilation();
-      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-      var code = Blockly.JavaScript.workspaceToCode(workspace);
-      pre_compilation = false;
-      code = Blockly.JavaScript.workspaceToCode(workspace);
-      checkFunctionCalls();
-      alert(code);
-    }
-  </script>
-
+  <script src="../../helping_functions.js"></script>
+  <script src="../../variables.js"></script>
+  <script src="../../semantic_cube.js"></script>
+  <!-- <script src="../../blockly_compressed.js"></script> -->
+  <!-- <script src="../../blocks_compressed.js"></script> -->
+  <script src="../../blockly_uncompressed.js"></script>
+  <script src="../../blocks/begin_end.js"></script>
+  <script src="../../blocks/conditions.js"></script>
+  <script src="../../blocks/functions.js"></script>
+  <script src="../../blocks/loops.js"></script>
+  <script src="../../blocks/movements.js"></script>
+  <script src="../../blocks/operations.js"></script>
+  <script src="../../blocks/print.js"></script>
+  <script src="../../blocks/variables_and_constants.js"></script>
+  <!-- <script src="../../javascript_compressed.js"></script> -->
+  <script src="../../generators/javascript.js"></script>
+  <script src="../../generators/javascript/begin_end.js"></script>
+  <script src="../../generators/javascript/conditions.js"></script>
+  <script src="../../generators/javascript/functions.js"></script>
+  <script src="../../generators/javascript/loops.js"></script>
+  <script src="../../generators/javascript/movements.js"></script>
+  <script src="../../generators/javascript/operations.js"></script>
+  <script src="../../generators/javascript/print.js"></script>
+  <script src="../../generators/javascript/variables_and_constants.js"></script>
+  <script src="../../msg/messages.js"></script>
+  <script src="../../redefined.js" charset="utf-8"></script>
+  <script src="../../app.js" charset="utf-8"></script>
 </body>
 </html>
