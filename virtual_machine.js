@@ -28,6 +28,8 @@ var vmboolean_vars = {
     'temporal': []
   };
 
+var current_quadruple = 0;
+
 function writeToMemory(value, index){
 	switch(index[0]){
 		case 'i':
@@ -251,5 +253,15 @@ function readFromMemory(index){
 					break;
 			}
 			break;
+	}
+}
+
+function findBeginQuadruple(){
+	var i;
+	for(i=0; i<quadruples.length; i++){
+		if(quadruples[i][0] === 35){
+			current_quadruple = i;
+			break;
+		}
 	}
 }
