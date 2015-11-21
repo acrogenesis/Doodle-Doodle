@@ -344,6 +344,12 @@ function runProgram(){
 				break;
 			case 36:
 				break;
+			case 37:
+				break;
+			case 38:
+				break;
+			case 39:
+				break;
 		}
 	}
 }
