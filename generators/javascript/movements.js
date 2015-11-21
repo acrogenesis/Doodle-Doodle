@@ -41,19 +41,19 @@ Blockly.JavaScript['move'] = function(block) {
     alert('Repeat loop must have an integer');
     throw('Type Mismatch');
   }
-  quadruples.push(['move', '', '', left_quadruple]);
+  quadruples.push([15, '', '', left_quadruple]);
 
   return '';
 };
 
 Blockly.JavaScript['turn'] = function(block) {
   var dropdown_directions = block.getFieldValue('directions');
-  quadruples.push(['turn', '', '', dropdown_directions]);
+  quadruples.push([16, '', '', dropdown_directions]);
   return '';
 };
 
 Blockly.JavaScript['wall_in_front'] = function(block) {
   var next_bool = resultType('boolean', 'boolean', 4);
-  quadruples.push(['wif', '', '', next_bool]);
+  quadruples.push([24, '', '', next_bool]);
   return quadruples.length-1;
 };
