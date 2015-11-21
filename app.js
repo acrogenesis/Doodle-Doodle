@@ -10,6 +10,7 @@ function resetShell(){
 }
 
 function insertIntoShell(text){
+  text = JSON.stringify(text);
   var shellBody = document.getElementById('shell-body');
   var li = document.createElement('li');
   li.innerHTML = text;
