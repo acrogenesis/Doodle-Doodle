@@ -114,6 +114,10 @@ h1 {
 }
 
 .myButton {
+  position: absolute;
+  top: 620px;
+  left: 45px;
+  z-index: 1;
   -moz-box-shadow: 0px 10px 14px -7px #3e7327;
   -webkit-box-shadow: 0px 10px 14px -7px #3e7327;
   box-shadow: 0px 10px 14px -7px #3e7327;
