@@ -7,7 +7,7 @@ goog.require('Blockly.JavaScript');
 Blockly.JavaScript['if'] = function(block) {
   var value_condition = Blockly.JavaScript.statementToCode(block, 'condition');
   var false_jump_index = quadruples.length;
-  quadruples.push(['gotoF', quadruples[value_condition][3], '', 0]);
+  quadruples.push([37, quadruples[value_condition][3], '', 0]);
   Blockly.JavaScript.statementToCode(block, 'statment');
   quadruples[false_jump_index][3] = quadruples.length;
 
@@ -19,11 +19,11 @@ Blockly.JavaScript['if_else'] = function(block) {
   var false_jump_index = quadruples.length;
   var jump_index;
 
-  quadruples.push(['gotoF', quadruples[value_condition][3], '', 0]);
+  quadruples.push([37, quadruples[value_condition][3], '', 0]);
 
   Blockly.JavaScript.statementToCode(block, 'statment');
   jump_index = quadruples.length;
-  quadruples.push(['goto', '', '', 0]);
+  quadruples.push([38, '', '', 0]);
   quadruples[false_jump_index][3] = quadruples.length;
 
   Blockly.JavaScript.statementToCode(block, 'else_condition');
@@ -97,7 +97,7 @@ Blockly.JavaScript['equal_to'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 4);
 
-  quadruples.push(['==', left_quadruple, right_quadruple, result_quadruple]);
+  quadruples.push([4, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
 };
@@ -167,7 +167,7 @@ Blockly.JavaScript['less_than'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 5);
 
-  quadruples.push(['<', left_quadruple, right_quadruple, result_quadruple]);
+  quadruples.push([5, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
 };
@@ -236,7 +236,7 @@ Blockly.JavaScript['greater_than'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 6);
 
-  quadruples.push(['>', left_quadruple, right_quadruple, result_quadruple]);
+  quadruples.push([6, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
 };
@@ -305,7 +305,7 @@ Blockly.JavaScript['less_than_or_equal_to'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 7);
 
-  quadruples.push(['<=', left_quadruple, right_quadruple, result_quadruple]);
+  quadruples.push([7, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
 };
@@ -375,7 +375,7 @@ Blockly.JavaScript['greater_than_or_equal_to'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 8);
 
-  quadruples.push(['>=', left_quadruple, right_quadruple, result_quadruple]);
+  quadruples.push([8, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
 };
@@ -446,7 +446,7 @@ Blockly.JavaScript['not_equal_to'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 9);
 
-  quadruples.push(['!=', left_quadruple, right_quadruple, result_quadruple]);
+  quadruples.push([9, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
 };
@@ -516,7 +516,7 @@ Blockly.JavaScript['and'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 10);
 
-  quadruples.push(['and', left_quadruple, right_quadruple, result_quadruple]);
+  quadruples.push([10, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
 };
@@ -586,7 +586,7 @@ Blockly.JavaScript['or'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 11);
 
-  quadruples.push(['or', left_quadruple, right_quadruple, result_quadruple]);
+  quadruples.push([11, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
 };
