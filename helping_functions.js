@@ -193,7 +193,7 @@ function pushVarToTable(var_name, var_type){
 function pushToParamTable(var_index, var_type){
   param_vars[var_type].push(var_index);
   var param_index = 'p' + (var_type[0]) + (param_vars[var_type].length-1);
-  quadruples.push(['=', var_index, '', param_index]);
+  quadruples.push([12, var_index, '', param_index]);
 }
 
 function varTypeToInt(var_type){
