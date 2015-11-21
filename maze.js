@@ -1,7 +1,7 @@
 var canvas = document.getElementById("mazecanvas");
 var context = canvas.getContext("2d");
-var currRectX = 240;
-var currRectY = 60;
+var currRectX = 200;
+var currRectY = 20;
 var mazeWidth = 556;
 var mazeHeight = 556;
 var direction = 90;
@@ -31,7 +31,7 @@ function drawMazeAndRectangle(rectX, rectY) {
     context.drawImage(mazeImg, 0, 0);
     drawTriangle(rectX, rectY, "#0000FF", false, true);
     context.beginPath();
-    context.arc(260, 320, 7, 0, 2 * Math.PI, false);
+    context.arc(220, 280, 7, 0, 2 * Math.PI, false);
     context.closePath();
     context.fillStyle = '#00FF00';
     context.fill();

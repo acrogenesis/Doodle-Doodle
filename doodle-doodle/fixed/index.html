@@ -12,13 +12,12 @@
 
   <p>
     <button onclick="showCode()">Show JavaScript</button>
-    <button onclick="toggleMazeNShell(this)">Show Maze</button>
   </p>
 
   <div id="blocklyDiv"></div>
   <div id="maze-n-shell">
-    <div id="maze" class="hidden">
-      <canvas width="400" height="600" id="mazecanvas">Can't load the maze game, because your browser doesn't support HTML5.</canvas>
+    <div id="maze">
+      <canvas width="320" height="320" id="mazecanvas">Can't load the maze game, because your browser doesn't support HTML5.</canvas>
       <noscript>JavaScript is not enabled. To play the game, you should enable it.</noscript>
     </div>
     <div id='shell' class="shell-wrap">
