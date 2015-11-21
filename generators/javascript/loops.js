@@ -44,21 +44,21 @@ Blockly.JavaScript['repeat'] = function(block) {
 
   var times = left_quadruple;
   var repeat_temporal = resultType('integer', 'integer', 0);
-  quadruples.push(['=', repeat_temporal, '', times]);
+  quadruples.push([12, repeat_temporal, '', times]);
 
   var bool_repeat_temporal = resultType('integer', 'integer', 6);
   var jump_index = quadruples.length;
   var false_jump_index;
-  quadruples.push(['>', repeat_temporal, 0, bool_repeat_temporal]);
+  quadruples.push([6, repeat_temporal, 0, bool_repeat_temporal]);
 
-  quadruples.push(['-', repeat_temporal, 1, repeat_temporal]);
+  quadruples.push([1, repeat_temporal, 1, repeat_temporal]);
 
   false_jump_index = quadruples.length;
-  quadruples.push(['gotoF', bool_repeat_temporal, '', 0]);
+  quadruples.push([37, bool_repeat_temporal, '', 0]);
 
   Blockly.JavaScript.statementToCode(block, 'statement');
 
-  quadruples.push(['goto', '', '', jump_index]);
+  quadruples.push([38, '', '', jump_index]);
 
   quadruples[false_jump_index][3] = quadruples.length;
 
@@ -69,10 +69,10 @@ Blockly.JavaScript['while'] = function(block) {
   var value_expression = Blockly.JavaScript.statementToCode(block, 'expression');
   var jump_to_condition = quadruples.length - 1;
   var false_jump_index = quadruples.length;
-  quadruples.push(['gotoF', quadruples[value_expression][3], '', 0]);
+  quadruples.push([37, quadruples[value_expression][3], '', 0]);
 
   Blockly.JavaScript.statementToCode(block, 'statment');
-  quadruples.push(['goto', '', '', jump_to_condition]);
+  quadruples.push([38, '', '', jump_to_condition]);
   quadruples[false_jump_index][3] = quadruples.length;
 
   return '';
@@ -83,6 +83,6 @@ Blockly.JavaScript['do_while'] = function(block) {
   Blockly.JavaScript.statementToCode(block, 'statment');
   Blockly.JavaScript.statementToCode(block, 'expression');
 
-  quadruples.push(['gotoV', quadruples[quadruples.length - 1][3], '', true_jump_index]);
+  quadruples.push([39, quadruples[quadruples.length - 1][3], '', true_jump_index]);
   return '';
 };
