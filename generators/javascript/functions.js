@@ -42,13 +42,13 @@ Blockly.JavaScript['def_function'] = function(block) {
         throw('Semantic Error');
       }
       pushVarToTable(n.name, n.type);
-      quadruples.push(['=', getNextParam(findLocalVariable(n.name)), '', findLocalVariable(n.name)]);
+      quadruples.push([12, getNextParam(findLocalVariable(n.name)), '', findLocalVariable(n.name)]);
     }
   });
 
   functions_table[text_func_name] = [quadruples.length, function_params_array, return_type];
   Blockly.JavaScript.statementToCode(block, 'main');
-  quadruples.push(['RETURN', '', '', '']);
+  quadruples.push([34, '', '', '']);
   function_params_array = [];
   clearLocal();
   current_function = 'main';
@@ -124,7 +124,7 @@ Blockly.JavaScript['call_function'] = function(block) {
     }
   });
   functions_call_table.push([function_name, quadruples.length, function_params_array, 'no_return']);
-  quadruples.push(['gotoFunk', '', '', 0]);
+  quadruples.push([33, '', '', 0]);
   function_params_array = [];
   return '';
 };
@@ -209,7 +209,7 @@ Blockly.JavaScript['return_function'] = function(block) {
   return_type = indexToType(return_type);
 
   functions_call_table.push([function_name, quadruples.length, function_params_array, return_type]);
-  quadruples.push(['gotoFunk', '', '', 0]);
+  quadruples.push([33, '', '', 0]);
   function_params_array = [];
   return {'input':function_name, 'type':'var'};
 };
@@ -279,7 +279,7 @@ Blockly.JavaScript['return'] = function(block) {
     alert('Return value of function ' + current_function + ' must be ' + indexToType(function_index));
     throw('Semantic Error');
   }
-  quadruples.push(['=', left_quadruple, '', function_index]);
+  quadruples.push([12, left_quadruple, '', function_index]);
 
   return '';
 };
