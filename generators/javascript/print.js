@@ -37,12 +37,12 @@ Blockly.JavaScript['print'] = function(block) {
     left_quadruple = left_value;
   }
 
-  quadruples.push(['print', '', '', left_quadruple]);
+  quadruples.push([13, '', '', left_quadruple]);
   return '';
 };
 
 Blockly.JavaScript['say'] = function(block) {
   var text_say_value = block.getFieldValue('say_value');
-  quadruples.push(['say', '', '', text_say_value]);
+  quadruples.push([14, '', '', text_say_value]);
   return '';
 };
