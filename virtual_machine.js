@@ -266,6 +266,15 @@ function findBeginQuadruple(){
 	}
 }
 
+function checkIndexType(index){
+	var var_r = /^(i|f|s|b)(g|l|t)\d+$/;
+	var param_r = /^(p)(i|f|s|b)\d+$/;
+	if(index.match(var_r) || index.match(param_r)){
+		return true;
+	}
+	return false;
+}
+
 function runProgram(){
 	findBeginQuadruple();
 	while(quadruples[current_quadruple][0] !== 36){
