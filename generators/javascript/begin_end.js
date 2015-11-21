@@ -10,9 +10,9 @@ Blockly.JavaScript['begin_end'] = function(block) {
   	return '';
   }
   scope = 'global';
-  quadruples.push(['BEGIN']);
+  quadruples.push([35]);
   Blockly.JavaScript.statementToCode(block, 'main');
-  quadruples.push(['END']);
+  quadruples.push([36]);
   clearLocalAndTemporal();
   return true;
 };
