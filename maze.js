@@ -5,8 +5,47 @@ var currRectY = 20;
 var mazeWidth = 556;
 var mazeHeight = 556;
 var direction = 90;
+var difficulty = 'easy'; // easy, med, hard
+var level = 1; // 1, 2
 var intervalVar;
-
+var mazes = {
+  'easy': {
+    '1': {
+      'img': 'maze-easy-1.gif',
+      'blue': [20, 20],
+      'lime': [280, 280]
+    },
+    '2': {
+      'img': 'maze-easy-2.gif',
+      'blue': [80, 20],
+      'lime': [40, 40]
+    }
+  },
+  'med': {
+    '1': {
+      'img': 'maze-med-1.gif',
+      'blue': [200, 20],
+      'lime': [220, 280]
+    },
+    '2': {
+      'img': 'maze-med-2.gif',
+      'blue': [20, 140],
+      'lime': [160, 160]
+    }
+  },
+  'hard': {
+    '1': {
+      'img': 'maze-hard-1.gif',
+      'blue': [80, 20],
+      'lime': [160, 40]
+    },
+    '2': {
+      'img': 'maze-hard-2.gif',
+      'blue': [20, 20],
+      'lime': [280, 40]
+    }
+  }
+};
 function turnRight(){
   direction = (direction + 90) % 360;
   drawTriangle(currRectX, currRectY, "#0000FF");
@@ -31,12 +70,12 @@ function drawMazeAndRectangle(rectX, rectY) {
     context.drawImage(mazeImg, 0, 0);
     drawTriangle(rectX, rectY, "#0000FF", false, true);
     context.beginPath();
-    context.arc(220, 280, 7, 0, 2 * Math.PI, false);
+    context.arc(mazes[difficulty][level].lime[0], mazes[difficulty][level].lime[1], 9, 0, 2 * Math.PI, false);
     context.closePath();
     context.fillStyle = '#00FF00';
     context.fill();
   };
-  mazeImg.src = "maze.gif";
+  mazeImg.src = mazes[difficulty][level].img;
 }
 function drawTriangle(x, y, style) {
   makeWhite(currRectX, currRectY, 40, 40);
@@ -135,5 +174,12 @@ function canMoveTo(destX, destY) {
   }
   return canMove;
 }
-
-drawMazeAndRectangle(currRectX, currRectY);
+document.getElementById('difficulty').addEventListener("change", function() {
+  difficulty = this.value;
+  drawMazeAndRectangle(mazes[difficulty][level].blue[0], mazes[difficulty][level].blue[1]);
+});
+document.getElementById('level').addEventListener("change", function() {
+  level = this.value;
+  drawMazeAndRectangle(mazes[difficulty][level].blue[0], mazes[difficulty][level].blue[1]);
+});
+drawMazeAndRectangle(mazes[difficulty][level].blue[0], mazes[difficulty][level].blue[1]);

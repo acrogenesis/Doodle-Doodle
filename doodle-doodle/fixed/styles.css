@@ -7,6 +7,15 @@ h1 {
   font-size: 140%;
 }
 
+.controls {
+  position: absolute;
+  z-index: 1;
+}
+
+.controls select{
+  display: block;
+}
+
 #blocklyDiv {
   height: 600px;
   width: 59%;
