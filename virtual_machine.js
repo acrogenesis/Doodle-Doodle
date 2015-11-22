@@ -32,6 +32,10 @@ var jumps_array = [];
 
 var current_quadruple = 0;
 
+var myInterval;
+
+var runSlow = false;
+
 function writeToMemory(value, index){
   switch(index[0]){
     case 'i':
@@ -268,6 +272,10 @@ function findBeginQuadruple(){
   }
 }
 
+function endProgram(){
+  insertIntoShell('Program finished successfully');
+}
+
 function checkIndexType(index){
   var var_r = /^(i|f|s|b)(g|l|t)\d+$/;
   var param_r = /^(p)(i|f|s|b)\d+$/;
@@ -278,13 +286,8 @@ function checkIndexType(index){
   return false;
 }
 
-function runProgram(){
-  findBeginQuadruple();
-  var lf;
-  var rf;
-  jumps_array = [];
-  while(quadruples[current_quadruple][0] !== 36){
-    switch(quadruples[current_quadruple][0]){
+function loopThroughQuadruples(){
+  switch(quadruples[current_quadruple][0]){
       case 0: //+
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
@@ -521,6 +524,8 @@ function runProgram(){
         break;
       case 36:
         //End of program
+        clearInterval(myInterval);
+        endProgram();
         break;
       case 37: //gotoF
         lf = quadruples[current_quadruple][1];
@@ -544,6 +549,19 @@ function runProgram(){
         }
         break;
     }
+}
+
+function runProgram(){
+  findBeginQuadruple();
+  var lf;
+  var rf;
+  jumps_array = [];
+  if(runSlow){
+    myInterval = setInterval(loopThroughQuadruples, 300);
+  }else{
+    while(quadruples[current_quadruple][0] !== 36){
+      loopThroughQuadruples();
+    }
+    endProgram();
   }
-  insertIntoShell('Program finished successfully');
 }
