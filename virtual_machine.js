@@ -34,8 +34,6 @@ var current_quadruple = 0;
 
 var myInterval;
 
-var runSlow = false;
-
 function writeToMemory(value, index){
   switch(index[0]){
     case 'i':
@@ -556,7 +554,7 @@ function runProgram(){
   var lf;
   var rf;
   jumps_array = [];
-  if(runSlow){
+  if(document.getElementById('runSlow').checked){
     myInterval = setInterval(loopThroughQuadruples, 300);
   }else{
     while(quadruples[current_quadruple][0] !== 36){
