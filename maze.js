@@ -46,6 +46,38 @@ var mazes = {
   }
 };
 
+var requestAnimationFrame =
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    function(callback) {
+        return setTimeout(callback, 16);
+    };
+function animate() {
+  // The calculations required for the step function
+  var duration = 600;
+  var start = new Date().getTime();
+  var end = start + duration;
+  var distance = 1;
+
+  var step = function() {
+    // Get our current progres
+    var timestamp = new Date().getTime();
+    var progress = Math.min((duration - (end - timestamp)) / duration, 1);
+
+    // Update the square's property
+    moveRect(progress);
+
+    // If the animation hasn't finished, repeat the step.
+    if (progress < 1) requestAnimationFrame(step);
+  };
+
+  // Start the animation
+  return step();
+}
+
 function resetMaze(){
   drawTriangle(mazes[difficulty][level].blue[0], mazes[difficulty][level].blue[1], "#0000FF");
   direction = 180;

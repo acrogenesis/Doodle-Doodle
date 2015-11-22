@@ -1,3 +1,14 @@
+function delay(){
+  setTimeout(function(){
+    current_quadruple++;
+  }, 50);
+}
+
+function sleep(delay) {
+   var start = new Date().getTime();
+   while (new Date().getTime() < start + delay);
+ }
+
 function checkVarSyntax(var_name){
   if (var_name.match(/^[a-z]+(\d|_|[a-z])*$/i) !== null){
     return true;
