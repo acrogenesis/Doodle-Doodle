@@ -490,7 +490,7 @@ function runProgram(){
         rf = quadruples[current_quadruple][3];
 
         //checa si hay una pared enfrente y guarda true o false en la variable lf
-
+        lf = wallInFront();
         writeToMemory(lf, rf);
 
         current_quadruple++;
