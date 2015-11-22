@@ -465,10 +465,8 @@ function runProgram(){
         lf = quadruples[current_quadruple][3];
         if (lf === 'right') {
           turnRight();
-          // sleep(400);
         }else if (lf === 'left') {
           turnLeft();
-          // sleep(400);
         }
         current_quadruple++;
         break;

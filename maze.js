@@ -7,7 +7,6 @@ var mazeHeight = 556;
 var direction = 180;
 var difficulty = 'easy'; // easy, med, hard
 var level = 1; // 1, 2
-var intervalVar;
 var mazes = {
   'easy': {
     '1': {
@@ -131,16 +130,19 @@ function moveRect() {
       newX = currRectX;
       newY = currRectY - 20;
       break;
+    case -270:
     case 90:
       // arrow right key
       newX = currRectX + 20;
       newY = currRectY;
       break;
+    case -180:
     case 180:
       // arrow down key
       newX = currRectX;
       newY = currRectY + 20;
       break;
+    case -90:
     case 270:
       // arrow left key
       newX = currRectX - 20;
