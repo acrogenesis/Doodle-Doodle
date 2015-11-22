@@ -46,7 +46,7 @@ Blockly.JavaScript['def_function'] = function(block) {
     }
   });
 
-  functions_table[text_func_name] = [quadruples.length, function_params_array, return_type];
+  functions_table[text_func_name] = [quadruples.length - function_params_array.length, function_params_array, return_type];
   Blockly.JavaScript.statementToCode(block, 'main');
   quadruples.push([34, '', '', '']);
   function_params_array = [];

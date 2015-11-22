@@ -28,6 +28,8 @@ var vmboolean_vars = {
     'temporal': []
   };
 
+var jumps_array = [];
+
 var current_quadruple = 0;
 
 function writeToMemory(value, index){
@@ -269,6 +271,7 @@ function findBeginQuadruple(){
 function checkIndexType(index){
 	var var_r = /^(i|f|s|b)(g|l|t)\d+$/;
 	var param_r = /^(p)(i|f|s|b)\d+$/;
+	index = String(index);
 	if(index.match(var_r) || index.match(param_r)){
 		return true;
 	}
@@ -277,41 +280,194 @@ function checkIndexType(index){
 
 function runProgram(){
 	findBeginQuadruple();
+	var lf;
+	var rf;
+	jumps_array = [];
 	while(quadruples[current_quadruple][0] !== 36){
 		switch(quadruples[current_quadruple][0]){
-			case 0:
+			case 0: //+
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf+rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 1:
+			case 1: //-
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf-rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 2:
+			case 2: //*
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf*rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 3:
+			case 3: //÷
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf/rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 4:
+			case 4: //==
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf===rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 5:
+			case 5: //<
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf<rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 6:
+			case 6: //>
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf>rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 7:
+			case 7: //<=
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf<=rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 8:
+			case 8: //>=
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf>=rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 9:
+			case 9: //!=
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf!==rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 10:
+			case 10: //and
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf&&rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 11:
+			case 11: //or
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][2];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				writeToMemory(lf||rf, quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
-			case 12:
+			case 12: //=
+				lf = quadruples[current_quadruple][1];
+				rf = quadruples[current_quadruple][3];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+				writeToMemory(lf, rf);
+				current_quadruple++;
 				break;
-			case 13:
+			case 13: //print
+				rf = quadruples[current_quadruple][3];
+				if(checkIndexType(rf)){
+					rf = readFromMemory(rf);
+				}
+				insertIntoShell(rf);
+				current_quadruple++;
 				break;
-			case 14:
+			case 14: //say
+				alert(quadruples[current_quadruple][3]);
+				current_quadruple++;
 				break;
 			case 15:
+				lf = quadruples[current_quadruple][3];
+				if(checkIndexType(lf)){
+					lf = readFromMemory(lf);
+				}
+
+				//lf es la variable que tiene la cantidad de bloques a moverte
+				//aqui pon el codigo para mandar a llamar move con lf como parametro
+
+				current_quadruple++;
 				break;
 			case 16:
+				lf = quadruples[current_quadruple][3];
+
+				//lf vale "right" o "left"
+				//pon aqui la logica para hacer que gire en cierta posicion dependiendo del valor de lf
+
+				current_quadruple++;
 				break;
 			case 17:
 				break;
@@ -328,6 +484,13 @@ function runProgram(){
 			case 23:
 				break;
 			case 24:
+				rf = quadruples[current_quadruple][3];
+
+				//checa si hay una pared enfrente y guarda true o false en la variable lf
+
+				writeToMemory(lf, rf);
+
+				current_quadruple++;
 				break;
 			case 25:
 				break;
@@ -346,19 +509,40 @@ function runProgram(){
 			case 32:
 				break;
 			case 33:
+				jumps_array.push(current_quadruple+1);
+				current_quadruple = quadruples[current_quadruple][3];
 				break;
 			case 34:
+				current_quadruple = jumps_array.pop();
 				break;
 			case 35:
+				current_quadruple++;
 				break;
 			case 36:
+				//End of program
 				break;
-			case 37:
+			case 37: //gotoF
+				lf = quadruples[current_quadruple][1];
+				lf = readFromMemory(lf);
+				if(lf === false){
+					current_quadruple = quadruples[current_quadruple][3];
+				}else{
+					current_quadruple++;
+				}
 				break;
 			case 38:
+				current_quadruple = quadruples[current_quadruple][3];
 				break;
 			case 39:
+				lf = quadruples[current_quadruple][1];
+				lf = readFromMemory(lf);
+				if(lf === true){
+					current_quadruple = quadruples[current_quadruple][3];
+				}else{
+					current_quadruple++;
+				}
 				break;
 		}
 	}
+	insertIntoShell('Program finished successfully');
 }

@@ -27,5 +27,6 @@ function showCode() {
   pre_compilation = false;
   code = Blockly.JavaScript.workspaceToCode(workspace);
   checkFunctionCalls();
-  alert(code);
+  //alert(code);
+  runProgram();
 }
