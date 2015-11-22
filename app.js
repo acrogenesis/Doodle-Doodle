@@ -3,6 +3,7 @@ var workspace = Blockly.inject('blocklyDiv',
      toolbox: document.getElementById('toolbox')});
 Blockly.Xml.domToWorkspace(workspace,
     document.getElementById('startBlocks'));
+document.getElementById('runCode').addEventListener('click', runCode);
 
 function resetShell(){
   var shellBody = document.getElementById('shell-body');
@@ -17,7 +18,8 @@ function insertIntoShell(text){
   shellBody.appendChild(li);
 }
 
-function showCode() {
+function runCode() {
+  resetMaze();
   resetShell();
   // Generate JavaScript code and display it.
   pre_compilation = true;
@@ -27,6 +29,5 @@ function showCode() {
   pre_compilation = false;
   code = Blockly.JavaScript.workspaceToCode(workspace);
   checkFunctionCalls();
-  //alert(code);
   runProgram();
 }

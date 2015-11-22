@@ -450,23 +450,26 @@ function runProgram(){
         alert(quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 15:
+      case 15: //moveRect
         lf = quadruples[current_quadruple][3];
         if(checkIndexType(lf)){
           lf = readFromMemory(lf);
         }
 
-        //lf es la variable que tiene la cantidad de bloques a moverte
-        //aqui pon el codigo para mandar a llamar move con lf como parametro
-
+        for (var i = 0; i < lf; i++) {
+          moveRect();
+        }
         current_quadruple++;
         break;
-      case 16:
+      case 16: // turn
         lf = quadruples[current_quadruple][3];
-
-        //lf vale "right" o "left"
-        //pon aqui la logica para hacer que gire en cierta posicion dependiendo del valor de lf
-
+        if (lf === 'right') {
+          turnRight();
+          // sleep(400);
+        }else if (lf === 'left') {
+          turnLeft();
+          // sleep(400);
+        }
         current_quadruple++;
         break;
       case 17:

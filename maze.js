@@ -4,7 +4,7 @@ var currRectX = 200;
 var currRectY = 20;
 var mazeWidth = 556;
 var mazeHeight = 556;
-var direction = 90;
+var direction = 180;
 var difficulty = 'easy'; // easy, med, hard
 var level = 1; // 1, 2
 var intervalVar;
@@ -46,6 +46,12 @@ var mazes = {
     }
   }
 };
+
+function resetMaze(){
+  drawTriangle(mazes[difficulty][level].blue[0], mazes[difficulty][level].blue[1], "#0000FF");
+  direction = 180;
+}
+
 function turnRight(){
   direction = (direction + 90) % 360;
   drawTriangle(currRectX, currRectY, "#0000FF");
@@ -89,18 +95,21 @@ function drawTriangle(x, y, style) {
       context.lineTo(x, y+40);
       context.lineTo(x+40, y+40);
       break;
+    case -270:
     case 90:
       // arrow right key
       context.moveTo(x, y);
       context.lineTo(x+40, y+20);
       context.lineTo(x, y+40);
       break;
+    case -180:
     case 180:
       // arrow down key
       context.moveTo(x+20, y+40);
       context.lineTo(x, y);
       context.lineTo(x+40, y);
       break;
+    case -90:
     case 270:
       // arrow left key
       context.moveTo(x+40, y);
