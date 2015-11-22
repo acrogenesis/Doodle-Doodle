@@ -24,7 +24,7 @@ var mazes = {
   'med': {
     '1': {
       'img': 'maze-med-1.gif',
-      'blue': [200, 20],
+      'blue': [200, 140],
       'lime': [220, 280]
     },
     '2': {
@@ -112,7 +112,7 @@ function drawTriangle(x, y, style) {
   context.fillStyle = style;
   context.fill();
 }
-function moveRect(moveAmmount) {
+function moveRect() {
   var newX;
   var newY;
   var canMove;
@@ -120,21 +120,21 @@ function moveRect(moveAmmount) {
     case 0:
       // arrow up key
       newX = currRectX;
-      newY = currRectY - moveAmmount;
+      newY = currRectY - 20;
       break;
     case 90:
       // arrow right key
-      newX = currRectX + moveAmmount;
+      newX = currRectX + 20;
       newY = currRectY;
       break;
     case 180:
       // arrow down key
       newX = currRectX;
-      newY = currRectY + moveAmmount;
+      newY = currRectY + 20;
       break;
     case 270:
       // arrow left key
-      newX = currRectX - moveAmmount;
+      newX = currRectX - 20;
       newY = currRectY;
       break;
   }
