@@ -45,6 +45,7 @@ Blockly.JavaScript['def_function'] = function(block) {
       quadruples.push([12, getNextParam(findLocalVariable(n.name)), '', findLocalVariable(n.name)]);
     }
   });
+  clearParamsTable();
 
   functions_table[text_func_name] = [quadruples.length - function_params_array.length, function_params_array, return_type];
   Blockly.JavaScript.statementToCode(block, 'main');
@@ -67,7 +68,7 @@ Blockly.JavaScript['call_function'] = function(block) {
   function_params_array.forEach(function(p){
     if (p.type === 'integer'){
       if(p.name.match(int_r) !== null){
-        pushToParamTable(p.name, p.type);
+        pushToParamTable(parseInt(p.name), p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
           pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
@@ -81,7 +82,7 @@ Blockly.JavaScript['call_function'] = function(block) {
       }
     }else if (p.type === 'float'){
       if(p.name.match(float_r) !== null){
-        pushToParamTable(p.name, p.type);
+        pushToParamTable(parseFloat(p.name), p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
           pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
@@ -109,7 +110,7 @@ Blockly.JavaScript['call_function'] = function(block) {
       }
     }else if (p.type === 'boolean'){
       if(p.name.match(boolean_r) !== null){
-        pushToParamTable(p.name, p.type);
+        pushToParamTable(p.name === 'true', p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
           pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
@@ -123,6 +124,7 @@ Blockly.JavaScript['call_function'] = function(block) {
       }
     }
   });
+  clearParamsTable();
   functions_call_table.push([function_name, quadruples.length, function_params_array, 'no_return']);
   quadruples.push([33, '', '', 0]);
   function_params_array = [];
@@ -144,7 +146,7 @@ Blockly.JavaScript['return_function'] = function(block) {
   function_params_array.forEach(function(p){
     if (p.type === 'integer'){
       if(p.name.match(int_r) !== null){
-        pushToParamTable(p.name, p.type);
+        pushToParamTable(parseInt(p.name), p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
           pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
@@ -158,7 +160,7 @@ Blockly.JavaScript['return_function'] = function(block) {
       }
     }else if (p.type === 'float'){
       if(p.name.match(float_r) !== null){
-        pushToParamTable(p.name, p.type);
+        pushToParamTable(parseFloat(p.name), p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
           pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
@@ -186,7 +188,7 @@ Blockly.JavaScript['return_function'] = function(block) {
       }
     }else if (p.type === 'boolean'){
       if(p.name.match(boolean_r) !== null){
-        pushToParamTable(p.name, p.type);
+        pushToParamTable(p.name === 'true', p.type);
       }else if (findVariable(p.name) !== -1){
         if (indexToType(findVariable(p.name)) == p.type) {
           pushToParamTable(findVariable(p.name), indexToType(findVariable(p.name)));
@@ -200,7 +202,7 @@ Blockly.JavaScript['return_function'] = function(block) {
       }
     }
   });
-  
+  clearParamsTable();
   return_type = findVariable(function_name);
   if(return_type === -1){
     alert('Function ' + function_name + ' does not exist');

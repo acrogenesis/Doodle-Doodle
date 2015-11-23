@@ -84,6 +84,13 @@ function clearLocal(){
   boolean_vars.local = [];
 }
 
+function clearParamsTable(){
+  param_vars.integer = [];
+  param_vars.float = [];
+  param_vars.string = [];
+  param_vars.boolean = [];
+}
+
 function getNextParam(index){
   switch(index[0]){
     case 'i':
