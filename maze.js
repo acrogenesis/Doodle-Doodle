@@ -238,16 +238,12 @@ function wallInFront() {
 }
 
 function onGoal() {
-  var canMove;
-  canMove = canMoveTo(currRectX, currRectY);
-  switch (canMove) {
-    case 0:
-      return false;
-    case 1:
-      return false;
-    case 2:
-      return true;
+  var limeX = mazes[difficulty][level].lime[0];
+  var limeY = mazes[difficulty][level].lime[1];
+  if ((limeX >= currRectX &&  limeX <= currRectX + 40) && (limeY >= currRectY &&  limeY <= currRectY + 40)) {
+    return true;
   }
+  return false;
 }
 
 function canMoveTo(destX, destY) {
