@@ -281,11 +281,19 @@ function checkParamOffset(){
 
 function findBeginQuadruple(){
   var i;
+  var count_begins = 0;
   for(i=0; i<quadruples.length; i++){
     if(quadruples[i][0] === 35){
       current_quadruple = i;
-      break;
+      count_begins++;
     }
+  }
+  if (count_begins === 0){
+    insertIntoShell('Syntax Error - You need to have a Begin-End block');
+    throw('Syntax Error');
+  }else if(count_begins >= 2){
+    insertIntoShell('Syntax Error - You can only have one Begin-End block');
+    throw('Syntax Error');
   }
 }
 
