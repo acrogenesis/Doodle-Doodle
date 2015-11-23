@@ -187,7 +187,10 @@ function moveRect() {
     currRectX = newX;
     currRectY = newY;
   }else if (movingAllowed === 2) { // 2 means 'the rectangle reached the end point'
-    makeWhite(0, 0, canvas.width, canvas.height);
+    // makeWhite(0, 0, canvas.width, canvas.height);
+    drawTriangle(newX, newY, "#0000FF");
+    currRectX = newX;
+    currRectY = newY;
     context.font = "40px Arial";
     context.fillStyle = "blue";
     context.textAlign = "center";
