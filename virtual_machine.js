@@ -263,6 +263,13 @@ function readFromMemory(index){
   }
 }
 
+function countLocals(){
+  return vmint_vars.local.length + 
+          vmfloat_vars.local.length + 
+          vmstring_vars.local.length + 
+          vmboolean_vars.local.length;
+}
+
 function checkParamOffset(){
   var i;
   var sum = 0;
@@ -448,9 +455,6 @@ function loopThroughQuadruples(){
 
         if(rf[0] === 'p'){
           pcount++;
-        }else if(pcount > 0){
-          param_count.push(pcount);
-          pcount = 0;
         }
 
         if(checkIndexType(lf)){
@@ -532,11 +536,24 @@ function loopThroughQuadruples(){
         break;
       case 33:
         jumps_array.push(current_quadruple+1);
+        if(pcount > 0){
+          param_count.push(pcount);
+          pcount = 0;
+        }
+        if(countLocals() > checkParamOffset()){
+          param_count[param_count.length - 1] = param_count[param_count.length - 1] + (countLocals() - checkParamOffset());
+        }
         current_quadruple = quadruples[current_quadruple][3];
         break;
       case 34:
         current_quadruple = jumps_array.pop();
         param_count.pop();
+        if(jumps_array.length === 0){
+          vmint_vars.local = [];
+          vmfloat_vars.local = [];
+          vmstring_vars.local = [];
+          vmboolean_vars.local = [];
+        }
         break;
       case 35:
         current_quadruple++;
