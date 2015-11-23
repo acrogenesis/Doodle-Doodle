@@ -264,9 +264,9 @@ function readFromMemory(index){
 }
 
 function countLocals(){
-  return vmint_vars.local.length + 
-          vmfloat_vars.local.length + 
-          vmstring_vars.local.length + 
+  return vmint_vars.local.length +
+          vmfloat_vars.local.length +
+          vmstring_vars.local.length +
           vmboolean_vars.local.length;
 }
 
@@ -583,6 +583,15 @@ function loopThroughQuadruples(){
         }else{
           current_quadruple++;
         }
+        break;
+      case 40:
+        rf = quadruples[current_quadruple][3];
+
+        //checa si hay un goal enfrente y guarda true o false en la variable lf
+        lf = goalInFront();
+        writeToMemory(lf, rf);
+
+        current_quadruple++;
         break;
     }
 }

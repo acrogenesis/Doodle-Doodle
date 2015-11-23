@@ -237,6 +237,47 @@ function wallInFront() {
   }
 }
 
+function goalInFront() {
+  var newX;
+  var newY;
+  var canMove;
+  switch (direction) {
+    case 0:
+      // arrow up key
+      newX = currRectX;
+      newY = currRectY - 1;
+      break;
+    case -270:
+    case 90:
+      // arrow right key
+      newX = currRectX + 1;
+      newY = currRectY;
+      break;
+    case -180:
+    case 180:
+      // arrow down key
+      newX = currRectX;
+      newY = currRectY + 1;
+      break;
+    case -90:
+    case 270:
+      // arrow left key
+      newX = currRectX - 1;
+      newY = currRectY;
+      break;
+  }
+
+  canMove = canMoveTo(newX, newY);
+  switch (canMove) {
+    case 0:
+      return false;
+    case 1:
+      return false;
+    case 2:
+      return true;
+  }
+}
+
 function canMoveTo(destX, destY) {
   var imgData = context.getImageData(destX, destY, 40, 40);
   var data = imgData.data;

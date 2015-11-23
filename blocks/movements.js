@@ -42,3 +42,14 @@ Blockly.Blocks['wall_in_front'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+
+Blockly.Blocks['goal_in_front'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("goal in front?");
+    this.setOutput(true, "boolean");
+    this.setColour(210);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
