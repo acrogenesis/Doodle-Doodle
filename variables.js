@@ -27,7 +27,7 @@ function startCompilation(){
     'while': 21, 'end': 22, 'var': 23, 'wall_in_front': 24, 'function': 25,
     'begin': 26, 'params': 27, 'no_params': 28, 'integer': 29, 'float': 30,
     'string': 31, 'boolean': 32, 'gotoFunk': 33, 'Return': 34, 'Begin': 35,
-    'End': 36, 'gotoF': 37, 'goto': 38, 'gotoV': 39
+    'End': 36, 'gotoF': 37, 'goto': 38, 'gotoV': 39, 'goal_in_front': 40
   };
   param_vars = {
     'integer': [],
