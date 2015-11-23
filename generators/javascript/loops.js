@@ -44,7 +44,7 @@ Blockly.JavaScript['repeat'] = function(block) {
 
   var times = left_quadruple;
   var repeat_temporal = resultType('integer', 'integer', 0);
-  quadruples.push([12, repeat_temporal, '', times]);
+  quadruples.push([12, times, '', repeat_temporal]);
 
   var bool_repeat_temporal = resultType('integer', 'integer', 6);
   var jump_index = quadruples.length;
