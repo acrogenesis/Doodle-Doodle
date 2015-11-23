@@ -268,10 +268,12 @@ function canMoveTo(destX, destY) {
   return canMove;
 }
 document.getElementById('difficulty').addEventListener("change", function() {
+  resetMaze();
   difficulty = this.value;
   drawMazeAndRectangle(mazes[difficulty][level].blue[0], mazes[difficulty][level].blue[1]);
 });
 document.getElementById('level').addEventListener("change", function() {
+  resetMaze();
   level = this.value;
   drawMazeAndRectangle(mazes[difficulty][level].blue[0], mazes[difficulty][level].blue[1]);
 });
