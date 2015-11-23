@@ -58,7 +58,7 @@ Blockly.JavaScript['wall_in_front'] = function(block) {
   return quadruples.length-1;
 };
 
-Blockly.JavaScript['goal_in_front'] = function(block) {
+Blockly.JavaScript['on_goal'] = function(block) {
   var next_bool = resultType('boolean', 'boolean', 4);
   quadruples.push([40, '', '', next_bool]);
   return quadruples.length-1;

@@ -596,7 +596,7 @@ function loopThroughQuadruples(){
         rf = quadruples[current_quadruple][3];
 
         //checa si hay un goal enfrente y guarda true o false en la variable lf
-        lf = goalInFront();
+        lf = onGoal();
         writeToMemory(lf, rf);
 
         current_quadruple++;

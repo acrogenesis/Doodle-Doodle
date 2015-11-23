@@ -43,10 +43,10 @@ Blockly.Blocks['wall_in_front'] = {
   }
 };
 
-Blockly.Blocks['goal_in_front'] = {
+Blockly.Blocks['on_goal'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("goal in front?");
+        .appendField("on goal?");
     this.setOutput(true, "boolean");
     this.setColour(210);
     this.setTooltip('');
