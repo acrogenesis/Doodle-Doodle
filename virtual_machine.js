@@ -29,6 +29,9 @@ var vmboolean_vars = {
   };
 
 var jumps_array = [];
+var param_count = [];
+
+var pcount = 0;
 
 var current_quadruple = 0;
 
@@ -42,7 +45,7 @@ function writeToMemory(value, index){
           vmint_vars.temporal[parseInt(index.substr(2))] = value;
           break;
         case 'l':
-          vmint_vars.local[parseInt(index.substr(2))] = value;
+          vmint_vars.local[parseInt(index.substr(2)) + checkParamOffset()] = value;
           break;
         case 'g':
           vmint_vars.global[parseInt(index.substr(2))] = value;
@@ -55,7 +58,7 @@ function writeToMemory(value, index){
           vmfloat_vars.temporal[parseInt(index.substr(2))] = value;
           break;
         case 'l':
-          vmfloat_vars.local[parseInt(index.substr(2))] = value;
+          vmfloat_vars.local[parseInt(index.substr(2)) + checkParamOffset()] = value;
           break;
         case 'g':
           vmfloat_vars.global[parseInt(index.substr(2))] = value;
@@ -68,7 +71,7 @@ function writeToMemory(value, index){
           vmstring_vars.temporal[parseInt(index.substr(2))] = value;
           break;
         case 'l':
-          vmstring_vars.local[parseInt(index.substr(2))] = value;
+          vmstring_vars.local[parseInt(index.substr(2)) + checkParamOffset()] = value;
           break;
         case 'g':
           vmstring_vars.global[parseInt(index.substr(2))] = value;
@@ -81,7 +84,7 @@ function writeToMemory(value, index){
           vmboolean_vars.temporal[parseInt(index.substr(2))] = value;
           break;
         case 'l':
-          vmboolean_vars.local[parseInt(index.substr(2))] = value;
+          vmboolean_vars.local[parseInt(index.substr(2)) + checkParamOffset()] = value;
           break;
         case 'g':
           vmboolean_vars.global[parseInt(index.substr(2))] = value;
@@ -120,11 +123,11 @@ function readFromMemory(index){
           }
           break;
         case 'l':
-          if(vmint_vars.local[parseInt(index.substr(2))] === undefined){
+          if(vmint_vars.local[parseInt(index.substr(2)) + checkParamOffset()] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
             throw('Runtime Error');
           }else{
-            return vmint_vars.local[parseInt(index.substr(2))];
+            return vmint_vars.local[parseInt(index.substr(2)) + checkParamOffset()];
           }
           break;
         case 'g':
@@ -148,11 +151,11 @@ function readFromMemory(index){
           }
           break;
         case 'l':
-          if(vmfloat_vars.local[parseInt(index.substr(2))] === undefined){
+          if(vmfloat_vars.local[parseInt(index.substr(2)) + checkParamOffset()] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
             throw('Runtime Error');
           }else{
-            return vmfloat_vars.local[parseInt(index.substr(2))];
+            return vmfloat_vars.local[parseInt(index.substr(2)) + checkParamOffset()];
           }
           break;
         case 'g':
@@ -176,11 +179,11 @@ function readFromMemory(index){
           }
           break;
         case 'l':
-          if(vmstring_vars.local[parseInt(index.substr(2))] === undefined){
+          if(vmstring_vars.local[parseInt(index.substr(2)) + checkParamOffset()] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
             throw('Runtime Error');
           }else{
-            return vmstring_vars.local[parseInt(index.substr(2))];
+            return vmstring_vars.local[parseInt(index.substr(2)) + checkParamOffset()];
           }
           break;
         case 'g':
@@ -204,11 +207,11 @@ function readFromMemory(index){
           }
           break;
         case 'l':
-          if(vmboolean_vars.local[parseInt(index.substr(2))] === undefined){
+          if(vmboolean_vars.local[parseInt(index.substr(2)) + checkParamOffset()] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
             throw('Runtime Error');
           }else{
-            return vmboolean_vars.local[parseInt(index.substr(2))];
+            return vmboolean_vars.local[parseInt(index.substr(2)) + checkParamOffset()];
           }
           break;
         case 'g':
@@ -258,6 +261,15 @@ function readFromMemory(index){
       }
       break;
   }
+}
+
+function checkParamOffset(){
+  var i;
+  var sum = 0;
+  for(i=0; i<param_count.length; i++){
+    sum = sum + param_count[i];
+  }
+  return sum;
 }
 
 function findBeginQuadruple(){
@@ -433,6 +445,14 @@ function loopThroughQuadruples(){
       case 12: //=
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][3];
+
+        if(rf[0] === 'p'){
+          pcount++;
+        }else if(pcount > 0){
+          param_count.push(pcount);
+          pcount = 0;
+        }
+
         if(checkIndexType(lf)){
           lf = readFromMemory(lf);
         }
@@ -516,6 +536,7 @@ function loopThroughQuadruples(){
         break;
       case 34:
         current_quadruple = jumps_array.pop();
+        param_count.pop();
         break;
       case 35:
         current_quadruple++;
@@ -554,6 +575,8 @@ function runProgram(){
   var lf;
   var rf;
   jumps_array = [];
+  param_count = [];
+  pcount = 0;
   if(document.getElementById('runSlow').checked){
     myInterval = setInterval(loopThroughQuadruples, 300);
   }else{
