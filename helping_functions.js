@@ -1,13 +1,22 @@
-function delay(){
-  setTimeout(function(){
-    current_quadruple++;
-  }, 50);
+function intDiv(a, b){
+  var result = a / b;
+  if(result >= 0){
+    return Math.floor(result);
+  }else{
+    return Math.ceil(result);
+  }
 }
 
-function sleep(delay) {
-   var start = new Date().getTime();
-   while (new Date().getTime() < start + delay);
- }
+function getNumberType(number){
+  number = String(number);
+  var int_r = /^\d+$/;
+  var float_r = /^\d*\.\d+$/;
+  if (number.match(int_r)) {
+    return 'integer';
+  } else if (number.match(float_r)) {
+    return 'float';
+  }
+}
 
 function checkVarSyntax(var_name){
   if (var_name.match(/^[a-z]+(\d|_|[a-z])*$/i) !== null){

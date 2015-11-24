@@ -360,7 +360,11 @@ function loopThroughQuadruples(){
         if(checkIndexType(rf)){
           rf = readFromMemory(rf);
         }
-        writeToMemory(lf/rf, quadruples[current_quadruple][3]);
+        if (getNumberType(lf) == 'integer' && getNumberType(rf) == 'integer') {
+          writeToMemory(intDiv(lf, rf), quadruples[current_quadruple][3]);
+        }else {
+          writeToMemory(lf/rf, quadruples[current_quadruple][3]);
+        }
         current_quadruple++;
         break;
       case 4: // ==
