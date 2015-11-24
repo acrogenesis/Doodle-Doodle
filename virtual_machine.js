@@ -543,13 +543,10 @@ function loopThroughQuadruples(){
       case 37: // gotoF
         lf = quadruples[current_quadruple][1];
         lf = readFromMemory(lf);
-        insertIntoShell('llegue gotoF lf: ' + lf);
         if(lf === false){
           current_quadruple = quadruples[current_quadruple][3];
-          insertIntoShell('llegue gotoF: false');
         }else{
           current_quadruple++;
-          insertIntoShell('llegue gotoF: true');
         }
         break;
       case 38: // goto
