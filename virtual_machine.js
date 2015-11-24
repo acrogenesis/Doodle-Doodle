@@ -582,8 +582,9 @@ function runProgram(){
   jumps_array = [];
   param_count = [];
   pcount = 0;
+  var speed = document.getElementById('runSpeed').value;
   if(document.getElementById('runSlow').checked){
-    myInterval = setInterval(loopThroughQuadruples, 300);
+    myInterval = setInterval(loopThroughQuadruples, speed);
   }else{
     while(quadruples[current_quadruple][0] !== 36){
       loopThroughQuadruples();
