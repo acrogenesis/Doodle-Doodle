@@ -592,7 +592,7 @@ Blockly.JavaScript['or'] = function(block) {
 };
 
 Blockly.JavaScript['not'] = function(block) {
-  var Blockly.JavaScript.statementToCode = Blockly.JavaScript.valueToCode(block, 'r_not');
+  var not = Blockly.JavaScript.statementToCode(block, 'r_not');
   // TODO: Assemble JavaScript into code variable.
   var code = '...';
   // TODO: Change ORDER_NONE to the correct strength.
