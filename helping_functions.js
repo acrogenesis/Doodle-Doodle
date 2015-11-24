@@ -85,11 +85,8 @@ function clearLocalAndTemporal(){
 
 function clearLocal(){
   int_vars.local = [];
-
   float_vars.local = [];
-
   string_vars.local = [];
-
   boolean_vars.local = [];
 }
 
