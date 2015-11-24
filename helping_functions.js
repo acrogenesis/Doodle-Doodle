@@ -11,8 +11,6 @@ function intDiv(a, b){
 // Check if a given number is int or float
 function getNumberType(number){
   number = String(number);
-  var int_r = /^\d+$/;
-  var float_r = /^\d*\.\d+$/;
   if (number.match(int_r)) {
     return 'integer';
   } else if (number.match(float_r)) {

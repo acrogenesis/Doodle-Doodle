@@ -25,7 +25,7 @@ Blockly.JavaScript['def_function'] = function(block) {
     current_function = 'main';
     return '';
   }
-  
+
   function_params_array = [];
   Blockly.JavaScript.statementToCode(block, 'params');
   var p_names = getHashNameValues(function_params_array);
@@ -58,10 +58,6 @@ Blockly.JavaScript['def_function'] = function(block) {
 
 Blockly.JavaScript['call_function'] = function(block) {
   var function_name = block.getFieldValue('function_call_value');
-  var int_r = /^\d+$/;
-  var float_r = /^\d*\.\d+$/;
-  var string_r = /^"[^"]*"$/;
-  var boolean_r = /^(true|false)$/;
 
   function_params_array = [];
   Blockly.JavaScript.statementToCode(block, 'params');
@@ -133,12 +129,6 @@ Blockly.JavaScript['call_function'] = function(block) {
 
 Blockly.JavaScript['return_function'] = function(block) {
   var function_name = block.getFieldValue('function_call_value');
-  
-  var int_r = /^\d+$/;
-  var float_r = /^\d*\.\d+$/;
-  var string_r = /^"[^"]*"$/;
-  var boolean_r = /^(true|false)$/;
-
   var return_type;
 
   function_params_array = [];

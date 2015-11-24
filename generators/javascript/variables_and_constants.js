@@ -6,10 +6,6 @@ goog.require('Blockly.JavaScript');
 
 Blockly.JavaScript['factor'] = function(block) {
   var input = block.getFieldValue('input');
-  var int_r = /^\d+$/;
-  var float_r = /^\d*\.\d+$/;
-  var string_r = /^"[^"]*"$/;
-  var boolean_r = /^(true|false)$/;
   if (input.match(int_r) !== null){
     return {'input':parseInt(input), 'type':'integer'};
   }else if (input.match(float_r) !== null){
