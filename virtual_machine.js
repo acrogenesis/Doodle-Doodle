@@ -313,7 +313,7 @@ function checkIndexType(index){
 
 function loopThroughQuadruples(){
   switch(quadruples[current_quadruple][0]){
-      case 0: //+
+      case 0: // +
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -325,7 +325,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf+rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 1: //-
+      case 1: // -
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -337,7 +337,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf-rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 2: //*
+      case 2: // *
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -349,7 +349,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf*rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 3: //÷
+      case 3: // ÷
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -361,7 +361,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf/rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 4: //==
+      case 4: // ==
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -373,7 +373,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf===rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 5: //<
+      case 5: // <
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -385,7 +385,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf<rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 6: //>
+      case 6: // >
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -397,7 +397,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf>rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 7: //<=
+      case 7: // <=
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -409,7 +409,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf<=rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 8: //>=
+      case 8: // >=
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -421,7 +421,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf>=rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 9: //!=
+      case 9: // !=
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -433,7 +433,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf!==rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 10: //and
+      case 10: // and
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -445,7 +445,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf&&rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 11: //or
+      case 11: // or
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][2];
         if(checkIndexType(lf)){
@@ -457,7 +457,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf||rf, quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 12: //=
+      case 12: // =
         lf = quadruples[current_quadruple][1];
         rf = quadruples[current_quadruple][3];
 
@@ -471,7 +471,7 @@ function loopThroughQuadruples(){
         writeToMemory(lf, rf);
         current_quadruple++;
         break;
-      case 13: //print
+      case 13: // print
         rf = quadruples[current_quadruple][3];
         if(checkIndexType(rf)){
           rf = readFromMemory(rf);
@@ -479,11 +479,11 @@ function loopThroughQuadruples(){
         insertIntoShell(rf);
         current_quadruple++;
         break;
-      case 14: //say
+      case 14: // say
         alert(quadruples[current_quadruple][3]);
         current_quadruple++;
         break;
-      case 15: //moveRect
+      case 15: // moveRect
         lf = quadruples[current_quadruple][3];
         if(checkIndexType(lf)){
           lf = readFromMemory(lf);
@@ -517,7 +517,7 @@ function loopThroughQuadruples(){
         break;
       case 23:
         break;
-      case 24:
+      case 24: // wall in front?
         rf = quadruples[current_quadruple][3];
 
         //checa si hay una pared enfrente y guarda true o false en la variable lf
@@ -530,19 +530,19 @@ function loopThroughQuadruples(){
         break;
       case 26:
         break;
-      case 27:
+      case 27: // params
         break;
-      case 28:
+      case 28: // no params
         break;
-      case 29:
+      case 29: // integer
         break;
-      case 30:
+      case 30: // float
         break;
-      case 31:
+      case 31: // string
         break;
-      case 32:
+      case 32: // boolean
         break;
-      case 33:
+      case 33: // gotoFunk
         jumps_array.push(current_quadruple+1);
         if(pcount > 0){
           param_count.push(pcount);
@@ -553,7 +553,7 @@ function loopThroughQuadruples(){
         }
         current_quadruple = quadruples[current_quadruple][3];
         break;
-      case 34:
+      case 34: // return
         current_quadruple = jumps_array.pop();
         param_count.pop();
         if(jumps_array.length === 0){
@@ -563,27 +563,29 @@ function loopThroughQuadruples(){
           vmboolean_vars.local = [];
         }
         break;
-      case 35:
+      case 35: // Start of main
         current_quadruple++;
         break;
-      case 36:
-        //End of program
+      case 36: // End of main
         clearInterval(myInterval);
         endProgram();
         break;
-      case 37: //gotoF
+      case 37: // gotoF
         lf = quadruples[current_quadruple][1];
         lf = readFromMemory(lf);
+        insertIntoShell('llegue gotoF lf: ' + lf);
         if(lf === false){
           current_quadruple = quadruples[current_quadruple][3];
+          insertIntoShell('llegue gotoF: false');
         }else{
           current_quadruple++;
+          insertIntoShell('llegue gotoF: true');
         }
         break;
-      case 38:
+      case 38: // goto
         current_quadruple = quadruples[current_quadruple][3];
         break;
-      case 39:
+      case 39: // gotoV
         lf = quadruples[current_quadruple][1];
         lf = readFromMemory(lf);
         if(lf === true){
@@ -592,7 +594,7 @@ function loopThroughQuadruples(){
           current_quadruple++;
         }
         break;
-      case 40:
+      case 40: // onGoal
         rf = quadruples[current_quadruple][3];
 
         //checa si hay un goal enfrente y guarda true o false en la variable lf
