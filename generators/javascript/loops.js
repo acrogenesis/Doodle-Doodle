@@ -66,8 +66,9 @@ Blockly.JavaScript['repeat'] = function(block) {
 };
 
 Blockly.JavaScript['while'] = function(block) {
+  quadruples.push([21, '', '', '']);
+  var jump_to_condition = quadruples.length;
   var value_expression = Blockly.JavaScript.statementToCode(block, 'expression');
-  var jump_to_condition = quadruples.length - 1;
   var false_jump_index = quadruples.length;
   quadruples.push([37, quadruples[value_expression][3], '', 0]);
 

@@ -509,6 +509,9 @@ function loopThroughQuadruples(){
         }
         current_quadruple++;
         break;
+      case 21: // dummy while
+        current_quadruple++;
+        break;
       case 24: // wall in front?
         rf = quadruples[current_quadruple][3];
 
