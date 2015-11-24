@@ -157,3 +157,17 @@ Blockly.Blocks['or'] = {
     this.setTooltip('');
   }
 };
+
+
+Blockly.Blocks['not'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("not");
+    this.appendValueInput("r_not")
+        .setCheck(["boolean", "factor"]);
+    this.setInputsInline(true);
+    this.setOutput(true, "boolean");
+    this.setColour(0);
+    this.setTooltip('');
+  }
+};

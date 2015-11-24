@@ -590,3 +590,11 @@ Blockly.JavaScript['or'] = function(block) {
 
   return quadruples.length-1;
 };
+
+Blockly.JavaScript['not'] = function(block) {
+  var Blockly.JavaScript.statementToCode = Blockly.JavaScript.valueToCode(block, 'r_not');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
