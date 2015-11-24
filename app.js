@@ -16,6 +16,7 @@ function insertIntoShell(text){
   var li = document.createElement('li');
   li.innerHTML = text;
   shellBody.appendChild(li);
+  shellBody.scrollTop = shellBody.scrollHeight;
 }
 
 function runCode() {
