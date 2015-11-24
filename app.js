@@ -21,6 +21,8 @@ function insertIntoShell(text){
 }
 
 function runCode() {
+  this.className = 'runCode hidden';
+  document.getElementById('stopCode').className = 'stopCode';
   resetMaze();
   resetShell();
   // Generate JavaScript code and display it.
@@ -32,8 +34,6 @@ function runCode() {
   code = Blockly.JavaScript.workspaceToCode(workspace);
   checkFunctionCalls();
   runProgram();
-  this.className = 'runCode hidden';
-  document.getElementById('stopCode').className = 'stopCode';
 }
 
 function stopCode(){
