@@ -117,7 +117,7 @@ function readFromMemory(index){
         case 't':
           if(vmint_vars.temporal[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmint_vars.temporal[parseInt(index.substr(2))];
           }
@@ -125,7 +125,7 @@ function readFromMemory(index){
         case 'l':
           if(vmint_vars.local[parseInt(index.substr(2)) + checkParamOffset()] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmint_vars.local[parseInt(index.substr(2)) + checkParamOffset()];
           }
@@ -133,7 +133,7 @@ function readFromMemory(index){
         case 'g':
           if(vmint_vars.global[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmint_vars.global[parseInt(index.substr(2))];
           }
@@ -145,7 +145,7 @@ function readFromMemory(index){
         case 't':
           if(vmfloat_vars.temporal[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmfloat_vars.temporal[parseInt(index.substr(2))];
           }
@@ -153,7 +153,7 @@ function readFromMemory(index){
         case 'l':
           if(vmfloat_vars.local[parseInt(index.substr(2)) + checkParamOffset()] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmfloat_vars.local[parseInt(index.substr(2)) + checkParamOffset()];
           }
@@ -161,7 +161,7 @@ function readFromMemory(index){
         case 'g':
           if(vmfloat_vars.global[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmfloat_vars.global[parseInt(index.substr(2))];
           }
@@ -173,7 +173,7 @@ function readFromMemory(index){
         case 't':
           if(vmstring_vars.temporal[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmstring_vars.temporal[parseInt(index.substr(2))];
           }
@@ -181,7 +181,7 @@ function readFromMemory(index){
         case 'l':
           if(vmstring_vars.local[parseInt(index.substr(2)) + checkParamOffset()] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmstring_vars.local[parseInt(index.substr(2)) + checkParamOffset()];
           }
@@ -189,7 +189,7 @@ function readFromMemory(index){
         case 'g':
           if(vmstring_vars.global[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmstring_vars.global[parseInt(index.substr(2))];
           }
@@ -201,7 +201,7 @@ function readFromMemory(index){
         case 't':
           if(vmboolean_vars.temporal[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmboolean_vars.temporal[parseInt(index.substr(2))];
           }
@@ -209,7 +209,7 @@ function readFromMemory(index){
         case 'l':
           if(vmboolean_vars.local[parseInt(index.substr(2)) + checkParamOffset()] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmboolean_vars.local[parseInt(index.substr(2)) + checkParamOffset()];
           }
@@ -217,7 +217,7 @@ function readFromMemory(index){
         case 'g':
           if(vmboolean_vars.global[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmboolean_vars.global[parseInt(index.substr(2))];
           }
@@ -229,7 +229,7 @@ function readFromMemory(index){
         case 'i':
           if(vmparam_vars.integer[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmparam_vars.integer[parseInt(index.substr(2))];
           }
@@ -237,7 +237,7 @@ function readFromMemory(index){
         case 'f':
           if(vmparam_vars.float[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmparam_vars.float[parseInt(index.substr(2))];
           }
@@ -245,7 +245,7 @@ function readFromMemory(index){
         case 's':
           if(vmparam_vars.string[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmparam_vars.string[parseInt(index.substr(2))];
           }
@@ -253,7 +253,7 @@ function readFromMemory(index){
         case 'b':
           if(vmparam_vars.boolean[parseInt(index.substr(2))] === undefined){
             insertIntoShell('Runtime Error - Variable has no value');
-            throw('Runtime Error');
+            errorMessage('Runtime Error');
           }else{
             return vmparam_vars.boolean[parseInt(index.substr(2))];
           }
@@ -290,10 +290,10 @@ function findBeginQuadruple(){
   }
   if (count_begins === 0){
     insertIntoShell('Syntax Error - You need to have a Begin-End block');
-    throw('Syntax Error');
+    errorMessage('Syntax Error');
   }else if(count_begins >= 2){
     insertIntoShell('Syntax Error - You can only have one Begin-End block');
-    throw('Syntax Error');
+    errorMessage('Syntax Error');
   }
 }
 

@@ -72,7 +72,7 @@ Blockly.JavaScript['equal_to'] = function(block) {
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
       alert('Variable "' + left_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
@@ -85,7 +85,7 @@ Blockly.JavaScript['equal_to'] = function(block) {
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
       alert('Variable "' + right_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
@@ -142,7 +142,7 @@ Blockly.JavaScript['less_than'] = function(block) {
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
       alert('Variable "' + left_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
@@ -155,7 +155,7 @@ Blockly.JavaScript['less_than'] = function(block) {
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
       alert('Variable "' + right_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
@@ -211,7 +211,7 @@ Blockly.JavaScript['greater_than'] = function(block) {
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
       alert('Variable "' + left_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
@@ -224,7 +224,7 @@ Blockly.JavaScript['greater_than'] = function(block) {
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
       alert('Variable "' + right_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
@@ -280,7 +280,7 @@ Blockly.JavaScript['less_than_or_equal_to'] = function(block) {
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
       alert('Variable "' + left_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
@@ -293,7 +293,7 @@ Blockly.JavaScript['less_than_or_equal_to'] = function(block) {
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
       alert('Variable "' + right_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
@@ -350,7 +350,7 @@ Blockly.JavaScript['greater_than_or_equal_to'] = function(block) {
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
       alert('Variable "' + left_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
@@ -363,7 +363,7 @@ Blockly.JavaScript['greater_than_or_equal_to'] = function(block) {
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
       alert('Variable "' + right_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
@@ -421,7 +421,7 @@ Blockly.JavaScript['not_equal_to'] = function(block) {
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
       alert('Variable "' + left_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
@@ -434,7 +434,7 @@ Blockly.JavaScript['not_equal_to'] = function(block) {
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
       alert('Variable "' + right_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
@@ -491,7 +491,7 @@ Blockly.JavaScript['and'] = function(block) {
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
       alert('Variable "' + left_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
@@ -504,7 +504,7 @@ Blockly.JavaScript['and'] = function(block) {
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
       alert('Variable "' + right_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
@@ -561,7 +561,7 @@ Blockly.JavaScript['or'] = function(block) {
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
       alert('Variable "' + left_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
@@ -574,7 +574,7 @@ Blockly.JavaScript['or'] = function(block) {
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
       alert('Variable "' + right_value + '" not defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);

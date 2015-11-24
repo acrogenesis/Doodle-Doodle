@@ -45,7 +45,11 @@ function runCode() {
 
 function stopCode(){
   clearInterval(myInterval);
-  this.className = 'stopCode hidden';
+  errorMessage('Forced execution stop.');
+}
+
+function errorMessage(message){
+  document.getElementById('stopCode').className = 'stopCode hidden';
   document.getElementById('runCode').className = 'runCode';
-  throw('Forced execution stop.');
+  throw(message);
 }

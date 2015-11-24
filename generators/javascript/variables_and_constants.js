@@ -18,7 +18,7 @@ Blockly.JavaScript['factor'] = function(block) {
     return {'input':input, 'type':'var'};
   }else{
     alert('Not a valid expression: ' + input);
-    throw('Syntax Error');
+    errorMessage('Syntax Error');
   }
 };
 
@@ -31,12 +31,12 @@ Blockly.JavaScript['var'] = function(block) {
   if (scope == 'global'){
     if (findGlobalVariable(var_name) !== -1){
       alert('Variable "' + var_name + '" already defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     }
   }else if (scope == 'local') {
     if (findLocalVariable(var_name) !== -1){
       alert('Variable "' + var_name + '" already defined.');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     }
   }
 

@@ -23,7 +23,7 @@ function checkVarSyntax(var_name){
     return true;
   }else{
     alert('Syntax Error - Variable name: "' + var_name + '" incorrect.');
-    throw('Syntax Error');
+    errorMessage('Syntax Error');
   }
 }
 
@@ -57,13 +57,13 @@ function checkFunctionCalls(){
     var fd = functions_table[fc];
     if(fd === undefined) {
       alert('Function ' + fc + ' does not exist');
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     }else if (!arraysEqual(getHashTypeValues(call_array[2]), getHashTypeValues(fd[1]))) {
       alert('Function ' + fc + ' parameters should be ' + getHashTypeValues(fd[1]));
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     }else if (call_array[3] !== fd[2]) {
       alert('Call to function ' + fc + ' does not match return type: ' + fd[2]);
-      throw('Semantic Error');
+      errorMessage('Semantic Error');
     } else {
       quadruples[call_array[1]][3] = fd[0];
     }
@@ -262,7 +262,7 @@ function indexToType(index){
       return 'boolean';
     default:
       alert('Invalid variable type');
-      throw('Variable Type Error');
+      errorMessage('Variable Type Error');
   }
 }
 
@@ -270,7 +270,7 @@ function resultType(type1, type2, op){
   var result_index = checkSemantic(reserved_words[type1], reserved_words[type2], op);
   if (result_index === -1) {
     alert('Invalid Operation: ' + type1 + ' and ' + type2);
-    throw('Semantic Error');
+    errorMessage('Semantic Error');
   }
   return indexToNextTemporal(result_index);
 }
