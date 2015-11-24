@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Doodle-Doodle</title>
+  <link rel="stylesheet" href="styles.css" charset="utf-8">
+</head>
+<body>
+  <h1>Welcome to Doodle-Doodle</h1>
+
+  <p>This is a graphic input programming language developed to help people learn the basics of programming</p>
+  <button class="runCode" id="runCode">Run Code</button>
+  <button class="stopCode hidden" id="stopCode">Stop Code</button>
+
+  <div id="blocklyDiv"></div>
+  <div id="maze-n-shell">
+    <div id="maze">
+      <div class="controls">
+        <select name="difficulty" id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="med">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <select name="level" id="level">
+          <option value="1">Level 1</option>
+          <option value="2">Level 2</option>
+        </select>
+        <input type="checkbox" id="runSlow" checked="checked"> Run Slow<br>
+        <input type="range" id="runSpeed" min="30" max="500" value="300" style="width: 100%;">
+      </div>
+      <canvas width="320" height="320" id="mazecanvas">Can't load the maze game, because your browser doesn't support HTML5.</canvas>
+      <noscript>JavaScript is not enabled. To play the game, you should enable it.</noscript>
+    </div>
+    <div id='shell' class="shell-wrap">
+      <div class="shell-top-bar">Doodle Doodle Console</div>
+      <ul id="shell-body" class="shell-body"><li></li></ul>
+    </div>
+  </div>
+
+  <xml id="toolbox">
+    <category name="Begin">
+      <block type="begin_end"></block>
+    </category>
+
+    <category name="Variables and Constants">
+      <block type="factor"></block>
+      <block type="var"></block>
+    </category>
+
+    <category name="Movements">
+      <block type="move"></block>
+      <block type="turn"></block>
+      <block type="wall_in_front"></block>
+      <block type="on_goal"></block>
+    </category>
+
+    <category name="Conditions">
+      <block type="if"></block>
+      <block type="if_else"></block>
+      <block type="not"></block>
+      <block type="equal_to"></block>
+      <block type="less_than"></block>
+      <block type="greater_than"></block>
+      <block type="less_than_or_equal_to"></block>
+      <block type="greater_than_or_equal_to"></block>
+      <block type="not_equal_to"></block>
+      <block type="and"></block>
+      <block type="or"></block>
+    </category>
+
+    <category name="Loops">
+      <block type="repeat"></block>
+      <block type="while"></block>
+      <block type="do_while"></block>
+    </category>
+
+    <category name="Operations">
+      <block type="assignation"></block>
+      <block type="sum"></block>
+      <block type="substraction"></block>
+      <block type="division"></block>
+      <block type="multiplication"></block>
+    </category>
+
+    <category name="Functions">
+      <block type="def_function"></block>
+      <block type="call_function"></block>
+      <block type="return_function"></block>
+      <block type="param"></block>
+      <block type="no_params"></block>
+      <block type="return_value"></block>
+      <block type="return"></block>
+    </category>
+
+    <category name="Print">
+      <block type="print"></block>
+      <block type="say"></block>
+    </category>
+  </xml>
+
+  <xml id="startBlocks">
+    <block type="def_function" x="-325" y="-188"><field name="func_name">mod</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">l</field><value name="next_param"><block type="param"><field name="param_type">integer</field><field name="param_name">r</field></block></value></block></value><statement name="main"><block type="return"><value name="return"><block type="substraction"><value name="left_substractor"><block type="factor"><field name="input">l</field></block></value><value name="right_substractor"><block type="multiplication"><value name="left_multiplier"><block type="division"><value name="nominator"><block type="factor"><field name="input">l</field></block></value><value name="denominator"><block type="factor"><field name="input">r</field></block></value></block></value><value name="right_multiplier"><block type="factor"><field name="input">r</field></block></value></block></value></block></value></block></statement><value name="return_type"><block type="return_value"><field name="return_type">integer</field></block></value></block><block type="begin_end" inline="false" x="-322" y="-53"><statement name="main"><block type="print"><value name="print_expression"><block type="return_function"><field name="function_call_value">mod</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">10</field><value name="next_param"><block type="param"><field name="param_type">integer</field><field name="param_name">3</field></block></value></block></value></block></value><next><block type="print"><value name="print_expression"><block type="return_function"><field name="function_call_value">isPrime</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">10</field></block></value></block></value><next><block type="print"><value name="print_expression"><block type="return_function"><field name="function_call_value">isPrime</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">7</field></block></value></block></value><next><block type="print"><value name="print_expression"><block type="return_function"><field name="function_call_value">isPrime</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">997</field></block></value></block></value></block></next></block></next></block></next></block></statement></block><block type="def_function" x="-325" y="216"><field name="func_name">factorInRange</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">k</field><value name="next_param"><block type="param"><field name="param_type">integer</field><field name="param_name">n</field></block></value></block></value><statement name="main"><block type="var"><field name="var_dic">integer</field><field name="value">k_temp</field><next><block type="if_else"><value name="condition"><block type="greater_than_or_equal_to"><value name="left_gte"><block type="factor"><field name="input">k</field></block></value><value name="right_gte"><block type="factor"><field name="input">n</field></block></value></block></value><statement name="statment"><block type="return"><value name="return"><block type="factor"><field name="input">false</field></block></value></block></statement><statement name="else_condition"><block type="if_else"><value name="condition"><block type="equal_to"><value name="left_equal"><block type="return_function"><field name="function_call_value">mod</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">n</field><value name="next_param"><block type="param"><field name="param_type">integer</field><field name="param_name">k</field></block></value></block></value></block></value><value name="right_equal"><block type="factor"><field name="input">0</field></block></value></block></value><statement name="statment"><block type="return"><value name="return"><block type="factor"><field name="input">true</field></block></value></block></statement><statement name="else_condition"><block type="assignation"><value name="left_assig"><block type="factor"><field name="input">k_temp</field></block></value><value name="right_assig"><block type="sum"><value name="left_sum"><block type="factor"><field name="input">k</field></block></value><value name="right_sum"><block type="factor"><field name="input">1</field></block></value></block></value><next><block type="return"><value name="return"><block type="return_function"><field name="function_call_value">factorInRange</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">k_temp</field><value name="next_param"><block type="param"><field name="param_type">integer</field><field name="param_name">n</field></block></value></block></value></block></value></block></next></block></statement></block></statement></block></next></block></statement><value name="return_type"><block type="return_value"><field name="return_type">boolean</field></block></value></block><block type="def_function" x="-329" y="667"><field name="func_name">isPrime</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">n</field></block></value><statement name="main"><block type="return"><value name="return"><block type="and"><value name="left_and"><block type="greater_than"><value name="left_gt"><block type="factor"><field name="input">n</field></block></value><value name="right_gt"><block type="factor"><field name="input">1</field></block></value></block></value><value name="right_and"><block type="equal_to"><value name="left_equal"><block type="factor"><field name="input">false</field></block></value><value name="right_equal"><block type="return_function"><field name="function_call_value">factorInRange</field><value name="params"><block type="param"><field name="param_type">integer</field><field name="param_name">2</field><value name="next_param"><block type="param"><field name="param_type">integer</field><field name="param_name">n</field></block></value></block></value></block></value></block></value></block></value></block></statement><value name="return_type"><block type="return_value"><field name="return_type">boolean</field></block></value></block>
+  </xml>
+  <script src="../helping_functions.js"></script>
+  <script src="../variables.js"></script>
+  <script src="../semantic_cube.js"></script>
+  <!-- <script src="../blockly_compressed.js"></script> -->
+  <!-- <script src="../blocks_compressed.js"></script> -->
+  <script src="../blockly_uncompressed.js"></script>
+  <script src="../blocks/begin_end.js"></script>
+  <script src="../blocks/conditions.js"></script>
+  <script src="../blocks/functions.js"></script>
+  <script src="../blocks/loops.js"></script>
+  <script src="../blocks/movements.js"></script>
+  <script src="../blocks/operations.js"></script>
+  <script src="../blocks/print.js"></script>
+  <script src="../blocks/variables_and_constants.js"></script>
+  <!-- <script src="../javascript_compressed.js"></script> -->
+  <script src="../generators/javascript.js"></script>
+  <script src="../generators/javascript/begin_end.js"></script>
+  <script src="../generators/javascript/conditions.js"></script>
+  <script src="../generators/javascript/functions.js"></script>
+  <script src="../generators/javascript/loops.js"></script>
+  <script src="../generators/javascript/movements.js"></script>
+  <script src="../generators/javascript/operations.js"></script>
+  <script src="../generators/javascript/print.js"></script>
+  <script src="../generators/javascript/variables_and_constants.js"></script>
+  <script src="../msg/messages.js"></script>
+  <script src="../redefined.js" charset="utf-8"></script>
+  <script src="../app.js" charset="utf-8"></script>
+  <script src="../maze.js" charset="utf-8"></script>
+  <script src="../virtual_machine.js" charset="utf-8"></script>
+</body>
+</html>
