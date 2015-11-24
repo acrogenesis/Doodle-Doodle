@@ -272,6 +272,6 @@ Blockly.JavaScript['return'] = function(block) {
     errorMessage('Semantic Error');
   }
   quadruples.push([12, left_quadruple, '', function_index]);
-
+  quadruples.push([34, '', '', '']);
   return '';
 };
