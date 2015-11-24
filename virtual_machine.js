@@ -503,20 +503,6 @@ function loopThroughQuadruples(){
         }
         current_quadruple++;
         break;
-      case 17:
-        break;
-      case 18:
-        break;
-      case 19:
-        break;
-      case 20:
-        break;
-      case 21:
-        break;
-      case 22:
-        break;
-      case 23:
-        break;
       case 24: // wall in front?
         rf = quadruples[current_quadruple][3];
 
@@ -525,22 +511,6 @@ function loopThroughQuadruples(){
         writeToMemory(lf, rf);
 
         current_quadruple++;
-        break;
-      case 25:
-        break;
-      case 26:
-        break;
-      case 27: // params
-        break;
-      case 28: // no params
-        break;
-      case 29: // integer
-        break;
-      case 30: // float
-        break;
-      case 31: // string
-        break;
-      case 32: // boolean
         break;
       case 33: // gotoFunk
         jumps_array.push(current_quadruple+1);
