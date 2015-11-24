@@ -264,6 +264,6 @@ function resultType(type1, type2, op){
   if (result_index === -1) {
     alert('Invalid Operation: ' + type1 + ' and ' + type2);
     throw('Semantic Error');
-  };
+  }
   return indexToNextTemporal(result_index);
 }
