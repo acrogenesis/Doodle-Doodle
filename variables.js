@@ -13,8 +13,8 @@ var functions_call_table;
 var function_params_array;
 var current_function;
 var pre_compilation;
-var int_r = /^\d+$/;
-var float_r = /^\d*\.\d+$/;
+var int_r = /^-?\d+$/;
+var float_r = /^-?\d*\.\d+$/;
 var string_r = /^"[^"]*"$/;
 var boolean_r = /^(true|false)$/;
 // set all variables necesary for compilation
