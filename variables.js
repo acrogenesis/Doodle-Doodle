@@ -1,3 +1,4 @@
+// initialize all variables necesary for compilation
 var scope;
 var reserved_words;
 var int_vars;
@@ -12,6 +13,8 @@ var functions_call_table;
 var function_params_array;
 var current_function;
 var pre_compilation;
+
+// set all variables necesary for compilation
 function startCompilation(){
   current_function = 'main';
   // functions_table = {'hello':[0, ['integer', 'boolean'], 'string']};

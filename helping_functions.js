@@ -1,3 +1,4 @@
+// Division in JS always return float, let's return int
 function intDiv(a, b){
   var result = a / b;
   if(result >= 0){
@@ -7,6 +8,7 @@ function intDiv(a, b){
   }
 }
 
+// Check if a given number is int or float
 function getNumberType(number){
   number = String(number);
   var int_r = /^\d+$/;
@@ -27,6 +29,7 @@ function checkVarSyntax(var_name){
   }
 }
 
+// Comparison of arrays
 function arraysEqual(a1,a2){
   return JSON.stringify(a1)==JSON.stringify(a2);
 }

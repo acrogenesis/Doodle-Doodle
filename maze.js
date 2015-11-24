@@ -1,12 +1,13 @@
 var canvas = document.getElementById("mazecanvas");
 var context = canvas.getContext("2d");
-var currRectX = 200;
-var currRectY = 20;
+var currRectX = 200; // current PosX for blue triangle
+var currRectY = 20; // current PosY for blue triangle
 var mazeWidth = 556;
 var mazeHeight = 556;
 var direction = 180;
 var difficulty = 'easy'; // easy, med, hard
 var level = 1; // 1, 2
+// different levels of mazes
 var mazes = {
   'easy': {
     '1': {
@@ -248,6 +249,8 @@ function canMoveTo(destX, destY) {
   }
   return canMove;
 }
+
+// event listiners for changing difficulty and level
 document.getElementById('difficulty').addEventListener("change", function() {
   resetMaze();
   difficulty = this.value;
