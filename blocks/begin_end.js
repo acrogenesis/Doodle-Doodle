@@ -14,6 +14,5 @@ Blockly.Blocks['begin_end'] = {
         .appendField("end");
     this.setColour(105);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };

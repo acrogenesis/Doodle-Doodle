@@ -11,7 +11,6 @@ Blockly.Blocks['factor'] = {
     this.setOutput(true, "factor");
     this.setColour(180);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -26,6 +25,5 @@ Blockly.Blocks['var'] = {
     this.setNextStatement(true, null);
     this.setColour(120);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };

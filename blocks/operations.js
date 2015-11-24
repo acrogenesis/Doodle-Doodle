@@ -16,7 +16,6 @@ Blockly.Blocks['assignation'] = {
     this.setNextStatement(true, null);
     this.setColour(65);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -31,7 +30,6 @@ Blockly.Blocks['sum'] = {
     this.setOutput(true, "factor");
     this.setColour(65);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -46,7 +44,6 @@ Blockly.Blocks['substraction'] = {
     this.setOutput(true, "factor");
     this.setColour(65);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -61,7 +58,6 @@ Blockly.Blocks['division'] = {
     this.setOutput(true, "factor");
     this.setColour(65);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -76,6 +72,5 @@ Blockly.Blocks['multiplication'] = {
     this.setOutput(true, "factor");
     this.setColour(65);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };

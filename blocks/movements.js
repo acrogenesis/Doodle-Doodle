@@ -15,7 +15,6 @@ Blockly.Blocks['move'] = {
     this.setNextStatement(true, null);
     this.setColour(195);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -28,7 +27,6 @@ Blockly.Blocks['turn'] = {
     this.setNextStatement(true, null);
     this.setColour(195);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -39,7 +37,7 @@ Blockly.Blocks['wall_in_front'] = {
     this.setOutput(true, "boolean");
     this.setColour(210);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+
   }
 };
 
@@ -50,6 +48,6 @@ Blockly.Blocks['on_goal'] = {
     this.setOutput(true, "boolean");
     this.setColour(210);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+
   }
 };

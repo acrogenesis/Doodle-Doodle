@@ -20,7 +20,6 @@ Blockly.Blocks['if'] = {
     this.setNextStatement(true, null);
     this.setColour(20);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -44,7 +43,6 @@ Blockly.Blocks['if_else'] = {
     this.setNextStatement(true, null);
     this.setColour(20);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -59,7 +57,6 @@ Blockly.Blocks['equal_to'] = {
     this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -74,7 +71,6 @@ Blockly.Blocks['less_than'] = {
     this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -89,7 +85,6 @@ Blockly.Blocks['greater_than'] = {
     this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -104,7 +99,6 @@ Blockly.Blocks['less_than_or_equal_to'] = {
     this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -119,7 +113,6 @@ Blockly.Blocks['greater_than_or_equal_to'] = {
     this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -134,7 +127,6 @@ Blockly.Blocks['not_equal_to'] = {
     this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -149,7 +141,6 @@ Blockly.Blocks['and'] = {
     this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -164,6 +155,5 @@ Blockly.Blocks['or'] = {
     this.setOutput(true, "boolean");
     this.setColour(0);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };

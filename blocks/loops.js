@@ -19,7 +19,6 @@ Blockly.Blocks['repeat'] = {
     this.setNextStatement(true, null);
     this.setColour(285);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -38,7 +37,6 @@ Blockly.Blocks['while'] = {
     this.setNextStatement(true, null);
     this.setColour(285);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -56,6 +54,5 @@ Blockly.Blocks['do_while'] = {
     this.setNextStatement(true, null);
     this.setColour(285);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };

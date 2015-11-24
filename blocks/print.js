@@ -14,7 +14,6 @@ Blockly.Blocks['print'] = {
     this.setNextStatement(true, null);
     this.setColour(45);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
 
@@ -27,6 +26,5 @@ Blockly.Blocks['say'] = {
     this.setNextStatement(true, null);
     this.setColour(45);
     this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
   }
 };
