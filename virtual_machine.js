@@ -299,6 +299,8 @@ function findBeginQuadruple(){
 
 function endProgram(){
   insertIntoShell('Program finished successfully');
+  document.getElementById('runCode').className = 'runCode';
+  document.getElementById('stopCode').className = 'stopCode hidden';
 }
 
 function checkIndexType(index){

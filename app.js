@@ -4,6 +4,7 @@ var workspace = Blockly.inject('blocklyDiv',
 Blockly.Xml.domToWorkspace(workspace,
     document.getElementById('startBlocks'));
 document.getElementById('runCode').addEventListener('click', runCode);
+document.getElementById('stopCode').addEventListener('click', stopCode);
 
 function resetShell(){
   var shellBody = document.getElementById('shell-body');
@@ -31,4 +32,13 @@ function runCode() {
   code = Blockly.JavaScript.workspaceToCode(workspace);
   checkFunctionCalls();
   runProgram();
+  this.className = 'runCode hidden';
+  document.getElementById('stopCode').className = 'stopCode';
+}
+
+function stopCode(){
+  clearInterval(myInterval);
+  this.className = 'stopCode hidden';
+  document.getElementById('runCode').className = 'runCode';
+  throw('Forced execution stop.');
 }
