@@ -67,10 +67,5 @@ function startCompilation(){
 
   quadruples = [];
 
-  // proc_table {
-    // 31 = return value
-    // [] = params
-    // "say_hello": [ 31, [] ]
-  //}
   proc_table = {};
 }

@@ -18,6 +18,7 @@ function getNumberType(number){
   }
 }
 
+//Checks the syntax of a string to see if it matches a variable
 function checkVarSyntax(var_name){
   if (var_name.match(/^[a-z]+(\d|_|[a-z])*$/i) !== null){
     return true;
@@ -32,6 +33,7 @@ function arraysEqual(a1,a2){
   return JSON.stringify(a1)==JSON.stringify(a2);
 }
 
+//Function that gets the type values out of the param array
 function getHashTypeValues(arr){
   var values = [];
   arr.forEach(function(h){
@@ -40,6 +42,7 @@ function getHashTypeValues(arr){
   return values;
 }
 
+//Function that gets the name values out of the param array
 function getHashNameValues(arr){
   var values = [];
   arr.forEach(function(h){
@@ -48,13 +51,12 @@ function getHashNameValues(arr){
   return values;
 }
 
+//Check all the function calls to see if they are valid ones
 function checkFunctionCalls(){
-  // functions_table = {'hello':[0, [{'type' : 'integer', 'name': 'x'}, {'type' : 'boolean', 'name': 'z'}], 'string']};
-  // functions_call_table = [['hello', q_index, [{'type' : 'integer', 'name': 'x'}, {'type' : 'boolean', 'name': 'z'}], 'string']];
-
+  //Go through all the array of function calls
   functions_call_table.forEach(function(call_array){
-    var fc = call_array[0];
-    var fd = functions_table[fc];
+    var fc = call_array[0]; //Name of the function in the calls array
+    var fd = functions_table[fc]; //Definition of the function in the functions array
     if(fd === undefined) {
       insertIntoShell('Function "' + fc + '" does not exist');
       errorMessage('Semantic Error');
@@ -65,11 +67,12 @@ function checkFunctionCalls(){
       insertIntoShell('Call to function "' + fc + '" does not match return type: "' + fd[2] + '"');
       errorMessage('Semantic Error');
     } else {
-      quadruples[call_array[1]][3] = fd[0];
+      quadruples[call_array[1]][3] = fd[0]; //Fill out the jump to the function quadruple
     }
   });
 }
 
+//Clear local and temporal variables
 function clearLocalAndTemporal(){
   int_vars.local = [];
   int_vars.temporal = [];
@@ -84,6 +87,7 @@ function clearLocalAndTemporal(){
   boolean_vars.temporal = [];
 }
 
+//Clear the local variables when a function finishes
 function clearLocal(){
   int_vars.local = [];
   float_vars.local = [];
@@ -91,6 +95,7 @@ function clearLocal(){
   boolean_vars.local = [];
 }
 
+//Clear params table after calling a function
 function clearParamsTable(){
   param_vars.integer = [];
   param_vars.float = [];
@@ -98,6 +103,7 @@ function clearParamsTable(){
   param_vars.boolean = [];
 }
 
+//Read the params that were passed to the function
 function getNextParam(index){
   switch(index[0]){
     case 'i':
@@ -111,6 +117,7 @@ function getNextParam(index){
   }
 }
 
+//Check if a variable is present in a local scope
 function findLocalVariable(var_name){
   var index = -1;
   if (int_vars.local.indexOf(var_name) !== -1) {
@@ -135,6 +142,7 @@ function findLocalVariable(var_name){
   return index;
 }
 
+//Check if a variable is present in a global scope
 function findGlobalVariable(var_name){
   var index = -1;
   if (int_vars.global.indexOf(var_name) !== -1) {
@@ -159,6 +167,7 @@ function findGlobalVariable(var_name){
   return index;
 }
 
+//Check if a variable is present in the var table
 function findVariable(var_name){
   var index = -1;
   if (int_vars.local.indexOf(var_name) !== -1) {
@@ -195,6 +204,7 @@ function findVariable(var_name){
   return index;
 }
 
+//Push a var to the var table
 function pushVarToTable(var_name, var_type){
   var table = varTypeToInt(var_type);
   switch (table) {
@@ -215,12 +225,14 @@ function pushVarToTable(var_name, var_type){
   }
 }
 
+//Push the param to the param table
 function pushToParamTable(var_index, var_type){
   param_vars[var_type].push(var_index);
   var param_index = 'p' + (var_type[0]) + (param_vars[var_type].length-1);
   quadruples.push([12, var_index, '', param_index]);
 }
 
+//Map the variable type to a number
 function varTypeToInt(var_type){
   if (var_type === 'integer'){
     return 29;
@@ -233,6 +245,7 @@ function varTypeToInt(var_type){
   }
 }
 
+//Get the next available temporal
 function indexToNextTemporal(var_int){
   switch(var_int) {
     case 29:
@@ -250,6 +263,7 @@ function indexToNextTemporal(var_int){
   }
 }
 
+//Transform a memory index to a variable type
 function indexToType(index){
   switch (index[0]) {
     case 'i':
@@ -266,6 +280,7 @@ function indexToType(index){
   }
 }
 
+//Check to see if an operation between 2 factors is valid
 function resultType(type1, type2, op){
   var result_index = checkSemantic(reserved_words[type1], reserved_words[type2], op);
   if (result_index === -1) {
