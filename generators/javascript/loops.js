@@ -51,6 +51,10 @@ Blockly.JavaScript['repeat'] = function(block) {
     errorMessage('Type Mismatch');
   }
 
+  if(value_n_times.fnc === true){
+    left_quadruple = 'm' + left_quadruple;
+  }
+
   //We initialize the variable that determines the number of repetitions
   var times = left_quadruple;
   var repeat_temporal = resultType('integer', 'integer', 0);
