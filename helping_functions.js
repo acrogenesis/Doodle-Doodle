@@ -56,13 +56,13 @@ function checkFunctionCalls(){
     var fc = call_array[0];
     var fd = functions_table[fc];
     if(fd === undefined) {
-      insertIntoShell('Function ' + fc + ' does not exist');
+      insertIntoShell('Function "' + fc + '" does not exist');
       errorMessage('Semantic Error');
     }else if (!arraysEqual(getHashTypeValues(call_array[2]), getHashTypeValues(fd[1]))) {
-      insertIntoShell('Function ' + fc + ' parameters should be ' + getHashTypeValues(fd[1]));
+      insertIntoShell('Function "' + fc + '" parameters should be "' + getHashTypeValues(fd[1]) + '"');
       errorMessage('Semantic Error');
     }else if (call_array[3] !== fd[2]) {
-      insertIntoShell('Call to function ' + fc + ' does not match return type: ' + fd[2]);
+      insertIntoShell('Call to function "' + fc + '" does not match return type: "' + fd[2] + '"');
       errorMessage('Semantic Error');
     } else {
       quadruples[call_array[1]][3] = fd[0];
@@ -269,7 +269,7 @@ function indexToType(index){
 function resultType(type1, type2, op){
   var result_index = checkSemantic(reserved_words[type1], reserved_words[type2], op);
   if (result_index === -1) {
-    insertIntoShell('Invalid Operation: ' + type1 + ' and ' + type2);
+    insertIntoShell('Invalid Operation: "' + type1 + '" and "' + type2 + '"');
     errorMessage('Semantic Error');
   }
   return indexToNextTemporal(result_index);

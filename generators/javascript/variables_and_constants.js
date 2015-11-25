@@ -17,7 +17,7 @@ Blockly.JavaScript['factor'] = function(block) {
   }else if (checkVarSyntax(input)){
     return {'input':input, 'type':'var'};
   }else{
-    insertIntoShell('Not a valid expression: ' + input);
+    insertIntoShell('Not a valid expression: "' + input + '"');
     errorMessage('Syntax Error');
   }
 };

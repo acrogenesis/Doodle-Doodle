@@ -687,8 +687,8 @@ Blockly.JavaScript['not'] = function(block) {
     }
   }
   if (right_type !== 'boolean'){
-    insertIntoShell('not operator only accepts booleans');
-    errorMessage('');
+    insertIntoShell('Not operator only accepts booleans.');
+    errorMessage('TypeMissmatch');
   }
   quadruples.push([41, right_quadruple, '', resultType('not', right_type, 41)]);
   return quadruples.length-1;
