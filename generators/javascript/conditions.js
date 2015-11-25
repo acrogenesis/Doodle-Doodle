@@ -97,6 +97,14 @@ Blockly.JavaScript['equal_to'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 4);
 
+  if(value_left_equal.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_equal.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
+
   quadruples.push([4, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
@@ -167,6 +175,14 @@ Blockly.JavaScript['less_than'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 5);
 
+  if(value_left_lt.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_lt.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
+
   quadruples.push([5, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
@@ -235,6 +251,14 @@ Blockly.JavaScript['greater_than'] = function(block) {
   }
 
   var result_quadruple = resultType(left_var_type, right_var_type, 6);
+
+  if(value_left_gt.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_gt.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
 
   quadruples.push([6, left_quadruple, right_quadruple, result_quadruple]);
 
@@ -305,6 +329,14 @@ Blockly.JavaScript['less_than_or_equal_to'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 7);
 
+  if(value_left_lte.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_lte.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
+
   quadruples.push([7, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
@@ -374,6 +406,14 @@ Blockly.JavaScript['greater_than_or_equal_to'] = function(block) {
   }
 
   var result_quadruple = resultType(left_var_type, right_var_type, 8);
+
+  if(value_left_gte.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_gte.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
 
   quadruples.push([8, left_quadruple, right_quadruple, result_quadruple]);
 
@@ -446,6 +486,14 @@ Blockly.JavaScript['not_equal_to'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 9);
 
+  if(value_left_not_equal.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_not_equal.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
+
   quadruples.push([9, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
@@ -516,6 +564,14 @@ Blockly.JavaScript['and'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 10);
 
+  if(value_left_and.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_and.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
+
   quadruples.push([10, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
@@ -585,6 +641,14 @@ Blockly.JavaScript['or'] = function(block) {
   }
 
   var result_quadruple = resultType(left_var_type, right_var_type, 11);
+
+  if(value_left_or.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_or.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
 
   quadruples.push([11, left_quadruple, right_quadruple, result_quadruple]);
 

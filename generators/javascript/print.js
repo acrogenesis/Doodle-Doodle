@@ -37,6 +37,10 @@ Blockly.JavaScript['print'] = function(block) {
     left_quadruple = left_value;
   }
 
+  if(value_print_expression.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
   quadruples.push([13, '', '', left_quadruple]);
   return '';
 };

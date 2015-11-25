@@ -203,7 +203,7 @@ Blockly.JavaScript['return_function'] = function(block) {
   functions_call_table.push([function_name, quadruples.length, function_params_array, return_type]);
   quadruples.push([33, '', '', 0]);
   function_params_array = [];
-  return {'input':function_name, 'type':'var'};
+  return {'input':function_name, 'type':'var', 'fnc':true};
 };
 
 Blockly.JavaScript['param'] = function(block) {
@@ -271,6 +271,7 @@ Blockly.JavaScript['return'] = function(block) {
     alert('Return value of function ' + current_function + ' must be ' + indexToType(function_index));
     errorMessage('Semantic Error');
   }
+  function_index = 'm' + (function_index);
   quadruples.push([12, left_quadruple, '', function_index]);
   quadruples.push([34, '', '', '']);
   return '';

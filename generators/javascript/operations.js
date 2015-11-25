@@ -51,6 +51,11 @@ Blockly.JavaScript['assignation'] = function(block) {
     alert(left_input + ' and ' + right_var_type + ' must be same type');
     errorMessage('Type Mismatch Error');
   }
+
+  if(value_right_assig.fnc === true){
+    right_index = 'm' + right_index;
+  }
+
   quadruples.push([12, right_index, '', left_index]);
   return '';
 };
@@ -119,6 +124,14 @@ Blockly.JavaScript['sum'] = function(block) {
   }
 
   var result_quadruple = resultType(left_var_type, right_var_type, 0);
+
+  if(value_left_sum.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_sum.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
 
   quadruples.push([0, left_quadruple, right_quadruple, result_quadruple]);
 
@@ -190,6 +203,14 @@ Blockly.JavaScript['substraction'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 1);
 
+  if(value_left_substractor.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_substractor.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
+
   quadruples.push([1, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
@@ -260,6 +281,14 @@ Blockly.JavaScript['multiplication'] = function(block) {
 
   var result_quadruple = resultType(left_var_type, right_var_type, 2);
 
+  if(value_left_multiplier.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_right_multiplier.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
+
   quadruples.push([2, left_quadruple, right_quadruple, result_quadruple]);
 
   return quadruples.length-1;
@@ -329,6 +358,14 @@ Blockly.JavaScript['division'] = function(block) {
   }
 
   var result_quadruple = resultType(left_var_type, right_var_type, 3);
+
+  if(value_nominator.fnc === true){
+    left_quadruple = 'm' + left_index;
+  }
+
+  if(value_denominator.fnc === true){
+    right_quadruple = 'm' + right_index;
+  }
 
   quadruples.push([3, left_quadruple, right_quadruple, result_quadruple]);
 

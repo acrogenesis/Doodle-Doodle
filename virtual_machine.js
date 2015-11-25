@@ -28,6 +28,9 @@ var vmboolean_vars = {
     'temporal': []
   };
 
+var function_returns = {
+};
+
 var jumps_array = [];
 var param_count = [];
 
@@ -105,6 +108,14 @@ function writeToMemory(value, index){
         case 'b':
           vmparam_vars.boolean[parseInt(index.substr(2))] = value;
           break;
+      }
+      break;
+    case 'm':
+      if(function_returns[index.substr(1)] === undefined){
+        function_returns[index.substr(1)] = [];
+        function_returns[index.substr(1)].push(value);
+      }else{
+        function_returns[index.substr(1)].push(value);
       }
       break;
   }
@@ -260,6 +271,15 @@ function readFromMemory(index){
           break;
       }
       break;
+    case 'm':
+      var r_f = function_returns[index.substr(1)].shift();
+      if(r_f === undefined){
+        insertIntoShell('Runtime Error - Variable has no value');
+        errorMessage('Runtime Error');
+      }else{
+        return r_f;
+      }
+      break;
   }
 }
 
@@ -306,8 +326,9 @@ function endProgram(){
 function checkIndexType(index){
   var var_r = /^(i|f|s|b)(g|l|t)\d+$/;
   var param_r = /^(p)(i|f|s|b)\d+$/;
+  var module_r = /^(m)(i|f|s|b)(g|l|t)\d+$/;
   index = String(index);
-  if(index.match(var_r) || index.match(param_r)){
+  if(index.match(var_r) || index.match(param_r) || index.match(module_r)){
     return true;
   }
   return false;
