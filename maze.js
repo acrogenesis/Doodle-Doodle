@@ -170,11 +170,6 @@ function moveRect() {
     drawTriangle(newX, newY, "#0000FF");
     currRectX = newX;
     currRectY = newY;
-    context.font = "40px Arial";
-    context.fillStyle = "blue";
-    context.textAlign = "center";
-    context.textBaseline = "middle";
-    context.fillText("Congratulations!", canvas.width / 2, canvas.height / 2);
   }
 }
 
@@ -223,6 +218,7 @@ function onGoal() {
   var limeX = mazes[difficulty][level].lime[0];
   var limeY = mazes[difficulty][level].lime[1];
   if ((limeX >= currRectX &&  limeX <= currRectX + 40) && (limeY >= currRectY &&  limeY <= currRectY + 40)) {
+    alert('Congratulations!');
     return true;
   }
   return false;
