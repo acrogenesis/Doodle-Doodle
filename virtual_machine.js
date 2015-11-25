@@ -3,30 +3,31 @@ var vmparam_vars = {
     'float': [],
     'string': [],
     'boolean': []
-  };
+};
+
 var vmint_vars = {
     'global': [],
     'local': [],
     'temporal': []
-  };
+};
 
 var vmfloat_vars = {
     'global': [],
     'local': [],
     'temporal': []
-  };
+};
 
 var vmstring_vars = {
     'global': [],
     'local': [],
     'temporal': []
-  };
+};
 
 var vmboolean_vars = {
     'global': [],
     'local': [],
     'temporal': []
-  };
+};
 
 var function_returns = {
 };
