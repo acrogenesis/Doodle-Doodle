@@ -1,3 +1,4 @@
+//Declare memory usage for the virtual machine
 var vmparam_vars = {
   'integer': [],
   'float': [],
@@ -41,6 +42,7 @@ var current_quadruple = 0;
 
 var myInterval;
 
+//Write a value to a specific index
 function writeToMemory(value, index){
   switch(index[0]){
     case 'i':
@@ -122,6 +124,7 @@ function writeToMemory(value, index){
   }
 }
 
+//Function that given an index retrieves the value inside that index
 function readFromMemory(index){
   switch(index[0]){
     case 'i':
@@ -284,6 +287,7 @@ function readFromMemory(index){
   }
 }
 
+//Counts the total number of local variables
 function countLocals(){
   return vmint_vars.local.length +
           vmfloat_vars.local.length +
@@ -291,6 +295,7 @@ function countLocals(){
           vmboolean_vars.local.length;
 }
 
+//Checks the number of parameters from previous function to expand memory
 function checkParamOffset(){
   var i;
   var sum = 0;
@@ -300,6 +305,7 @@ function checkParamOffset(){
   return sum;
 }
 
+//Find the number of quadruple where the begin is present to start execution
 function findBeginQuadruple(){
   var i;
   var count_begins = 0;
@@ -318,12 +324,14 @@ function findBeginQuadruple(){
   }
 }
 
+//Terminates de execution of the program
 function endProgram(){
   insertIntoShell('Program finished successfully');
   document.getElementById('runCode').className = 'runCode';
   document.getElementById('stopCode').className = 'stopCode hidden';
 }
 
+//Check if an index has a valid format to assume it's a variable
 function checkIndexType(index){
   var var_r = /^(i|f|s|b)(g|l|t)\d+$/;
   var param_r = /^(p)(i|f|s|b)\d+$/;
@@ -335,6 +343,7 @@ function checkIndexType(index){
   return false;
 }
 
+//Function that checks all the possible cases for the quadruples
 function loopThroughQuadruples(){
   switch(quadruples[current_quadruple][0]){
       case 0: // +
@@ -537,7 +546,6 @@ function loopThroughQuadruples(){
       case 24: // wall in front?
         rf = quadruples[current_quadruple][3];
 
-        //checa si hay una pared enfrente y guarda true o false en la variable lf
         lf = wallInFront();
         writeToMemory(lf, rf);
 
@@ -595,14 +603,12 @@ function loopThroughQuadruples(){
         break;
       case 40: // onGoal
         rf = quadruples[current_quadruple][3];
-
-        //checa si hay un goal enfrente y guarda true o false en la variable lf
         lf = onGoal();
         writeToMemory(lf, rf);
 
         current_quadruple++;
         break;
-      case 41:
+      case 41: //not
         rf = quadruples[current_quadruple][3];
         lf = quadruples[current_quadruple][1];
         if (typeof lf !== 'boolean') {
@@ -614,6 +620,7 @@ function loopThroughQuadruples(){
     }
 }
 
+//Main function that starts the execution of the program
 function runProgram(){
   findBeginQuadruple();
   var lf;
@@ -632,6 +639,7 @@ function runProgram(){
   }
 }
 
+//Clean the memory of all the variables
 function resetVMVars(){
   vmparam_vars = {
     'integer': [],
