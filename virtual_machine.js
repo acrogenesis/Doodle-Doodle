@@ -569,6 +569,7 @@ function loopThroughQuadruples(){
         break;
       case 36: // End of main
         clearInterval(myInterval);
+        resetVMVars();
         endProgram();
         break;
       case 37: // gotoF
@@ -629,4 +630,37 @@ function runProgram(){
     }
     endProgram();
   }
+}
+
+function resetVMVars(){
+  vmparam_vars = {
+    'integer': [],
+    'float': [],
+    'string': [],
+    'boolean': []
+  };
+
+  vmint_vars = {
+    'global': [],
+    'local': [],
+    'temporal': []
+  };
+
+  vmfloat_vars = {
+    'global': [],
+    'local': [],
+    'temporal': []
+  };
+
+  vmstring_vars = {
+    'global': [],
+    'local': [],
+    'temporal': []
+  };
+
+  vmboolean_vars = {
+    'global': [],
+    'local': [],
+    'temporal': []
+  };
 }
