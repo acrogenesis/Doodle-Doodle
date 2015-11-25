@@ -26,7 +26,7 @@ Blockly.JavaScript['print'] = function(block) {
 
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
-      alert('Variable "' + left_value + '" not defined.');
+      insertIntoShell('Variable "' + left_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);

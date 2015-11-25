@@ -25,7 +25,7 @@ Blockly.JavaScript['assignation'] = function(block) {
 
   checkVarSyntax(left_input);
   if (findVariable(left_input) === -1){
-    alert('Variable "' + left_input + '" not defined.');
+    insertIntoShell('Variable "' + left_input + '" not defined.');
     errorMessage('Semantic Error');
   } else {
     left_index = findVariable(left_input);
@@ -34,7 +34,7 @@ Blockly.JavaScript['assignation'] = function(block) {
 
   if (right_type === 'var'){
     if (findVariable(right_input) === -1){
-      alert('Variable "' + right_input + '" not defined.');
+      insertIntoShell('Variable "' + right_input + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_input);
@@ -103,7 +103,7 @@ Blockly.JavaScript['sum'] = function(block) {
 
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
-      alert('Variable "' + left_value + '" not defined.');
+      insertIntoShell('Variable "' + left_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
@@ -116,7 +116,7 @@ Blockly.JavaScript['sum'] = function(block) {
 
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
-      alert('Variable "' + right_value + '" not defined.');
+      insertIntoShell('Variable "' + right_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
@@ -181,7 +181,7 @@ Blockly.JavaScript['substraction'] = function(block) {
 
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
-      alert('Variable "' + left_value + '" not defined.');
+      insertIntoShell('Variable "' + left_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
@@ -194,7 +194,7 @@ Blockly.JavaScript['substraction'] = function(block) {
 
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
-      alert('Variable "' + right_value + '" not defined.');
+      insertIntoShell('Variable "' + right_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
@@ -259,7 +259,7 @@ Blockly.JavaScript['multiplication'] = function(block) {
 
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
-      alert('Variable "' + left_value + '" not defined.');
+      insertIntoShell('Variable "' + left_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
@@ -272,7 +272,7 @@ Blockly.JavaScript['multiplication'] = function(block) {
 
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
-      alert('Variable "' + right_value + '" not defined.');
+      insertIntoShell('Variable "' + right_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);
@@ -337,7 +337,7 @@ Blockly.JavaScript['division'] = function(block) {
 
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
-      alert('Variable "' + left_value + '" not defined.');
+      insertIntoShell('Variable "' + left_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
@@ -350,7 +350,7 @@ Blockly.JavaScript['division'] = function(block) {
 
   if (right_type === 'var'){
     if (findVariable(right_value) === -1){
-      alert('Variable "' + right_value + '" not defined.');
+      insertIntoShell('Variable "' + right_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       right_index = findVariable(right_value);

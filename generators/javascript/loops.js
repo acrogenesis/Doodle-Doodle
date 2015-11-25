@@ -26,7 +26,7 @@ Blockly.JavaScript['repeat'] = function(block) {
 
   if (left_type === 'var'){
     if (findVariable(left_value) === -1){
-      alert('Variable "' + left_value + '" not defined.');
+      insertIntoShell('Variable "' + left_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
       left_index = findVariable(left_value);
@@ -38,7 +38,7 @@ Blockly.JavaScript['repeat'] = function(block) {
   }
 
   if(left_var_type !== 'integer') {
-    alert('Repeat loop must have an integer');
+    insertIntoShell('Repeat loop must have an integer');
     errorMessage('Type Mismatch');
   }
 
