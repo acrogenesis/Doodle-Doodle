@@ -7,6 +7,17 @@ h1 {
   font-size: 140%;
 }
 
+.github-corner div {
+  position: absolute;
+  top: 38px;
+  border: 0;
+  right: -10px;
+  color: #70B7FD;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Safari */
+  transform: rotate(45deg);
+}
+
 .controls {
   position: absolute;
   z-index: 1;
@@ -262,3 +273,5 @@ h1 {
   text-decoration:none;
   text-shadow:0px 1px 0px #8a3c3c;
 }
+
+.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
