@@ -10,7 +10,7 @@ The workspace is where you will _write_ your code dragging blocks from the sideb
 #### Begin-End
 ![begin-end-block](images/begin-end.png)
 
-The Begin-End block serves as the _main_ section of your program. This is the starting point of the execution, there can only be one of this blocks.
+The Begin-End block serves as the _main_ section of your program. This is the starting point of the execution, there can only be one of these blocks.
 
 #### Variables & Constants
 ![variables-and-constants](images/vars&constants.png)
@@ -24,10 +24,10 @@ The variables you define inside the Begin-End block are global variables, meanin
 #### Movements
 ![movements](images/movements.png)
 
-This blocks are specifically designed to work with the maze.
+These blocks are specifically designed to work with the maze.
 The `move c[] blocks` block moves the ![triangle](images/triangle.png) the amount of blocks you want, in the `c[]` space you can specify any number.
 
-The `turn` block turns 90º the the left or to the right, you can choose the direction in the dropdown.
+The `turn` block turns 90º to the left or to the right, you can choose the direction in the dropdown.
 
 The `wall in fron?` block returns a boolean, telling you if there's a wall in front or not.
 
@@ -37,7 +37,7 @@ The `on goal?` block tells you if you have reached the goal ![goal](images/goal.
 ![conditions](images/conditions.png)
 ![contions-2](images/conditions-2.png)
 
-This blocks are the conditional blocks, the `If` works by executing the inside of the block if a certain condition is met. The `If/Else` block works the same but adds another space for when the condition is not met.
+These blocks are the conditional blocks, the `If` works by executing the inside of the block if a certain condition is met. The `If/Else` block works the same but adds another space for when the condition is not met.
 
 The rest of the red blocks help you make this conditions.
 
@@ -49,12 +49,12 @@ The `repeat` block cycles a certain amount of times. The `while` block cycles wh
 #### Operations
 ![operations](images/operations.png)
 
-This blocks are the mathematical operations.
+These blocks are the mathematical operations.
 
 #### Functions
 ![functions](images/functions.png)
 
-This blocks serve the purpose of creating and calling functions.
+These blocks serve the purpose of creating and calling functions.
 The first block let's you create a function where you can specify the name, parameters, and return value. To specify the parameters you can use the ![params](images/params.png) or if you don't need parameters the ![no-params](images/no-params.png) block.
 You must always specify a return value using the ![return](images/return.png) the available options are `int|float|string|boolean|no return`.
 
