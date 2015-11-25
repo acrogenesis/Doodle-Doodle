@@ -4,12 +4,14 @@ goog.provide('Blockly.JavaScript.functions');
 
 goog.require('Blockly.JavaScript');
 
+//Function that handles the logic of defining functions
 Blockly.JavaScript['def_function'] = function(block) {
   scope = 'local';
   clearLocal();
   var text_func_name = block.getFieldValue('func_name');
   var return_type = Blockly.JavaScript.statementToCode(block, 'return_type');
   current_function = text_func_name;
+  //There is a little pre-compilation at the beginning to put all functions into the global variables table
   if(pre_compilation){
     checkVarSyntax(text_func_name);
 
@@ -28,6 +30,7 @@ Blockly.JavaScript['def_function'] = function(block) {
 
   function_params_array = [];
   Blockly.JavaScript.statementToCode(block, 'params');
+  //We check the syntax of all params to make sure they are valid param names
   var p_names = getHashNameValues(function_params_array);
   p_names.forEach(function(n){
     if(n !== null){
@@ -35,6 +38,7 @@ Blockly.JavaScript['def_function'] = function(block) {
     }
   });
 
+  //We assign the parameters to the corresponding local variables of the function
   function_params_array.forEach(function(n){
     if(n !== null){
       if(findLocalVariable(n.name) !== -1){
@@ -47,8 +51,10 @@ Blockly.JavaScript['def_function'] = function(block) {
   });
   clearParamsTable();
 
+  //The function is added to the functions table
   functions_table[text_func_name] = [quadruples.length - function_params_array.length, function_params_array, return_type];
   Blockly.JavaScript.statementToCode(block, 'main');
+  //The return quadruple is generated
   quadruples.push([34, '', '', '']);
   function_params_array = [];
   clearLocal();
@@ -56,11 +62,13 @@ Blockly.JavaScript['def_function'] = function(block) {
   return '';
 };
 
+//Function that handles the logic of calling a function
 Blockly.JavaScript['call_function'] = function(block) {
   var function_name = block.getFieldValue('function_call_value');
 
   function_params_array = [];
   Blockly.JavaScript.statementToCode(block, 'params');
+  //We receive an array of the params, so we push them to the params table depending on the type
   function_params_array.forEach(function(p){
     if (p.type === 'integer'){
       if(p.name.match(int_r) !== null){
@@ -121,8 +129,11 @@ Blockly.JavaScript['call_function'] = function(block) {
     }
   });
   clearParamsTable();
+  //We put the function call in to an array to check at the end if it was a valid call
   functions_call_table.push([function_name, quadruples.length, function_params_array, 'no_return']);
+  //We push the gotoFunk quadruple
   quadruples.push([33, '', '', 0]);
+  //We clean the params array
   function_params_array = [];
   return '';
 };
