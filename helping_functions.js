@@ -21,7 +21,12 @@ function getNumberType(number){
 //Checks the syntax of a string to see if it matches a variable
 function checkVarSyntax(var_name){
   if (var_name.match(/^[a-z]+(\d|_|[a-z])*$/i) !== null){
-    return true;
+    if(var_name.match(/^(true|false)$/i) !== null){
+      insertIntoShell('Syntax Error - Variable name: "' + var_name + '" is a reserved word.');
+      errorMessage('Syntax Error');
+    }else{
+      return true;
+    }
   }else{
     insertIntoShell('Syntax Error - Variable name: "' + var_name + '" incorrect.');
     errorMessage('Syntax Error');
