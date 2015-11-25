@@ -85,3 +85,5 @@ The maze objective is to reach the ![goal](images/goal.png) starting from the ![
 - [acrogenesis](https://github.com/acrogenesis)
 
 ## License
+
+Code released under the MIT License.
