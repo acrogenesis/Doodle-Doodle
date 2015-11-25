@@ -64,6 +64,7 @@ Blockly.JavaScript['assignation'] = function(block) {
   return '';
 };
 
+//Function that handles the logic for the sum block
 Blockly.JavaScript['sum'] = function(block) {
   var value_left_sum = Blockly.JavaScript.statementToCode(block, 'left_sum');
   var value_right_sum = Blockly.JavaScript.statementToCode(block, 'right_sum');
@@ -81,54 +82,70 @@ Blockly.JavaScript['sum'] = function(block) {
   var right_index;
   var right_var_type;
 
+  //We check if the left part of the sum is a number
   if (Number(value_left_sum)) {
+    //That means we received a quadruple and we have to read the index
     left_quadruple = quadruples[value_left_sum][3];
     left_type = indexToType(left_quadruple[0]);
     left_var_type = left_type;
   } else {
+    //Otherwise, we received a factor input so we read the properties of input and type
     left_value = value_left_sum.input;
     left_type = value_left_sum.type;
     left_var_type = left_type;
   }
-
+  
+  //We check if the right part of the sum is a number
   if (Number(value_right_sum)) {
+    //That means we received a quadruple and we have to read the index
     right_quadruple = quadruples[value_right_sum][3];
     right_type = indexToType(right_quadruple[0]);
     right_var_type = right_type;
   } else {
+    //Otherwise, we received a factor input so we read the properties of input and type
     right_value = value_right_sum.input;
     right_type = value_right_sum.type;
     right_var_type = right_type;
   }
 
+  //If the left type is a variable
   if (left_type === 'var'){
+    //We first check that it exists
     if (findVariable(left_value) === -1){
       insertIntoShell('Variable "' + left_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
+      //Then we find the index and type of the variable
       left_index = findVariable(left_value);
       left_var_type = indexToType(left_index);
       left_quadruple = left_index;
     }
   } else if(left_quadruple === false) {
+    //Otherwise we stay with the same value we had before
     left_quadruple = left_value;
   }
 
+  //If the right type is a variable
   if (right_type === 'var'){
+    //We first check that it exists
     if (findVariable(right_value) === -1){
       insertIntoShell('Variable "' + right_value + '" not defined.');
       errorMessage('Semantic Error');
     } else {
+      //Then we find the index and type of the variable
       right_index = findVariable(right_value);
       right_var_type = indexToType(right_index);
       right_quadruple = right_index;
     }
   } else if(right_quadruple === false) {
+    //Otherwise we stay with the same value we had before
     right_quadruple = right_value;
   }
 
+  //We check the semantic cube to see the result type of the operation
   var result_quadruple = resultType(left_var_type, right_var_type, 0);
 
+  //We check if one of the factors is a return value from a function
   if(value_left_sum.fnc === true){
     left_quadruple = 'm' + left_index;
   }
@@ -137,8 +154,10 @@ Blockly.JavaScript['sum'] = function(block) {
     right_quadruple = 'm' + right_index;
   }
 
+  //We generate the quadruple for the expression
   quadruples.push([0, left_quadruple, right_quadruple, result_quadruple]);
 
+  //We return the quadruple number to the next block connected
   return quadruples.length-1;
 };
 
