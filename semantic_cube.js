@@ -11,6 +11,7 @@ function checkSemantic(index1, index2, op) {
       index1 = 2; // string
       break;
     case 32:
+    case 41:
       index1 = 3; // boolean
       break;
     default:
@@ -200,3 +201,4 @@ semantic_cube[3][3][8] = -1;
 semantic_cube[3][3][9] = 32;
 semantic_cube[3][3][10] = 32;
 semantic_cube[3][3][11] = 32;
+semantic_cube[3][3][41] = 32; // not

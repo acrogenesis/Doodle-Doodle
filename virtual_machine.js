@@ -600,6 +600,15 @@ function loopThroughQuadruples(){
 
         current_quadruple++;
         break;
+      case 41:
+        rf = quadruples[current_quadruple][3];
+        lf = quadruples[current_quadruple][1];
+        if (typeof lf !== 'boolean') {
+          lf = readFromMemory(lf);
+        }
+        writeToMemory(!lf, rf);
+        current_quadruple++;
+        break;
     }
 }
 

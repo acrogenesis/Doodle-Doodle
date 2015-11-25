@@ -657,8 +657,39 @@ Blockly.JavaScript['or'] = function(block) {
 
 Blockly.JavaScript['not'] = function(block) {
   var not = Blockly.JavaScript.statementToCode(block, 'r_not');
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  var right_value;
+  var right_type;
+  var right_quadruple;
+  var right_index;
+  var right_var_type;
+
+  if (Number(not)) {
+    right_quadruple = quadruples[not][3];
+    right_type = indexToType(right_quadruple[0]);
+  } else {
+    right_type = not.type;
+    right_value = not.input;
+  }
+
+  if (right_type === 'var'){
+    if (findVariable(right_value) === -1){
+      alert('Variable "' + right_value + '" not defined.');
+      errorMessage('Semantic Error');
+    } else {
+      right_index = findVariable(right_value);
+      right_var_type = indexToType(right_index);
+      right_type = right_var_type;
+      right_quadruple = right_index;
+    }
+  } else if (right_type === 'boolean') {
+    if (!Number(not)) {
+      right_quadruple = not.input;
+    }
+  }
+  if (right_type !== 'boolean'){
+    alert('not operator only accepts booleans');
+    errorMessage('');
+  }
+  quadruples.push([41, right_quadruple, '', resultType('not', right_type, 41)]);
+  return quadruples.length-1;
 };
