@@ -1,32 +1,32 @@
 var vmparam_vars = {
-    'integer': [],
-    'float': [],
-    'string': [],
-    'boolean': []
+  'integer': [],
+  'float': [],
+  'string': [],
+  'boolean': []
 };
 
 var vmint_vars = {
-    'global': [],
-    'local': [],
-    'temporal': []
+  'global': [],
+  'local': [],
+  'temporal': []
 };
 
 var vmfloat_vars = {
-    'global': [],
-    'local': [],
-    'temporal': []
+  'global': [],
+  'local': [],
+  'temporal': []
 };
 
 var vmstring_vars = {
-    'global': [],
-    'local': [],
-    'temporal': []
+  'global': [],
+  'local': [],
+  'temporal': []
 };
 
 var vmboolean_vars = {
-    'global': [],
-    'local': [],
-    'temporal': []
+  'global': [],
+  'local': [],
+  'temporal': []
 };
 
 var function_returns = {
