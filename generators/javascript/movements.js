@@ -41,6 +41,11 @@ Blockly.JavaScript['move'] = function(block) {
     insertIntoShell('Repeat loop must have an integer');
     errorMessage('Type Mismatch');
   }
+
+  if(value_move_blocks.fnc === true){
+    left_quadruple = 'm' + left_quadruple;
+  }
+
   quadruples.push([15, '', '', left_quadruple]);
 
   return '';
