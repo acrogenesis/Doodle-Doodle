@@ -52,6 +52,10 @@ Blockly.JavaScript['assignation'] = function(block) {
     errorMessage('Type Mismatch Error');
   }
 
+  if(value_left_assig.fnc === true){
+    left_index = 'm' + left_index;
+  }
+
   if(value_right_assig.fnc === true){
     right_index = 'm' + right_index;
   }
